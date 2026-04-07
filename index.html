@@ -123,7 +123,7 @@
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 28px;
-    align-items: center;
+    align-items: stretch;
   }
 
   .hero-copy {
@@ -132,6 +132,10 @@
     border-radius: 30px;
     padding: 34px;
     box-shadow: var(--shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .eyebrow {
@@ -145,6 +149,7 @@
     font-size: 0.86rem;
     border: 1px solid rgba(215,188,121,0.24);
     margin-bottom: 18px;
+    width: fit-content;
   }
 
   h1, h2, h3, p { margin: 0; }
@@ -202,6 +207,7 @@
   .hero-side {
     display: grid;
     gap: 16px;
+    height: 100%;
   }
 
   .company-card,
@@ -217,6 +223,9 @@
 
   .company-card {
     padding: 28px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .company-card .logo-box {
@@ -228,6 +237,8 @@
     background: rgba(4,18,37,0.46);
     border: 1px solid rgba(255,255,255,0.08);
     margin-bottom: 20px;
+    flex: 1;
+    min-height: 0;
   }
 
   .company-card .logo-box img {
@@ -293,15 +304,16 @@
 
   .app-top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
   }
 
   .app-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     min-width: 0;
+    gap: 8px;
   }
 
   .app-icon {
@@ -323,21 +335,22 @@
   .app-title {
     font-size: 1.16rem;
     line-height: 1.25;
-    margin-top: 8px;
   }
 
   .app-tag {
     display: inline-flex;
     align-self: flex-start;
     width: fit-content;
+    max-width: 100%;
     padding: 7px 11px;
     border-radius: 999px;
-    font-size: 0.82rem;
-    line-height: 1;
+    font-size: 0.78rem;
+    line-height: 1.1;
     color: #f8e7bc;
     background: rgba(215,188,121,0.12);
     border: 1px solid rgba(215,188,121,0.2);
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .app-card p {
@@ -611,7 +624,7 @@
           <article class="app-card">
             <div class="app-top">
               <div class="app-icon">
-                <img src="images/spingo-logo.png" alt="Spin and Go app icon" />
+                <img src="images/spingo-logo.png" alt="Spin&Go app icon" />
               </div>
               <div class="app-content">
                 <div class="app-tag">Fun &amp; Decisions</div>
@@ -632,12 +645,12 @@
                 <img src="images/cvpilot-logo.png" alt="CVPilot app icon" />
               </div>
               <div class="app-content">
-                <div class="app-tag">Business &amp; Productivity</div>
-                <h3 class="app-title">CVPilot - Smart Resume Builder</h3>
+                <div class="app-tag">Career &amp; Productivity</div>
+                <h3 class="app-title">CVPilot - AI CV Analyzer</h3>
               </div>
             </div>
             <p>
-              Build stronger resumes with smart guidance, practical tools, and clear CV support.
+              Analyze resumes with smart guidance, practical feedback, and clear CV improvement support.
             </p>
             <div class="app-links">
               <a class="text-link" href="privacy/cvpilot.html">Privacy Policy</a>
@@ -676,7 +689,7 @@
           </article>
 
           <article class="policy-card">
-            <h3>CVPilot - Smart Resume Builder</h3>
+            <h3>CVPilot - AI CV Analyzer</h3>
             <p>Privacy policy for CVPilot.</p>
             <a class="text-link" href="privacy/cvpilot.html">Open policy</a>
           </article>
