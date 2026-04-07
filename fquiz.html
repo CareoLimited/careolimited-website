@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F Quiz Privacy Policy | CAREO LIMITED</title>
+  <meta name="description" content="Privacy Policy for F Quiz by CAREO LIMITED." />
+  <style>
+    :root {
+      --bg: #061b36;
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.14);
+      --text: #f5f7fb;
+      --muted: #c8d2e3;
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+      --radius: 22px;
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(215,188,121,0.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(255,138,101,0.13), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, #041325 100%);
+      line-height: 1.7;
+    }
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    h1, h2, p, ul, table { margin-top: 0; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin-bottom: 12px; }
+    h2 { font-size: 1.2rem; margin: 28px 0 12px; }
+    p, li, td, th { color: var(--muted); font-size: 1rem; }
+    .meta { color: var(--muted); margin-bottom: 24px; }
+    ul { padding-left: 22px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 0;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      font-weight: 600;
+    }
+    tr:last-child td { border-bottom: none; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Privacy Policy - F Quiz</h1>
+      <p class="meta"><strong>Last updated:</strong> April 2026<br>
+      <strong>App:</strong> F Quiz<br>
+      <strong>Developer / Publisher:</strong> CAREO LIMITED<br>
+      <strong>Contact:</strong> careolimited@gmail.com</p>
+
+      <p>F Quiz (“we”, “our”, “us”) respects your privacy. This Policy explains what information we collect, why we collect it, how we use it, and your rights.</p>
+
+      <h2>1. Collected Data</h2>
+      <p>We collect only the minimum data required for the app’s functionality:</p>
+      <ul>
+        <li>Email address (optional - for account creation/sign-in/reset).</li>
+        <li>Firebase user ID (UID) and nickname (e.g., PlayerN).</li>
+        <li>Gameplay data - scores, rank position.</li>
+        <li>Advertising identifiers: IDFA (iOS) / AD_ID (Android).</li>
+        <li>Usage and performance data: launch times, screen views, session length, crash reports.</li>
+        <li>Ad preferences / consent status (personalized ads ON/OFF).</li>
+        <li>Device and region information (approximate location, OS version, language).</li>
+      </ul>
+      <p>No camera, microphone, contacts, or precise location data are collected.</p>
+
+      <h2>2. Processing Purposes</h2>
+      <ul>
+        <li>Account management and authentication.</li>
+        <li>Gameplay functions (saving scores and showing the global leaderboard).</li>
+        <li>Analytics to improve performance and stability.</li>
+        <li>Advertising (personalized or non-personalized, depending on consent).</li>
+        <li>Fraud and abuse prevention.</li>
+        <li>Customer support responses.</li>
+      </ul>
+
+      <h2>3. Third Parties &amp; SDKs</h2>
+      <p>We use trusted third-party SDKs and cloud services:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Purpose</th>
+            <th>Shared Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Firebase (Auth, Firestore, Analytics, Crashlytics)</td>
+            <td>Authentication, data storage, analytics and crash reports</td>
+            <td>UID, email, usage events, crash logs</td>
+          </tr>
+          <tr>
+            <td>Google AdMob</td>
+            <td>Ad serving &amp; measurement (Rewarded, Banner, Interstitial)</td>
+            <td>Device ID, ad preferences, session data</td>
+          </tr>
+          <tr>
+            <td>Leaderboard API (our own server)</td>
+            <td>Ranking scores (if consented)</td>
+            <td>Nickname, score, user ID</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>All providers handle data under their respective privacy policies.</p>
+
+      <h2>4. Advertising, Tracking &amp; Consent (ATT / UMP)</h2>
+      <p>On iOS, Apple’s App Tracking Transparency (ATT) prompt requests permission to access the IDFA. If denied, tracking is disabled.</p>
+      <p>On both platforms, we use Google’s User Messaging Platform (UMP) to obtain consent for personalized ads.</p>
+      <p>Without consent, only non-personalized ads are shown.</p>
+      <p>You can change your ad preferences anytime via in-app settings or device privacy settings.</p>
+
+      <h2>5. Cookies &amp; Local Storage</h2>
+      <p>We use local storage (AsyncStorage / SecureStore) only for:</p>
+      <p>login session, nickname, preferences, scores, ad consent status.</p>
+      <p>No server-side cookies or website tracking are used (Formula Quiz is a mobile app only).</p>
+
+      <h2>6. Public Information (Leaderboard)</h2>
+      <p>The global leaderboard displays only nickname (PlayerN) and score.</p>
+      <p>Emails or real names are never public.</p>
+      <p>Upload happens only after explicit consent (you can decline and still play).</p>
+      <p>Consent can be withdrawn anytime via Settings.</p>
+
+      <h2>6A. Graphic Assets</h2>
+      <p>F Quiz may use certain graphic assets such as PNG illustrations and design elements obtained from third-party sources, including the PNGTree website.</p>
+      <p>These assets are used solely for visual and design purposes within the application and do not collect, process, or transmit any user data.</p>
+      <p>All such assets are used in accordance with the licensing terms of their respective providers.</p>
+
+      <h2>7. Data Retention &amp; Deletion</h2>
+      <p>Account data - kept while account is active.</p>
+      <p>Guest records - retained for a limited period to operate the app.</p>
+      <p>Crash / analytics logs - kept as per Google defaults for stability and security.</p>
+      <p>Users can delete their account via “Account Deletion Request” email to careolimited@gmail.com.</p>
+      <p>Upon verified deletion: credentials, scores, and profile info are erased or anonymized.</p>
+
+      <h2>8. User Rights</h2>
+      <p>You may request:</p>
+      <ul>
+        <li>Access, correction, or erasure of your data.</li>
+        <li>Withdrawal of consent for leaderboard or ads.</li>
+        <li>Restriction or objection to processing where applicable (GDPR/UK GDPR).</li>
+      </ul>
+      <p>Requests: careolimited@gmail.com</p>
+      <p>We respond within 30 days after verifying identity.</p>
+
+      <h2>9. Data Security</h2>
+      <p>All network communication uses TLS/HTTPS encryption.</p>
+      <p>Sensitive tokens are stored in secure storage.</p>
+      <p>Access is restricted to authorized personnel only.</p>
+      <p>Anti-fraud checks prevent abuse and cheating.</p>
+
+      <h2>10. Children’s Privacy</h2>
+      <p>The app is intended for users aged 13 and older.</p>
+      <p>We do not knowingly collect personal data from children under 13.</p>
+      <p>If a child account is identified, it will be deleted promptly upon notification.</p>
+
+      <h2>11. International Data Transfer</h2>
+      <p>Data may be processed on Google’s servers in the UK, EEA, or other regions. We use Standard Contractual Clauses (SCCs) or equivalent safeguards where required by law.</p>
+
+      <h2>12. Contact</h2>
+      <p><strong>Data Controller:</strong> CAREO LIMITED<br>
+      <strong>Email:</strong> careolimited@gmail.com<br>
+      <strong>Subject Line:</strong> “F Quiz - Privacy Inquiry”</p>
+
+      <h2>13. Policy Updates</h2>
+      <p>We may update this policy to reflect feature changes or legal requirements.</p>
+      <p>Material updates will be indicated by a new “Last updated” date.</p>
+      <p>Continued use of the app after updates implies acceptance.</p>
+    </section>
+  </main>
+</body>
+</html>
