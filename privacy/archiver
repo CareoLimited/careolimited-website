@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArchiveR Privacy Policy | CAREO LIMITED</title>
+  <meta name="description" content="Privacy Policy for ArchiveR by CAREO LIMITED." />
+  <style>
+    :root {
+      --bg: #061b36;
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.14);
+      --text: #f5f7fb;
+      --muted: #c8d2e3;
+      --accent: #d7bc79;
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+      --radius: 22px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(215,188,121,0.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(255,138,101,0.13), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, #041325 100%);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+
+    h1, h2, p, ul { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin: 28px 0 12px;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    a { color: var(--text); }
+
+    ul { padding-left: 22px; }
+
+    @media (max-width: 720px) {
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <a class="back-link" href="../index.html">← Back to CAREO LIMITED</a>
+
+    <section class="card">
+      <h1>Privacy Policy - ArchiveR</h1>
+
+      <p class="meta"><strong>Last updated:</strong> May 2026<br>
+      <strong>App:</strong> ArchiveR<br>
+      <strong>Developer / Publisher:</strong> CAREO LIMITED<br>
+      <strong>Contact:</strong> careolimited@gmail.com</p>
+
+      <p>ArchiveR (“we”, “our”, “us”) respects your privacy. This Policy explains what information is processed, how it is used, and your rights.</p>
+
+      <h2>1. Data Processing Overview</h2>
+      <p>ArchiveR is designed to operate primarily on-device.</p>
+      <p>Core inventory functionality works locally on your device.</p>
+      <p>No account system is currently required<br>
+      No cloud sync is currently used<br>
+      No backend database is used for core inventory storage<br>
+      We do not collect personal data such as email, name, or account credentials</p>
+      <p>Some optional metadata lookup features may connect to third-party public data providers when explicitly initiated by the user.</p>
+
+      <h2>2. Locally Stored Data (On-Device Only)</h2>
+      <p>The app uses local device storage and SQLite database storage to function properly. This data does not leave your device unless you manually export it.</p>
+      <p>Stored data may include:</p>
+      <ul>
+        <li>Inventory items</li>
+        <li>Custom categories</li>
+        <li>Custom fields</li>
+        <li>Item quantities</li>
+        <li>Price/value information</li>
+        <li>Locations such as rooms, shelves, boxes, warehouses, etc.</li>
+        <li>Notes</li>
+        <li>Tags</li>
+        <li>Barcode / QR code mappings</li>
+        <li>Inventory movement history</li>
+        <li>Photos attached to items</li>
+        <li>Dashboard preferences</li>
+        <li>Language settings</li>
+        <li>Currency preferences</li>
+        <li>App settings</li>
+        <li>Cached metadata imported by the user</li>
+      </ul>
+      <p>This data is stored only to:</p>
+      <ul>
+        <li>Provide core app functionality</li>
+        <li>Enable inventory and collection management</li>
+        <li>Support offline usage</li>
+        <li>Remember user preferences</li>
+        <li>Store item history and local analytics</li>
+      </ul>
+
+      <h2>3. Processing Purposes</h2>
+      <p>All core app data is processed locally for:</p>
+      <ul>
+        <li>Inventory tracking</li>
+        <li>Collection management</li>
+        <li>Stock quantity management</li>
+        <li>Barcode / QR code recognition</li>
+        <li>Location tracking</li>
+        <li>Search and filtering</li>
+        <li>Dashboard summaries and analytics</li>
+        <li>Price tracking</li>
+        <li>Movement history</li>
+        <li>Backup/export functionality</li>
+        <li>User customization and preferences</li>
+      </ul>
+
+      <h2>4. Barcode / QR Code Processing</h2>
+      <p>ArchiveR supports barcode and QR code scanning.</p>
+      <p>Scanned codes are processed locally to:</p>
+      <ul>
+        <li>Link products/items</li>
+        <li>Recognize previously saved inventory</li>
+        <li>Open linked item or location records</li>
+        <li>Create custom ArchiveR QR mappings</li>
+      </ul>
+      <p>ArchiveR-generated QR codes contain only compact identifiers, not full inventory data.</p>
+
+      <h2>5. Optional Metadata Lookup Services</h2>
+      <p>ArchiveR may offer optional metadata lookup features to help populate item information.</p>
+      <p>Examples may include:</p>
+      <ul>
+        <li>Book metadata lookup</li>
+        <li>Food product metadata lookup</li>
+        <li>Video game metadata lookup</li>
+      </ul>
+      <p>These lookups occur only when explicitly initiated by the user.</p>
+      <p>Limited lookup information such as barcode, ISBN, or search queries may be sent directly to the relevant third-party service solely to complete the requested lookup.</p>
+      <p>Imported metadata remains editable by the user.</p>
+      <p>Core app functionality does not depend on external metadata services.</p>
+
+      <h2>6. Advertising & Tracking</h2>
+      <p>ArchiveR displays advertisements via Google AdMob.</p>
+      <p>Google AdMob may process limited technical information in accordance with Google’s privacy practices, which may include:</p>
+      <ul>
+        <li>Device identifiers</li>
+        <li>Advertising identifiers where applicable</li>
+        <li>App interaction data</li>
+        <li>Diagnostic information</li>
+      </ul>
+      <p>We do not directly access or control advertising data collected by Google.</p>
+      <p>Google Privacy Policy:<br>
+      https://policies.google.com/privacy</p>
+      <p>Where required by applicable law, consent options may be presented before personalized advertising is shown.</p>
+
+      <h2>7. Subscriptions & Payments</h2>
+      <p>ArchiveR currently does not offer subscriptions or in-app purchases.</p>
+      <p>If premium features or paid services are introduced in future versions, this Policy will be updated accordingly.</p>
+
+      <h2>8. Third-Party Services</h2>
+      <p>ArchiveR may use external third-party services such as:</p>
+      <ul>
+        <li>Google AdMob for advertising</li>
+        <li>Optional metadata lookup providers</li>
+      </ul>
+      <p>These services operate under their own privacy policies.</p>
+
+      <h2>9. Data Sharing</h2>
+      <p>We do not sell your personal data.</p>
+      <p>We do not share your locally stored inventory data with third parties.</p>
+      <p>Third-party communication may occur only when:</p>
+      <ul>
+        <li>Advertisements are served</li>
+        <li>The user explicitly performs metadata lookup requests</li>
+      </ul>
+
+      <h2>10. Data Retention & Deletion</h2>
+      <p>All app data is stored locally on your device.</p>
+      <p>Data remains until:</p>
+      <ul>
+        <li>You delete it manually</li>
+        <li>You reset app data</li>
+        <li>You uninstall the app</li>
+      </ul>
+      <p>Uninstalling the app removes locally stored app data, subject to your device platform behavior.</p>
+      <p>Exported backups created by the user remain under the user’s control.</p>
+
+      <h2>11. User Rights</h2>
+      <p>Since ArchiveR primarily stores data locally:</p>
+      <ul>
+        <li>You control your stored inventory data directly</li>
+        <li>You may edit or delete your data at any time</li>
+        <li>Uninstalling the app removes local app data</li>
+      </ul>
+      <p>For third-party advertising or metadata services, relevant rights are governed by those providers.</p>
+
+      <h2>12. Data Security</h2>
+      <p>ArchiveR is designed to minimize privacy risk by storing core data locally on your device.</p>
+      <p>However, no software environment can guarantee absolute security.</p>
+      <p>Users are responsible for securing their own devices and exported backups.</p>
+
+      <h2>13. Children’s Privacy</h2>
+      <p>ArchiveR is intended for users aged 13 and above.</p>
+      <p>We do not knowingly collect personal data from children under 13.</p>
+
+      <h2>14. International Data Transfer</h2>
+      <p>Core inventory data remains on your device.</p>
+      <p>If advertising services or optional metadata lookup services are used, limited technical data may be processed by third-party providers in jurisdictions outside your country.</p>
+
+      <h2>15. Contact</h2>
+      <p>Data Controller: CAREO LIMITED<br>
+      Email: careolimited@gmail.com<br>
+      Subject Line: “ArchiveR - Privacy Inquiry”</p>
+
+      <h2>16. Policy Updates</h2>
+      <p>We may update this Policy if app features, third-party services, or legal requirements change.</p>
+      <p>Updates will be reflected with a new “Last updated” date.</p>
+      <p>Continued use of the app implies acceptance of the updated policy.</p>
+    </section>
+  </main>
+</body>
+</html>
