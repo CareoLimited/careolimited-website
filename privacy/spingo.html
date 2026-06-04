@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spin&amp;Go Privacy Policy | CAREO LIMITED</title>
+  <link rel="icon" href="../images/careo-logo.jpg">
+  <link rel="apple-touch-icon" href="../images/careo-logo.jpg">
   <meta name="description" content="Privacy Policy for Spin&amp;Go by CAREO LIMITED." />
   <style>
     :root { --bg:#061b36; --card:rgba(255,255,255,0.08); --card-border:rgba(255,255,255,0.14); --text:#f5f7fb; --muted:#c8d2e3; --accent:#d7bc79; --shadow:0 20px 50px rgba(0,0,0,0.28); --radius:22px; --max:980px; }
@@ -50,7 +52,7 @@
     document.documentElement.lang = language;
     languageSelect.value = language;
     backLink.textContent = ui.back;
-    backLink.href = `../index.html?lang=${language}`;
+    backLink.href = `../index.html?lang=${encodeURIComponent(language)}`;
     policyContent.innerHTML = "";
     selected.forEach((block) => {
       if (block.type === "h1" || block.type === "h2") {
