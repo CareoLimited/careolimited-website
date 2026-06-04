@@ -7,6 +7,7 @@
 <title>Careo Limited</title>
 
 <link rel="icon" href="images/careo-logo.jpg">
+<link rel="apple-touch-icon" href="images/careo-logo.jpg">
 
 <meta name="description" content="Careo Limited develops mobile applications and digital products." />
 <style>
@@ -1219,6 +1220,30 @@
     });
   }
 
+  function updateLocalizedSiteLinks(language) {
+    const encodedLanguage = encodeURIComponent(language);
+    const localizedAnchors = {
+      "#top": `index.html?lang=${encodedLanguage}#top`,
+      "#about": `index.html?lang=${encodedLanguage}#about`,
+      "#apps": `index.html?lang=${encodedLanguage}#apps`,
+      "#contact": `index.html?lang=${encodedLanguage}#contact`
+    };
+
+    document.querySelectorAll('a[href^="#"], a[href^="index.html?"]').forEach((link) => {
+      const rawHref = link.getAttribute("href") || "";
+      const hash = rawHref.startsWith("#") ? rawHref : (rawHref.includes("#") ? `#${rawHref.split("#").pop()}` : "");
+      if (localizedAnchors[hash]) {
+        link.href = localizedAnchors[hash];
+      }
+    });
+  }
+
+  function updatePageUrl(language) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", language);
+    window.history.replaceState(null, "", url.toString());
+  }
+
   function setLanguage(language) {
     const selectedTranslations = translations[language] || translations.en;
 
@@ -1234,6 +1259,8 @@
 
     localStorage.setItem("careo-language", language);
     updatePrivacyLinks(language);
+    updateLocalizedSiteLinks(language);
+    updatePageUrl(language);
   }
 
   languageSelect.addEventListener("change", (event) => {
