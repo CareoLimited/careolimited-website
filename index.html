@@ -533,13 +533,6 @@
       grid-column: span 2;
     }
 
-    .app-card:nth-child(4) {
-      grid-column: 2 / span 2;
-    }
-
-    .app-card:nth-child(5) {
-      grid-column: 4 / span 2;
-    }
   }
 
   @media (max-width: 1280px) {
@@ -547,9 +540,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
 
-    .app-card,
-    .app-card:nth-child(4),
-    .app-card:nth-child(5) {
+    .app-card {
       grid-column: auto !important;
     }
   }
@@ -664,7 +655,7 @@
             </div>
             <div class="stats">
               <div class="mini-card">
-                <strong>5</strong>
+                <strong>6</strong>
                 <span data-i18n="stats.apps">Published apps</span>
               </div>
               <div class="mini-card">
@@ -813,6 +804,26 @@
               <a class="privacy-link" href="privacy/archiver.html" data-privacy-link="archiver" data-i18n="links.privacy">Privacy Policy</a>
             </div>
           </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="app-icon">
+                <img src="images/moviequiz-logo.png" alt="Movie Quiz app icon" onerror="this.style.display='none'" />
+              </div>
+              <div class="app-content">
+                <div class="app-tag" data-i18n="moviequiz.tag">Trivia & Casual</div>
+                <h3 class="app-title" data-i18n="moviequiz.title">Movie Quiz: The Cinephile Test</h3>
+              </div>
+            </div>
+            <p data-i18n="moviequiz.description">Test your knowledge of movies, characters, filmmakers and awards.</p>
+            <div class="app-actions">
+              <div class="store-row">
+                <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
+                <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
+              </div>
+              <a class="privacy-link" href="privacy/moviequiz.html" data-privacy-link="moviequiz" data-i18n="links.privacy">Privacy Policy</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -849,7 +860,7 @@
       "about.title": "About CAREO LIMITED",
       "about.description": "CAREO LIMITED is a United Kingdom registered company creating mobile applications & digital products. We focus on polished design, practical features & accessible experiences across our app portfolio.",
       "apps.title": "Our Apps",
-      "apps.description": "Discover our current applications across books, motorsport trivia, quick decision tools, career productivity, and stock & collection management.",
+      "apps.description": "Discover our current applications across books, motorsport and movie trivia, quick decision tools, career productivity, and stock & collection management.",
       "kitapp.tag": "Books & Library",
       "kitapp.title": "Booklio: Reading Log",
       "kitapp.description": "Scan book barcodes, organize your library & track reading stats.",
@@ -865,6 +876,9 @@
       "archiver.tag": "Stock & Collection",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Track stock, collections, barcodes, locations & item values in one simple inventory app.",
+      "moviequiz.tag": "Trivia & Casual",
+      "moviequiz.title": "Movie Quiz: The Cinephile Test",
+      "moviequiz.description": "Test your knowledge of movies, characters, filmmakers and awards.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Privacy Policy",
@@ -886,7 +900,7 @@
       "about.title": "À propos de CAREO LIMITED",
       "about.description": "CAREO LIMITED est une société enregistrée au Royaume-Uni qui crée des applications mobiles & des produits numériques. Nous privilégions un design soigné, des fonctions utiles & des expériences accessibles dans tout notre portefeuille.",
       "apps.title": "Nos apps",
-      "apps.description": "Découvrez nos applications pour les livres, les quiz de sport automobile, les décisions rapides, la productivité professionnelle, et la gestion de stock & collection.",
+      "apps.description": "Découvrez nos applications pour les livres, les quiz de sport automobile et de cinéma, les décisions rapides, la productivité professionnelle, et la gestion de stock & collection.",
       "kitapp.tag": "Livres & Bibliothèque",
       "kitapp.title": "Livreo: Suivi Lecture",
       "kitapp.description": "Scannez les codes-barres des livres, organisez votre bibliothèque & suivez vos statistiques de lecture.",
@@ -902,6 +916,9 @@
       "archiver.tag": "Stock & Collection",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Suivez stocks, collections, codes-barres, emplacements & valeurs d’objets dans une app d’inventaire simple.",
+      "moviequiz.tag": "Quiz & Casual",
+      "moviequiz.title": "Quiz Cinéma : Test Cinéphile",
+      "moviequiz.description": "Testez vos connaissances sur les films, personnages, cinéastes et récompenses.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Politique de confidentialité",
@@ -923,7 +940,7 @@
       "about.title": "Über CAREO LIMITED",
       "about.description": "CAREO LIMITED ist ein im Vereinigten Königreich registriertes Unternehmen, das mobile Anwendungen & digitale Produkte erstellt. Wir konzentrieren uns auf hochwertiges Design, praktische Funktionen & zugängliche Erlebnisse in unserem App-Portfolio.",
       "apps.title": "Unsere Apps",
-      "apps.description": "Entdecken Sie unsere Anwendungen für Bücher, Motorsport-Quiz, schnelle Entscheidungen, Karriereproduktivität sowie Bestands- & Sammlungsverwaltung.",
+      "apps.description": "Entdecken Sie unsere Anwendungen für Bücher, Motorsport- und Filmquiz, schnelle Entscheidungen, Karriereproduktivität sowie Bestands- & Sammlungsverwaltung.",
       "kitapp.tag": "Bücher & Bibliothek",
       "kitapp.title": "Buchio: Lesetracker",
       "kitapp.description": "Scannen Sie Buch-Barcodes, organisieren Sie Ihre Bibliothek & verfolgen Sie Lesestatistiken.",
@@ -939,6 +956,9 @@
       "archiver.tag": "Bestand & Sammlung",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Verwalten Sie Bestände, Sammlungen, Barcodes, Standorte & Objektwerte in einer einfachen Inventar-App.",
+      "moviequiz.tag": "Quiz & Casual",
+      "moviequiz.title": "Filmquiz: Test für Cineasten",
+      "moviequiz.description": "Teste dein Wissen über Filme, Figuren, Filmschaffende und Preise.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Datenschutzerklärung",
@@ -960,7 +980,7 @@
       "about.title": "Informazioni su CAREO LIMITED",
       "about.description": "CAREO LIMITED è una società registrata nel Regno Unito che crea applicazioni mobili & prodotti digitali. Ci concentriamo su design curato, funzioni pratiche & esperienze accessibili nel nostro portfolio di app.",
       "apps.title": "Le nostre app",
-      "apps.description": "Scopri le nostre applicazioni per libri, quiz sul motorsport, decisioni rapide, produttività professionale e gestione di stock & collezioni.",
+      "apps.description": "Scopri le nostre applicazioni per libri, quiz sul motorsport e sul cinema, decisioni rapide, produttività professionale e gestione di stock & collezioni.",
       "kitapp.tag": "Libri & Biblioteca",
       "kitapp.title": "Librio: Diario Lettura",
       "kitapp.description": "Scansiona codici a barre dei libri, organizza la tua biblioteca & monitora le statistiche di lettura.",
@@ -976,6 +996,9 @@
       "archiver.tag": "Stock & Collezione",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Tieni traccia di stock, collezioni, codici a barre, posizioni & valori degli oggetti in una semplice app inventario.",
+      "moviequiz.tag": "Quiz & Casual",
+      "moviequiz.title": "Quiz Cinema: Test Cinefilo",
+      "moviequiz.description": "Metti alla prova le tue conoscenze su film, personaggi, cineasti e premi.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Privacy Policy",
@@ -997,7 +1020,7 @@
       "about.title": "CAREO LIMITEDについて",
       "about.description": "CAREO LIMITEDは英国で登録された会社で、モバイルアプリ & デジタル製品を制作しています。私たちは洗練されたデザイン、実用的な機能 & 使いやすい体験を重視しています。",
       "apps.title": "アプリ一覧",
-      "apps.description": "本、モータースポーツクイズ、すばやい意思決定、キャリア生産性、在庫 & コレクション管理のアプリをご覧ください。",
+      "apps.description": "本、モータースポーツと映画のクイズ、すばやい意思決定、キャリア生産性、在庫 & コレクション管理のアプリをご覧ください。",
       "kitapp.tag": "本 & ライブラリ",
       "kitapp.title": "ヨムノート: 本管理",
       "kitapp.description": "本のバーコードをスキャンし、ライブラリを整理し、読書統計を記録できます。",
@@ -1013,6 +1036,9 @@
       "archiver.tag": "在庫 & コレクション",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "在庫、コレクション、バーコード、保管場所 & アイテム価値をシンプルな在庫アプリで管理できます。",
+      "moviequiz.tag": "クイズ & カジュアル",
+      "moviequiz.title": "映画クイズ：シネフィル度テスト",
+      "moviequiz.description": "映画、キャラクター、映画人、映画賞についての知識を試そう。",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "プライバシーポリシー",
@@ -1034,7 +1060,7 @@
       "about.title": "CAREO LIMITED 소개",
       "about.description": "CAREO LIMITED는 영국에 등록된 회사로 모바일 애플리케이션 & 디지털 제품을 만듭니다. 우리는 세련된 디자인, 실용적인 기능 & 접근하기 쉬운 경험에 집중합니다.",
       "apps.title": "앱",
-      "apps.description": "도서, 모터스포츠 퀴즈, 빠른 결정 도구, 커리어 생산성, 재고 & 컬렉션 관리 앱을 확인하세요.",
+      "apps.description": "도서, 모터스포츠 및 영화 퀴즈, 빠른 결정 도구, 커리어 생산성, 재고 & 컬렉션 관리 앱을 확인하세요.",
       "kitapp.tag": "도서 & 라이브러리",
       "kitapp.title": "북로그: 책 관리",
       "kitapp.description": "도서 바코드를 스캔하고 라이브러리를 정리하며 독서 통계를 추적하세요.",
@@ -1050,6 +1076,9 @@
       "archiver.tag": "재고 & 컬렉션",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "재고, 컬렉션, 바코드, 위치 & 항목 가치를 간단한 인벤토리 앱에서 관리하세요.",
+      "moviequiz.tag": "퀴즈 & 캐주얼",
+      "moviequiz.title": "영화 퀴즈: 시네필 테스트",
+      "moviequiz.description": "영화, 캐릭터, 영화인과 시상식에 대한 지식을 시험해 보세요.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "개인정보 처리방침",
@@ -1071,7 +1100,7 @@
       "about.title": "Sobre a CAREO LIMITED",
       "about.description": "A CAREO LIMITED é uma empresa registada no Reino Unido que cria aplicações móveis & produtos digitais. Focamo-nos em design cuidado, funcionalidades práticas & experiências acessíveis em todo o nosso portefólio.",
       "apps.title": "As nossas apps",
-      "apps.description": "Descubra as nossas aplicações para livros, quizzes de automobilismo, decisões rápidas, produtividade profissional e gestão de stock & coleções.",
+      "apps.description": "Descubra as nossas aplicações para livros, quizzes de automobilismo e cinema, decisões rápidas, produtividade profissional e gestão de stock & coleções.",
       "kitapp.tag": "Livros & Biblioteca",
       "kitapp.title": "Livroo: Meus Livros",
       "kitapp.description": "Digitalize códigos de barras de livros, organize a sua biblioteca & acompanhe estatísticas de leitura.",
@@ -1087,6 +1116,9 @@
       "archiver.tag": "Stock & Coleção",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Acompanhe stock, coleções, códigos de barras, localizações & valores de itens numa app de inventário simples.",
+      "moviequiz.tag": "Quiz & Casual",
+      "moviequiz.title": "Quiz de Cinema: Teste Cinéfilo",
+      "moviequiz.description": "Testa os teus conhecimentos sobre filmes, personagens, cineastas e prémios.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Política de Privacidade",
@@ -1108,7 +1140,7 @@
       "about.title": "О CAREO LIMITED",
       "about.description": "CAREO LIMITED является компанией, зарегистрированной в Великобритании, и создает мобильные приложения & цифровые продукты. Мы уделяем внимание качественному дизайну, практичным функциям & доступному опыту во всем портфеле приложений.",
       "apps.title": "Наши приложения",
-      "apps.description": "Ознакомьтесь с нашими приложениями для книг, викторин по автоспорту, быстрых решений, карьерной продуктивности, а также управления запасами & коллекциями.",
+      "apps.description": "Ознакомьтесь с нашими приложениями для книг, викторин по автоспорту и кино, быстрых решений, карьерной продуктивности, а также управления запасами & коллекциями.",
       "kitapp.tag": "Книги & Библиотека",
       "kitapp.title": "Книгли: Трекер чтения",
       "kitapp.description": "Сканируйте штрихкоды книг, организуйте библиотеку & отслеживайте статистику чтения.",
@@ -1124,6 +1156,9 @@
       "archiver.tag": "Запасы & Коллекции",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Отслеживайте запасы, коллекции, штрихкоды, места хранения & стоимость предметов в простом приложении инвентаризации.",
+      "moviequiz.tag": "Викторина & Казуальная",
+      "moviequiz.title": "Киновикторина: Тест киномана",
+      "moviequiz.description": "Проверьте свои знания фильмов, персонажей, создателей и кинопремий.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Политика конфиденциальности",
@@ -1145,7 +1180,7 @@
       "about.title": "Acerca de CAREO LIMITED",
       "about.description": "CAREO LIMITED es una empresa registrada en el Reino Unido que crea aplicaciones móviles & productos digitales. Nos enfocamos en diseño cuidado, funciones prácticas & experiencias accesibles en todo nuestro portafolio.",
       "apps.title": "Nuestras apps",
-      "apps.description": "Descubre nuestras aplicaciones para libros, trivia de automovilismo, decisiones rápidas, productividad profesional y gestión de stock & colecciones.",
+      "apps.description": "Descubre nuestras aplicaciones para libros, trivia de automovilismo y cine, decisiones rápidas, productividad profesional y gestión de stock & colecciones.",
       "kitapp.tag": "Libros & Biblioteca",
       "kitapp.title": "Libroo: Mis Libros",
       "kitapp.description": "Escanea códigos de barras de libros, organiza tu biblioteca & sigue tus estadísticas de lectura.",
@@ -1161,6 +1196,9 @@
       "archiver.tag": "Stock & Colección",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Gestiona stock, colecciones, códigos de barras, ubicaciones & valores de artículos en una app de inventario simple.",
+      "moviequiz.tag": "Trivia & Casual",
+      "moviequiz.title": "Quiz de Cine: Test Cinéfilo",
+      "moviequiz.description": "Pon a prueba tus conocimientos sobre películas, personajes, cineastas y premios.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Política de privacidad",
@@ -1182,7 +1220,7 @@
       "about.title": "CAREO LIMITED Hakkında",
       "about.description": "CAREO LIMITED, Birleşik Krallık’ta kayıtlı bir şirkettir ve mobil uygulamalar & dijital ürünler geliştirir. Uygulama portföyümüzde şık tasarıma, pratik özelliklere & erişilebilir deneyimlere odaklanıyoruz.",
       "apps.title": "Uygulamalarımız",
-      "apps.description": "Kitaplar, motor sporları bilgi yarışması, hızlı karar araçları, kariyer üretkenliği, stok & koleksiyon yönetimi alanlarındaki uygulamalarımızı keşfedin.",
+      "apps.description": "Kitaplar, motor sporları ve film bilgi yarışmaları, hızlı karar araçları, kariyer üretkenliği, stok & koleksiyon yönetimi alanlarındaki uygulamalarımızı keşfedin.",
       "kitapp.tag": "Kitaplar & Kütüphane",
       "kitapp.title": "KitApp: Kitap Takibi",
       "kitapp.description": "Kitap barkodlarını tarayın, kütüphanenizi düzenleyin & okuma istatistiklerinizi takip edin.",
@@ -1198,6 +1236,9 @@
       "archiver.tag": "Stok & Koleksiyon",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Stokları, koleksiyonları, barkodları, konumları & ürün değerlerini sade bir envanter uygulamasında takip edin.",
+      "moviequiz.tag": "Bilgi Yarışması & Gündelik",
+      "moviequiz.title": "Film Quiz: Sinefil Testi",
+      "moviequiz.description": "Filmler, karakterler, sinemacılar ve ödüller hakkındaki bilgini test et.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Privacy Policy",
