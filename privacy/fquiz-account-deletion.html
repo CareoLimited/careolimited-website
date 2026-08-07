@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Account deletion information for F Quiz by CAREO LIMITED.">
+  <title>Account Deletion - F Quiz</title>
+  <style>
+    :root {
+      --bg: #090909;
+      --surface: #121212;
+      --surface-2: #191919;
+      --border: #303030;
+      --text: #f5f5f5;
+      --muted: #b7b7b7;
+      --red: #f10600;
+      --yellow: #ffc400;
+      --green: #55d26f;
+      --max: 880px;
+    }
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .shell { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; padding: 24px 0 56px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    .brand-link { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; }
+    .brand-link img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+    .language-select {
+      min-height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      padding: 0 10px;
+      font: inherit;
+    }
+    .hero { border-top: 4px solid var(--red); border-bottom: 1px solid var(--border); padding: 34px 0 30px; }
+    .eyebrow { margin: 0 0 8px; color: var(--yellow); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08; letter-spacing: 0; }
+    .hero p { max-width: 680px; margin: 14px 0 0; color: var(--muted); font-size: 1.05rem; }
+    main { padding-top: 8px; }
+    section { padding: 26px 0; border-bottom: 1px solid var(--border); }
+    h2 { margin: 0 0 12px; font-size: 1.25rem; letter-spacing: 0; }
+    h2::before { content: ""; display: inline-block; width: 4px; height: 1em; margin-right: 10px; background: var(--red); vertical-align: -0.08em; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    ol, ul { margin: 14px 0 0; padding-left: 24px; color: var(--muted); }
+    li { margin: 9px 0; padding-left: 4px; }
+    li strong { color: var(--text); }
+    .notice { margin-top: 18px; padding: 14px 16px; border-left: 4px solid var(--yellow); background: var(--surface); color: var(--text); }
+    .privacy-note { border-left-color: var(--green); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--red);
+      border-radius: 6px;
+      background: var(--red);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .button.secondary { border-color: var(--border); background: var(--surface-2); }
+    footer { padding-top: 24px; color: #8f8f8f; font-size: 0.9rem; }
+    @media (max-width: 560px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); padding-top: 14px; }
+      .topbar { align-items: stretch; flex-direction: column; }
+      .language-select { width: 100%; }
+      .hero { padding: 26px 0 24px; }
+      .actions { flex-direction: column; }
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand-link" id="homeLink" href="https://careolimited.com/">
+        <img src="https://careolimited.com/images/fquiz-logo.png" alt="F Quiz">
+        <span>F Quiz</span>
+      </a>
+      <select class="language-select" id="languageSelect" aria-label="Language">
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
+    </header>
+
+    <div class="hero">
+      <p class="eyebrow" id="eyebrow"></p>
+      <h1 id="title"></h1>
+      <p id="subtitle"></p>
+    </div>
+
+    <main id="content"></main>
+    <footer id="footer"></footer>
+  </div>
+
+  <script>
+    const EMAIL = "careolimited@gmail.com";
+    const translations = {
+      en: {
+        eyebrow: "Account & privacy", title: "Account deletion", subtitle: "How to permanently delete your F Quiz account and what happens to your data.",
+        inAppTitle: "Delete your account in the app", inAppIntro: "Account deletion is available directly in F Quiz on iOS and Android.",
+        steps: ["Open F Quiz and go to Profile.", "Sign in with your e-mail account if needed.", "Scroll to the Account section.", "Enter your current password in the account deletion field.", "Tap Delete Account.", "Review the warning and confirm deletion."],
+        warning: "Account deletion is permanent and cannot be undone.",
+        deletedTitle: "Account data deleted", deletedIntro: "When deletion completes, the account-linked records managed by F Quiz are deleted or released:",
+        deleted: ["Firebase Authentication account and sign-in e-mail", "Online profile, username, selected flag, points, statistics and synchronized mission progress", "Presence record and reserved username"],
+        retainedTitle: "Data outside the account", retained: ["Data stored locally on your device may remain until you clear the app data or uninstall the app.", "Aggregated or de-identified analytics and advertising records are handled according to the relevant provider settings and policies.", "Limited records may be retained where required for security, fraud prevention, legal obligations or backups."],
+        timingTitle: "Processing time", timing: "In-app deletion normally completes immediately after confirmation. If technical support is required, we aim to complete a verified request within 7 days.",
+        helpTitle: "Cannot access the app?", help: "Contact CAREO LIMITED from the e-mail address registered to your F Quiz account and include your username if known. Never send your password.",
+        emailButton: "Contact account support", privacyButton: "Privacy Policy", privacyNote: "For full details about data use, retention and your privacy rights, read the F Quiz Privacy Policy.",
+        footer: "Last updated: August 2026 · CAREO LIMITED"
+      },
+      fr: {
+        eyebrow: "Compte et confidentialité", title: "Suppression du compte", subtitle: "Comment supprimer définitivement votre compte F Quiz et ce qu’il advient de vos données.",
+        inAppTitle: "Supprimer votre compte dans l’application", inAppIntro: "La suppression du compte est disponible directement dans F Quiz sur iOS et Android.",
+        steps: ["Ouvrez F Quiz et accédez au Profil.", "Connectez-vous avec votre compte e-mail si nécessaire.", "Faites défiler jusqu’à la section Compte.", "Saisissez votre mot de passe actuel dans le champ de suppression du compte.", "Appuyez sur Supprimer le compte.", "Lisez l’avertissement et confirmez la suppression."],
+        warning: "La suppression du compte est définitive et irréversible.",
+        deletedTitle: "Données du compte supprimées", deletedIntro: "Une fois la suppression terminée, les enregistrements liés au compte gérés par F Quiz sont supprimés ou libérés :",
+        deleted: ["Compte Firebase Authentication et e-mail de connexion", "Profil en ligne, nom d’utilisateur, drapeau sélectionné, points, statistiques et progression de mission synchronisée", "Présence et nom d’utilisateur réservé"],
+        retainedTitle: "Données extérieures au compte", retained: ["Les données stockées localement sur votre appareil peuvent rester jusqu’à l’effacement des données de l’application ou sa désinstallation.", "Les données analytiques et publicitaires agrégées ou désidentifiées sont traitées selon les paramètres et politiques des fournisseurs concernés.", "Certains enregistrements peuvent être conservés pour la sécurité, la prévention de la fraude, les obligations légales ou les sauvegardes."],
+        timingTitle: "Délai de traitement", timing: "La suppression dans l’application s’effectue normalement immédiatement après confirmation. Si une assistance technique est nécessaire, nous visons à traiter une demande vérifiée sous 7 jours.",
+        helpTitle: "Vous ne pouvez pas accéder à l’application ?", help: "Contactez CAREO LIMITED depuis l’adresse e-mail associée à votre compte F Quiz et indiquez votre nom d’utilisateur si vous le connaissez. N’envoyez jamais votre mot de passe.",
+        emailButton: "Contacter l’assistance compte", privacyButton: "Politique de confidentialité", privacyNote: "Pour en savoir plus sur l’utilisation et la conservation des données ainsi que sur vos droits, consultez la Politique de confidentialité de F Quiz.",
+        footer: "Dernière mise à jour : août 2026 · CAREO LIMITED"
+      },
+      de: {
+        eyebrow: "Konto und Datenschutz", title: "Konto löschen", subtitle: "So löschst du dein F Quiz-Konto dauerhaft und das geschieht mit deinen Daten.",
+        inAppTitle: "Konto in der App löschen", inAppIntro: "Die Kontolöschung ist direkt in F Quiz auf iOS und Android verfügbar.",
+        steps: ["Öffne F Quiz und gehe zu Profil.", "Melde dich bei Bedarf mit deinem E-Mail-Konto an.", "Scrolle zum Bereich Konto.", "Gib dein aktuelles Passwort in das Feld zur Kontolöschung ein.", "Tippe auf Konto löschen.", "Lies den Hinweis und bestätige die Löschung."],
+        warning: "Die Kontolöschung ist dauerhaft und kann nicht rückgängig gemacht werden.",
+        deletedTitle: "Gelöschte Kontodaten", deletedIntro: "Nach Abschluss der Löschung werden die von F Quiz verwalteten kontobezogenen Einträge gelöscht oder freigegeben:",
+        deleted: ["Firebase-Authentication-Konto und Anmelde-E-Mail", "Onlineprofil, Benutzername, ausgewählte Flagge, Punkte, Statistiken und synchronisierter Missionsfortschritt", "Präsenzdatensatz und reservierter Benutzername"],
+        retainedTitle: "Daten außerhalb des Kontos", retained: ["Lokal auf deinem Gerät gespeicherte Daten können verbleiben, bis du die App-Daten löschst oder die App deinstallierst.", "Aggregierte oder anonymisierte Analyse- und Werbedaten werden nach den Einstellungen und Richtlinien der jeweiligen Anbieter verarbeitet.", "Begrenzte Datensätze können aus Sicherheitsgründen, zur Betrugsprävention, aufgrund gesetzlicher Pflichten oder in Sicherungen aufbewahrt werden."],
+        timingTitle: "Bearbeitungszeit", timing: "Die Löschung in der App erfolgt normalerweise direkt nach der Bestätigung. Ist technische Unterstützung nötig, bearbeiten wir eine verifizierte Anfrage in der Regel innerhalb von 7 Tagen.",
+        helpTitle: "Kein Zugriff auf die App?", help: "Kontaktiere CAREO LIMITED über die E-Mail-Adresse deines F Quiz-Kontos und nenne wenn möglich deinen Benutzernamen. Sende niemals dein Passwort.",
+        emailButton: "Kontosupport kontaktieren", privacyButton: "Datenschutzerklärung", privacyNote: "Alle Einzelheiten zur Datennutzung, Aufbewahrung und zu deinen Rechten findest du in der Datenschutzerklärung von F Quiz.",
+        footer: "Letzte Aktualisierung: August 2026 · CAREO LIMITED"
+      },
+      it: {
+        eyebrow: "Account e privacy", title: "Eliminazione dell’account", subtitle: "Come eliminare definitivamente il tuo account F Quiz e cosa accade ai tuoi dati.",
+        inAppTitle: "Elimina l’account nell’app", inAppIntro: "L’eliminazione dell’account è disponibile direttamente in F Quiz su iOS e Android.",
+        steps: ["Apri F Quiz e vai su Profilo.", "Accedi con il tuo account e-mail, se necessario.", "Scorri fino alla sezione Account.", "Inserisci la password attuale nel campo per l’eliminazione dell’account.", "Tocca Elimina account.", "Leggi l’avviso e conferma l’eliminazione."],
+        warning: "L’eliminazione dell’account è permanente e non può essere annullata.",
+        deletedTitle: "Dati dell’account eliminati", deletedIntro: "Al termine dell’eliminazione, i dati collegati all’account gestiti da F Quiz vengono eliminati o resi nuovamente disponibili:",
+        deleted: ["Account Firebase Authentication ed e-mail di accesso", "Profilo online, nome utente, bandiera selezionata, punti, statistiche e progressi delle missioni sincronizzati", "Dati di presenza e nome utente riservato"],
+        retainedTitle: "Dati esterni all’account", retained: ["I dati salvati localmente sul dispositivo possono rimanere finché non cancelli i dati dell’app o la disinstalli.", "I dati analitici e pubblicitari aggregati o deidentificati sono gestiti secondo le impostazioni e le politiche dei relativi fornitori.", "Alcuni dati possono essere conservati per sicurezza, prevenzione delle frodi, obblighi legali o backup."],
+        timingTitle: "Tempi di elaborazione", timing: "L’eliminazione nell’app normalmente si completa subito dopo la conferma. Se serve assistenza tecnica, puntiamo a completare una richiesta verificata entro 7 giorni.",
+        helpTitle: "Non riesci ad accedere all’app?", help: "Contatta CAREO LIMITED dall’indirizzo e-mail registrato nel tuo account F Quiz e indica il nome utente, se lo conosci. Non inviare mai la password.",
+        emailButton: "Contatta l’assistenza account", privacyButton: "Informativa sulla privacy", privacyNote: "Per tutti i dettagli su uso e conservazione dei dati e sui tuoi diritti, consulta l’Informativa sulla privacy di F Quiz.",
+        footer: "Ultimo aggiornamento: agosto 2026 · CAREO LIMITED"
+      },
+      ja: {
+        eyebrow: "アカウントとプライバシー", title: "アカウントの削除", subtitle: "F Quizアカウントを完全に削除する方法と、データの取り扱いについて説明します。",
+        inAppTitle: "アプリ内でアカウントを削除", inAppIntro: "iOSおよびAndroid版F Quizから直接アカウントを削除できます。",
+        steps: ["F Quizを開き、プロフィールに移動します。", "必要に応じてメールアカウントでログインします。", "アカウント欄までスクロールします。", "アカウント削除欄に現在のパスワードを入力します。", "「アカウントを削除」をタップします。", "警告を確認し、削除を確定します。"],
+        warning: "アカウントの削除は永久的で、取り消すことはできません。",
+        deletedTitle: "削除されるアカウントデータ", deletedIntro: "削除が完了すると、F Quizが管理する次のアカウント関連データが削除または解放されます。",
+        deleted: ["Firebase Authenticationアカウントとログイン用メールアドレス", "オンラインプロフィール、ユーザー名、選択した旗、ポイント、統計、同期されたミッション進行状況", "プレゼンス情報と予約済みユーザー名"],
+        retainedTitle: "アカウント外のデータ", retained: ["端末内のローカルデータは、アプリデータを消去するかアプリをアンインストールするまで残る場合があります。", "集計または匿名化された分析・広告データは、各サービス提供者の設定とポリシーに従って処理されます。", "セキュリティ、不正防止、法的義務、バックアップのために一部の記録が保持される場合があります。"],
+        timingTitle: "処理時間", timing: "アプリ内での削除は通常、確認後すぐに完了します。技術サポートが必要な場合、本人確認済みの依頼を通常7日以内に処理します。",
+        helpTitle: "アプリにアクセスできない場合", help: "F Quizに登録したメールアドレスからCAREO LIMITEDへ連絡し、分かる場合はユーザー名も記載してください。パスワードは絶対に送信しないでください。",
+        emailButton: "アカウントサポートに連絡", privacyButton: "プライバシーポリシー", privacyNote: "データの利用・保持およびプライバシー権の詳細は、F Quizプライバシーポリシーをご確認ください。",
+        footer: "最終更新：2026年8月 · CAREO LIMITED"
+      },
+      ko: {
+        eyebrow: "계정 및 개인정보", title: "계정 삭제", subtitle: "F Quiz 계정을 영구적으로 삭제하는 방법과 데이터 처리 내용을 안내합니다.",
+        inAppTitle: "앱에서 계정 삭제", inAppIntro: "iOS 및 Android용 F Quiz에서 계정을 직접 삭제할 수 있습니다.",
+        steps: ["F Quiz를 열고 프로필로 이동합니다.", "필요한 경우 이메일 계정으로 로그인합니다.", "계정 섹션까지 아래로 이동합니다.", "계정 삭제 입력란에 현재 비밀번호를 입력합니다.", "계정 삭제를 누릅니다.", "경고를 확인하고 삭제를 확정합니다."],
+        warning: "계정 삭제는 영구적이며 취소할 수 없습니다.",
+        deletedTitle: "삭제되는 계정 데이터", deletedIntro: "삭제가 완료되면 F Quiz가 관리하는 다음 계정 연결 정보가 삭제되거나 해제됩니다.",
+        deleted: ["Firebase Authentication 계정 및 로그인 이메일", "온라인 프로필, 사용자 이름, 선택한 국기, 포인트, 통계 및 동기화된 미션 진행 상황", "접속 상태 기록 및 예약된 사용자 이름"],
+        retainedTitle: "계정 외부 데이터", retained: ["기기에 로컬로 저장된 데이터는 앱 데이터를 지우거나 앱을 삭제할 때까지 남아 있을 수 있습니다.", "집계되거나 비식별화된 분석 및 광고 기록은 관련 제공업체의 설정과 정책에 따라 처리됩니다.", "보안, 사기 방지, 법적 의무 또는 백업을 위해 일부 기록이 보관될 수 있습니다."],
+        timingTitle: "처리 시간", timing: "앱 내 삭제는 일반적으로 확인 즉시 완료됩니다. 기술 지원이 필요한 경우 본인 확인이 완료된 요청을 보통 7일 이내에 처리합니다.",
+        helpTitle: "앱에 접근할 수 없나요?", help: "F Quiz 계정에 등록된 이메일 주소로 CAREO LIMITED에 연락하고, 알고 있다면 사용자 이름을 포함하세요. 비밀번호는 절대 보내지 마세요.",
+        emailButton: "계정 지원에 문의", privacyButton: "개인정보 처리방침", privacyNote: "데이터 사용과 보관 및 개인정보 권리에 관한 자세한 내용은 F Quiz 개인정보 처리방침을 확인하세요.",
+        footer: "최종 업데이트: 2026년 8월 · CAREO LIMITED"
+      },
+      pt: {
+        eyebrow: "Conta e privacidade", title: "Eliminação da conta", subtitle: "Como eliminar permanentemente a sua conta F Quiz e o que acontece aos seus dados.",
+        inAppTitle: "Eliminar a conta na aplicação", inAppIntro: "A eliminação da conta está disponível diretamente no F Quiz para iOS e Android.",
+        steps: ["Abra o F Quiz e aceda ao Perfil.", "Inicie sessão com a sua conta de e-mail, se necessário.", "Desloque-se até à secção Conta.", "Introduza a palavra-passe atual no campo de eliminação da conta.", "Toque em Eliminar conta.", "Leia o aviso e confirme a eliminação."],
+        warning: "A eliminação da conta é permanente e não pode ser anulada.",
+        deletedTitle: "Dados da conta eliminados", deletedIntro: "Quando a eliminação estiver concluída, os registos associados à conta e geridos pelo F Quiz são eliminados ou libertados:",
+        deleted: ["Conta do Firebase Authentication e e-mail de início de sessão", "Perfil online, nome de utilizador, bandeira selecionada, pontos, estatísticas e progresso sincronizado das missões", "Registo de presença e nome de utilizador reservado"],
+        retainedTitle: "Dados fora da conta", retained: ["Os dados guardados localmente no dispositivo podem permanecer até limpar os dados da aplicação ou desinstalá-la.", "Os dados agregados ou não identificáveis de análise e publicidade são tratados segundo as definições e políticas dos respetivos fornecedores.", "Alguns registos podem ser conservados por motivos de segurança, prevenção de fraude, obrigações legais ou cópias de segurança."],
+        timingTitle: "Prazo de processamento", timing: "A eliminação na aplicação normalmente termina imediatamente após a confirmação. Se for necessário apoio técnico, procuramos concluir um pedido verificado no prazo de 7 dias.",
+        helpTitle: "Não consegue aceder à aplicação?", help: "Contacte a CAREO LIMITED através do e-mail registado na sua conta F Quiz e indique o nome de utilizador, se o souber. Nunca envie a sua palavra-passe.",
+        emailButton: "Contactar apoio da conta", privacyButton: "Política de Privacidade", privacyNote: "Para obter todos os detalhes sobre utilização e conservação de dados e os seus direitos, consulte a Política de Privacidade do F Quiz.",
+        footer: "Última atualização: agosto de 2026 · CAREO LIMITED"
+      },
+      ru: {
+        eyebrow: "Аккаунт и конфиденциальность", title: "Удаление аккаунта", subtitle: "Как навсегда удалить аккаунт F Quiz и что произойдёт с вашими данными.",
+        inAppTitle: "Удаление аккаунта в приложении", inAppIntro: "Удалить аккаунт можно непосредственно в F Quiz на iOS и Android.",
+        steps: ["Откройте F Quiz и перейдите в раздел «Профиль».", "При необходимости войдите с помощью e-mail.", "Прокрутите до раздела «Аккаунт».", "Введите текущий пароль в поле удаления аккаунта.", "Нажмите «Удалить аккаунт».", "Прочитайте предупреждение и подтвердите удаление."],
+        warning: "Удаление аккаунта необратимо и не может быть отменено.",
+        deletedTitle: "Удаляемые данные аккаунта", deletedIntro: "После завершения удаления связанные с аккаунтом записи, которыми управляет F Quiz, удаляются или освобождаются:",
+        deleted: ["Аккаунт Firebase Authentication и e-mail для входа", "Онлайн-профиль, имя пользователя, выбранный флаг, очки, статистика и синхронизированный прогресс миссий", "Данные о присутствии и зарезервированное имя пользователя"],
+        retainedTitle: "Данные вне аккаунта", retained: ["Локальные данные на устройстве могут сохраняться до очистки данных приложения или его удаления.", "Агрегированные или обезличенные данные аналитики и рекламы обрабатываются согласно настройкам и политикам соответствующих поставщиков.", "Некоторые записи могут храниться в целях безопасности, предотвращения мошенничества, выполнения правовых обязательств или резервного копирования."],
+        timingTitle: "Срок обработки", timing: "Удаление в приложении обычно завершается сразу после подтверждения. Если требуется техническая поддержка, мы стремимся выполнить подтверждённый запрос в течение 7 дней.",
+        helpTitle: "Нет доступа к приложению?", help: "Свяжитесь с CAREO LIMITED с e-mail, зарегистрированного в аккаунте F Quiz, и укажите имя пользователя, если оно известно. Никогда не отправляйте пароль.",
+        emailButton: "Связаться с поддержкой аккаунта", privacyButton: "Политика конфиденциальности", privacyNote: "Подробные сведения об использовании и хранении данных и ваших правах приведены в Политике конфиденциальности F Quiz.",
+        footer: "Последнее обновление: август 2026 г. · CAREO LIMITED"
+      },
+      es: {
+        eyebrow: "Cuenta y privacidad", title: "Eliminación de la cuenta", subtitle: "Cómo eliminar permanentemente tu cuenta de F Quiz y qué ocurre con tus datos.",
+        inAppTitle: "Elimina tu cuenta desde la aplicación", inAppIntro: "La eliminación de la cuenta está disponible directamente en F Quiz para iOS y Android.",
+        steps: ["Abre F Quiz y ve a Perfil.", "Inicia sesión con tu cuenta de correo si es necesario.", "Desplázate hasta la sección Cuenta.", "Introduce tu contraseña actual en el campo de eliminación de cuenta.", "Pulsa Eliminar cuenta.", "Lee la advertencia y confirma la eliminación."],
+        warning: "La eliminación de la cuenta es permanente y no se puede deshacer.",
+        deletedTitle: "Datos de la cuenta eliminados", deletedIntro: "Cuando finaliza la eliminación, los registros vinculados a la cuenta que gestiona F Quiz se eliminan o liberan:",
+        deleted: ["Cuenta de Firebase Authentication y correo de inicio de sesión", "Perfil en línea, nombre de usuario, bandera seleccionada, puntos, estadísticas y progreso de misiones sincronizado", "Registro de presencia y nombre de usuario reservado"],
+        retainedTitle: "Datos externos a la cuenta", retained: ["Los datos guardados localmente en tu dispositivo pueden permanecer hasta que borres los datos de la aplicación o la desinstales.", "Los datos analíticos y publicitarios agregados o desidentificados se gestionan según los ajustes y políticas de los proveedores correspondientes.", "Algunos registros pueden conservarse por seguridad, prevención del fraude, obligaciones legales o copias de seguridad."],
+        timingTitle: "Tiempo de procesamiento", timing: "La eliminación desde la aplicación normalmente se completa inmediatamente después de confirmarla. Si se necesita asistencia técnica, procuramos completar una solicitud verificada en un plazo de 7 días.",
+        helpTitle: "¿No puedes acceder a la aplicación?", help: "Contacta con CAREO LIMITED desde el correo registrado en tu cuenta de F Quiz e incluye tu nombre de usuario si lo conoces. Nunca envíes tu contraseña.",
+        emailButton: "Contactar con soporte de cuenta", privacyButton: "Política de privacidad", privacyNote: "Consulta la Política de privacidad de F Quiz para conocer todos los detalles sobre el uso y la conservación de datos y tus derechos.",
+        footer: "Última actualización: agosto de 2026 · CAREO LIMITED"
+      },
+      tr: {
+        eyebrow: "Hesap ve gizlilik", title: "Hesap silme", subtitle: "F Quiz hesabınızı kalıcı olarak nasıl sileceğiniz ve verilerinize ne olacağı hakkında bilgiler.",
+        inAppTitle: "Hesabınızı uygulamadan silin", inAppIntro: "Hesap silme işlemi iOS ve Android’de doğrudan F Quiz içinden yapılabilir.",
+        steps: ["F Quiz’i açın ve Profil ekranına gidin.", "Gerekirse e-posta hesabınızla giriş yapın.", "Hesap bölümüne ilerleyin.", "Hesap silme alanına mevcut şifrenizi girin.", "Hesabı Sil düğmesine dokunun.", "Uyarıyı okuyup silme işlemini onaylayın."],
+        warning: "Hesap silme işlemi kalıcıdır ve geri alınamaz.",
+        deletedTitle: "Silinen hesap verileri", deletedIntro: "Silme işlemi tamamlandığında F Quiz tarafından yönetilen hesaba bağlı kayıtlar silinir veya serbest bırakılır:",
+        deleted: ["Firebase Authentication hesabı ve giriş e-postası", "Çevrimiçi profil, kullanıcı adı, seçili bayrak, puanlar, istatistikler ve senkronize görev ilerlemesi", "Çevrimiçi durum kaydı ve rezerve edilmiş kullanıcı adı"],
+        retainedTitle: "Hesap dışındaki veriler", retained: ["Cihazınızda yerel olarak saklanan veriler, uygulama verilerini temizleyene veya uygulamayı kaldırana kadar kalabilir.", "Toplu veya kimliksiz hâle getirilmiş analiz ve reklam kayıtları ilgili sağlayıcıların ayar ve politikalarına göre işlenir.", "Güvenlik, dolandırıcılığı önleme, yasal yükümlülükler veya yedeklemeler için sınırlı kayıtlar tutulabilir."],
+        timingTitle: "İşlem süresi", timing: "Uygulama içinden silme normalde onaydan hemen sonra tamamlanır. Teknik destek gerekirse kimliği doğrulanmış bir talebi 7 gün içinde tamamlamayı hedefleriz.",
+        helpTitle: "Uygulamaya erişemiyor musunuz?", help: "F Quiz hesabınıza kayıtlı e-posta adresinden CAREO LIMITED ile iletişime geçin ve biliyorsanız kullanıcı adınızı ekleyin. Şifrenizi kesinlikle göndermeyin.",
+        emailButton: "Hesap desteğine ulaşın", privacyButton: "Gizlilik Politikası", privacyNote: "Verilerin kullanımı, saklanması ve gizlilik haklarınızla ilgili tüm ayrıntılar için F Quiz Gizlilik Politikası’nı okuyun.",
+        footer: "Son güncelleme: Ağustos 2026 · CAREO LIMITED"
+      }
+    };
+
+    const supported = Object.keys(translations);
+    const params = new URLSearchParams(window.location.search);
+    const requested = (params.get("lang") || localStorage.getItem("fquiz-account-language") || navigator.language || "en").toLowerCase().split(/[-_]/)[0];
+    const languageSelect = document.getElementById("languageSelect");
+
+    function section(title, body) {
+      return `<section><h2>${title}</h2>${body}</section>`;
+    }
+
+    function list(items, ordered = false) {
+      const tag = ordered ? "ol" : "ul";
+      return `<${tag}>${items.map((item) => `<li>${item}</li>`).join("")}</${tag}>`;
+    }
+
+    function render(language) {
+      const lang = supported.includes(language) ? language : "en";
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+      document.title = `${t.title} - F Quiz`;
+      languageSelect.value = lang;
+      languageSelect.setAttribute("aria-label", t.eyebrow);
+      document.getElementById("eyebrow").textContent = t.eyebrow;
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("subtitle").textContent = t.subtitle;
+      document.getElementById("homeLink").href = `https://careolimited.com/?lang=${encodeURIComponent(lang)}`;
+
+      const subject = encodeURIComponent("F Quiz - Account Deletion Support");
+      const privacyUrl = `https://careolimited.com/privacy/fquiz.html?lang=${encodeURIComponent(lang)}`;
+      document.getElementById("content").innerHTML =
+        section(t.inAppTitle, `<p>${t.inAppIntro}</p>${list(t.steps, true)}<div class="notice">${t.warning}</div>`) +
+        section(t.deletedTitle, `<p>${t.deletedIntro}</p>${list(t.deleted)}`) +
+        section(t.retainedTitle, list(t.retained)) +
+        section(t.timingTitle, `<p>${t.timing}</p>`) +
+        section(t.helpTitle, `<p>${t.help}</p><div class="actions"><a class="button" href="mailto:${EMAIL}?subject=${subject}">${t.emailButton}</a><a class="button secondary" href="${privacyUrl}">${t.privacyButton}</a></div><div class="notice privacy-note">${t.privacyNote}</div>`);
+      document.getElementById("footer").textContent = t.footer;
+
+      localStorage.setItem("fquiz-account-language", lang);
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState(null, "", url.toString());
+    }
+
+    languageSelect.addEventListener("change", (event) => render(event.target.value));
+    render(supported.includes(requested) ? requested : "en");
+  </script>
+</body>
+</html>

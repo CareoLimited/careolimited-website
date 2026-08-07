@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delete Your Movie Quiz Account | CAREO LIMITED</title>
+  <meta name="description" content="Instructions for deleting a Movie Quiz account and associated data.">
+  <link rel="canonical" href="https://careolimited.com/privacy/moviequiz-account-deletion.html">
+  <link rel="icon" href="../images/careo-logo.jpg">
+  <link rel="apple-touch-icon" href="../images/careo-logo.jpg">
+  <style>
+    @font-face {
+      font-family: "Bebas Neue";
+      src: url("fonts/BebasNeue-Regular.ttf") format("truetype");
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Inter";
+      src: url("fonts/Inter-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Inter";
+      src: url("fonts/Inter-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Inter";
+      src: url("fonts/Inter-Bold.ttf") format("truetype");
+      font-weight: 700 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #08090b;
+      --panel: #121318;
+      --panel-soft: rgba(185, 182, 174, 0.12);
+      --border: #2a2c32;
+      --border-strong: #3a3d45;
+      --text: #e2ded5;
+      --muted: #9a9791;
+      --silver: #b9b6ae;
+      --silver-bright: #ddd9d0;
+      --danger: #8f2432;
+      --max: 920px;
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(221, 217, 208, 0.10), transparent 34%),
+        radial-gradient(circle at 95% 18%, rgba(116, 104, 82, 0.07), transparent 28%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 4px),
+        linear-gradient(180deg, #0d0e11 0%, var(--bg) 58%, #050608 100%);
+      line-height: 1.65;
+    }
+
+    body::before {
+      content: "";
+      display: block;
+      height: 14px;
+      opacity: 0.78;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 8px, rgba(185,182,174,.46) 8px 17px, transparent 17px 24px),
+        linear-gradient(180deg, #0d0e11, #17191d 46%, #0d0e11 54%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    a { color: inherit; }
+    .shell { width: min(calc(100% - 30px), var(--max)); margin: 0 auto; padding: 24px 0 64px; }
+    .topbar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    select {
+      min-height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0 12px;
+      color: var(--text);
+      background: #181a20;
+      font: inherit;
+    }
+    select option { color: #e2ded5; background: #181a20; }
+
+    .hero, .card {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    }
+    .hero { position: relative; overflow: hidden; border-radius: 16px; padding: clamp(26px, 6vw, 52px); margin-bottom: 18px; }
+    .hero::after {
+      content: "MQ";
+      position: absolute;
+      right: -18px;
+      bottom: -55px;
+      font-size: clamp(7rem, 25vw, 13rem);
+      line-height: 1;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-weight: 400;
+      letter-spacing: .04em;
+      color: rgba(221, 217, 208, 0.055);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      color: var(--silver-bright);
+      background: var(--panel-soft);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1, h2, .button { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; }
+    h1 { max-width: 720px; margin: 18px 0 14px; font-size: clamp(2.7rem, 8vw, 5.2rem); line-height: 0.98; letter-spacing: 0.025em; }
+    .lead { position: relative; z-index: 1; max-width: 700px; margin: 0; color: var(--muted); font-size: 1.06rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { border-radius: 14px; padding: 26px; }
+    .card.wide { grid-column: 1 / -1; }
+    .card h2 { margin: 0 0 14px; color: var(--silver-bright); font-size: 1.65rem; letter-spacing: .04em; }
+    .card p { margin: 0; color: var(--muted); }
+    ol, ul { margin: 0; padding-left: 22px; color: var(--muted); }
+    li + li { margin-top: 9px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.12rem;
+      letter-spacing: .05em;
+      border: 1px solid transparent;
+    }
+    .button.secondary { border-color: var(--border-strong); color: var(--silver-bright); background: var(--panel-soft); }
+    .button.secondary:hover, .button.secondary:focus-visible { background: rgba(185, 182, 174, 0.15); }
+    .notice { border-left: 3px solid var(--danger); padding: 13px 15px; margin-top: 18px; border-radius: 0 8px 8px 0; background: rgba(143, 36, 50, 0.09); color: var(--muted); }
+    footer { padding-top: 24px; text-align: center; color: #77756f; font-size: 0.9rem; }
+
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .card.wide { grid-column: auto; }
+      .hero, .card { border-radius: 19px; }
+      .card { padding: 21px; }
+      .actions, .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <select id="languageSelect" aria-label="Language">
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
+    </div>
+
+    <header class="hero">
+      <span class="badge" id="badge"></span>
+      <h1 id="title"></h1>
+      <p class="lead" id="intro"></p>
+    </header>
+
+    <section class="grid">
+      <article class="card wide">
+        <h2 id="inAppTitle"></h2>
+        <ol id="inAppSteps"></ol>
+        <div class="notice" id="deletionWarning"></div>
+      </article>
+
+      <article class="card wide">
+        <h2 id="dataTitle"></h2>
+        <ul id="dataItems"></ul>
+      </article>
+
+      <article class="card wide">
+        <h2 id="retentionTitle"></h2>
+        <p id="retentionText"></p>
+        <div class="actions">
+          <a class="button secondary" id="privacyLink" href="moviequiz.html"></a>
+        </div>
+      </article>
+    </section>
+
+    <footer>CAREO LIMITED · <a href="mailto:careolimited@gmail.com">careolimited@gmail.com</a></footer>
+  </main>
+
+  <script>
+    const content = {
+      en: {
+        back: "← Back to CAREO LIMITED", badge: "Movie Quiz account", title: "Delete your account",
+        intro: "You can permanently delete your Movie Quiz account and its associated account data directly inside the app.",
+        inAppTitle: "Delete inside Movie Quiz", steps: ["Open Movie Quiz and go to Profile.", "Sign in to the account you want to delete.", "Scroll to Delete Account. Email and password accounts must confirm the current password.", "Tap Delete Account and confirm the permanent deletion."],
+        warning: "Account deletion is permanent and cannot be undone. Your deleted account and account data cannot be recovered.",
+        dataTitle: "Data deleted with your account", data: ["Firebase Authentication account", "Movie Quiz profile and account-linked username", "Account-linked points, missions and leaderboard profile", "Account-linked multiplayer and presence data where technically identifiable"],
+        retentionTitle: "What may remain", retention: "Local app data stays on your device until you clear the app data or uninstall the app. Aggregated, anonymized, security, fraud-prevention, advertising or analytics records may be retained where they are not reasonably linked to your account or where limited retention is required by law.", privacy: "Read the Movie Quiz Privacy Policy"
+      },
+      fr: {
+        back: "← Retour à CAREO LIMITED", badge: "Compte Movie Quiz", title: "Supprimer votre compte",
+        intro: "Vous pouvez supprimer définitivement votre compte Movie Quiz et les données qui lui sont associées directement dans l’application.",
+        inAppTitle: "Suppression dans Movie Quiz", steps: ["Ouvrez Movie Quiz et accédez au Profil.", "Connectez-vous au compte à supprimer.", "Faites défiler jusqu’à Supprimer le compte. Les comptes e-mail et mot de passe doivent confirmer le mot de passe actuel.", "Touchez Supprimer le compte et confirmez la suppression définitive."],
+        warning: "La suppression du compte est définitive et irréversible. Le compte et les données supprimés ne peuvent pas être récupérés.",
+        dataTitle: "Données supprimées avec votre compte", data: ["Compte Firebase Authentication", "Profil Movie Quiz et nom d’utilisateur lié", "Points, missions et profil de classement liés au compte", "Données multijoueurs et de présence identifiables liées au compte"],
+        retentionTitle: "Données pouvant rester", retention: "Les données locales restent sur votre appareil jusqu’à la suppression des données de l’application ou sa désinstallation. Des données agrégées, anonymisées, de sécurité, de prévention de la fraude, publicitaires ou analytiques peuvent être conservées lorsqu’elles ne sont pas raisonnablement liées à votre compte ou si la loi impose une conservation limitée.", privacy: "Lire la politique de confidentialité Movie Quiz"
+      },
+      de: {
+        back: "← Zurück zu CAREO LIMITED", badge: "Movie Quiz-Konto", title: "Konto löschen",
+        intro: "Du kannst dein Movie Quiz-Konto und die damit verbundenen Kontodaten direkt in der App dauerhaft löschen.",
+        inAppTitle: "In Movie Quiz löschen", steps: ["Öffne Movie Quiz und gehe zu Profil.", "Melde dich bei dem Konto an, das du löschen möchtest.", "Scrolle zu Konto löschen. E-Mail- und Passwortkonten müssen das aktuelle Passwort bestätigen.", "Tippe auf Konto löschen und bestätige die dauerhafte Löschung."],
+        warning: "Die Kontolöschung ist dauerhaft und kann nicht rückgängig gemacht werden. Gelöschte Konten und Daten können nicht wiederhergestellt werden.",
+        dataTitle: "Mit dem Konto gelöschte Daten", data: ["Firebase Authentication-Konto", "Movie Quiz-Profil und verknüpfter Benutzername", "Kontobezogene Punkte, Missionen und Bestenlistenprofil", "Technisch identifizierbare Multiplayer- und Anwesenheitsdaten"],
+        retentionTitle: "Was verbleiben kann", retention: "Lokale App-Daten bleiben auf deinem Gerät, bis du die App-Daten löschst oder die App deinstallierst. Aggregierte, anonymisierte sowie Sicherheits-, Betrugspräventions-, Werbe- oder Analysedaten können verbleiben, wenn sie nicht angemessen deinem Konto zugeordnet werden können oder eine begrenzte Aufbewahrung gesetzlich erforderlich ist.", privacy: "Movie Quiz-Datenschutzerklärung lesen"
+      },
+      it: {
+        back: "← Torna a CAREO LIMITED", badge: "Account Movie Quiz", title: "Elimina il tuo account",
+        intro: "Puoi eliminare definitivamente il tuo account Movie Quiz e i dati associati direttamente dall’app.",
+        inAppTitle: "Elimina in Movie Quiz", steps: ["Apri Movie Quiz e vai su Profilo.", "Accedi all’account che vuoi eliminare.", "Scorri fino a Elimina account. Gli account con e-mail e password devono confermare la password attuale.", "Tocca Elimina account e conferma l’eliminazione permanente."],
+        warning: "L’eliminazione dell’account è permanente e non può essere annullata. L’account e i dati eliminati non possono essere recuperati.",
+        dataTitle: "Dati eliminati con l’account", data: ["Account Firebase Authentication", "Profilo Movie Quiz e nome utente collegato", "Punti, missioni e profilo classifica collegati all’account", "Dati multiplayer e di presenza tecnicamente identificabili"],
+        retentionTitle: "Cosa può rimanere", retention: "I dati locali restano sul dispositivo finché non cancelli i dati dell’app o la disinstalli. Dati aggregati, anonimizzati, di sicurezza, prevenzione frodi, pubblicità o analisi possono essere conservati se non sono ragionevolmente collegabili all’account o se la legge richiede una conservazione limitata.", privacy: "Leggi la Privacy Policy di Movie Quiz"
+      },
+      ja: {
+        back: "← CAREO LIMITEDに戻る", badge: "Movie Quiz アカウント", title: "アカウントを削除する",
+        intro: "Movie Quizアプリ内で、アカウントと関連するアカウントデータを完全に削除できます。",
+        inAppTitle: "Movie Quiz 内で削除", steps: ["Movie Quizを開き、プロフィールへ移動します。", "削除するアカウントにログインします。", "「アカウントを削除」までスクロールします。メールとパスワードのアカウントでは現在のパスワードを確認します。", "「アカウントを削除」をタップし、完全な削除を確認します。"],
+        warning: "アカウントの削除は永久的で、元に戻せません。削除したアカウントとデータは復元できません。",
+        dataTitle: "アカウントとともに削除されるデータ", data: ["Firebase Authenticationアカウント", "Movie Quizプロフィールと関連ユーザー名", "アカウントに関連するポイント、ミッション、ランキングプロフィール", "技術的に識別可能なマルチプレイおよびプレゼンスデータ"],
+        retentionTitle: "残る可能性のある情報", retention: "端末内のデータは、アプリデータを消去するかアプリをアンインストールするまで残ります。集計・匿名化された記録や、セキュリティ、不正防止、広告、分析に関する記録は、アカウントと合理的に関連付けられない場合、または法令上限定的な保持が必要な場合に保持されることがあります。", privacy: "Movie Quizプライバシーポリシーを読む"
+      },
+      ko: {
+        back: "← CAREO LIMITED로 돌아가기", badge: "Movie Quiz 계정", title: "계정 삭제",
+        intro: "Movie Quiz 앱에서 계정과 연결된 계정 데이터를 영구적으로 삭제할 수 있습니다.",
+        inAppTitle: "Movie Quiz에서 삭제", steps: ["Movie Quiz를 열고 프로필로 이동합니다.", "삭제할 계정에 로그인합니다.", "계정 삭제까지 스크롤합니다. 이메일 및 비밀번호 계정은 현재 비밀번호를 확인해야 합니다.", "계정 삭제를 누르고 영구 삭제를 확인합니다."],
+        warning: "계정 삭제는 영구적이며 취소할 수 없습니다. 삭제된 계정과 데이터는 복구할 수 없습니다.",
+        dataTitle: "계정과 함께 삭제되는 데이터", data: ["Firebase Authentication 계정", "Movie Quiz 프로필 및 연결된 사용자 이름", "계정에 연결된 포인트, 미션 및 리더보드 프로필", "기술적으로 식별 가능한 멀티플레이 및 접속 상태 데이터"],
+        retentionTitle: "남을 수 있는 정보", retention: "로컬 앱 데이터는 앱 데이터를 지우거나 앱을 삭제할 때까지 기기에 남습니다. 계정과 합리적으로 연결되지 않는 집계·익명화 데이터 및 보안, 사기 방지, 광고 또는 분석 기록은 보관될 수 있으며, 법률상 제한된 보관이 필요한 경우에도 일부 기록이 유지될 수 있습니다.", privacy: "Movie Quiz 개인정보 처리방침 보기"
+      },
+      pt: {
+        back: "← Voltar para CAREO LIMITED", badge: "Conta Movie Quiz", title: "Eliminar a sua conta",
+        intro: "Pode eliminar permanentemente a sua conta Movie Quiz e os dados associados diretamente na aplicação.",
+        inAppTitle: "Eliminar no Movie Quiz", steps: ["Abra o Movie Quiz e aceda ao Perfil.", "Inicie sessão na conta que pretende eliminar.", "Desloque-se até Eliminar conta. As contas com e-mail e palavra-passe devem confirmar a palavra-passe atual.", "Toque em Eliminar conta e confirme a eliminação permanente."],
+        warning: "A eliminação da conta é permanente e não pode ser anulada. A conta e os dados eliminados não podem ser recuperados.",
+        dataTitle: "Dados eliminados com a conta", data: ["Conta Firebase Authentication", "Perfil Movie Quiz e nome de utilizador associado", "Pontos, missões e perfil da classificação associados à conta", "Dados identificáveis de multiplayer e presença associados à conta"],
+        retentionTitle: "O que pode permanecer", retention: "Os dados locais permanecem no dispositivo até limpar os dados da aplicação ou desinstalá-la. Registos agregados, anonimizados, de segurança, prevenção de fraude, publicidade ou análise podem ser conservados quando não estão razoavelmente ligados à conta ou quando a lei exige conservação limitada.", privacy: "Ler a Política de Privacidade do Movie Quiz"
+      },
+      ru: {
+        back: "← Назад к CAREO LIMITED", badge: "Аккаунт Movie Quiz", title: "Удаление аккаунта",
+        intro: "Вы можете навсегда удалить аккаунт Movie Quiz и связанные с ним данные непосредственно в приложении.",
+        inAppTitle: "Удаление в Movie Quiz", steps: ["Откройте Movie Quiz и перейдите в профиль.", "Войдите в аккаунт, который хотите удалить.", "Прокрутите до пункта «Удалить аккаунт». Для аккаунтов с электронной почтой и паролем необходимо подтвердить текущий пароль.", "Нажмите «Удалить аккаунт» и подтвердите окончательное удаление."],
+        warning: "Удаление аккаунта является окончательным и необратимым. Удалённый аккаунт и данные нельзя восстановить.",
+        dataTitle: "Данные, удаляемые вместе с аккаунтом", data: ["Аккаунт Firebase Authentication", "Профиль Movie Quiz и связанное имя пользователя", "Связанные с аккаунтом очки, миссии и профиль таблицы лидеров", "Технически идентифицируемые данные мультиплеера и присутствия"],
+        retentionTitle: "Какие данные могут остаться", retention: "Локальные данные остаются на устройстве, пока вы не очистите данные приложения или не удалите его. Агрегированные, обезличенные записи, а также записи безопасности, предотвращения мошенничества, рекламы или аналитики могут храниться, если они не связаны с аккаунтом разумным образом или если закон требует ограниченного хранения.", privacy: "Прочитать Политику конфиденциальности Movie Quiz"
+      },
+      es: {
+        back: "← Volver a CAREO LIMITED", badge: "Cuenta de Movie Quiz", title: "Elimina tu cuenta",
+        intro: "Puedes eliminar permanentemente tu cuenta de Movie Quiz y los datos asociados directamente desde la aplicación.",
+        inAppTitle: "Eliminar desde Movie Quiz", steps: ["Abre Movie Quiz y ve a Perfil.", "Inicia sesión en la cuenta que quieres eliminar.", "Desplázate hasta Eliminar cuenta. Las cuentas con correo y contraseña deben confirmar la contraseña actual.", "Pulsa Eliminar cuenta y confirma la eliminación permanente."],
+        warning: "La eliminación de la cuenta es permanente y no se puede deshacer. La cuenta y los datos eliminados no se pueden recuperar.",
+        dataTitle: "Datos eliminados con la cuenta", data: ["Cuenta de Firebase Authentication", "Perfil de Movie Quiz y nombre de usuario asociado", "Puntos, misiones y perfil de clasificación vinculados a la cuenta", "Datos identificables de multijugador y presencia vinculados a la cuenta"],
+        retentionTitle: "Qué puede permanecer", retention: "Los datos locales permanecen en el dispositivo hasta que borres los datos de la app o la desinstales. Los registros agregados, anonimizados, de seguridad, prevención del fraude, publicidad o análisis pueden conservarse cuando no estén razonablemente vinculados a la cuenta o cuando la ley exija una conservación limitada.", privacy: "Leer la Política de privacidad de Movie Quiz"
+      },
+      tr: {
+        back: "← CAREO LIMITED’a dön", badge: "Movie Quiz hesabı", title: "Hesabınızı silin",
+        intro: "Movie Quiz hesabınızı ve hesabınıza bağlı verileri doğrudan uygulama içinden kalıcı olarak silebilirsiniz.",
+        inAppTitle: "Movie Quiz içinden silme", steps: ["Movie Quiz’i açın ve Profil ekranına gidin.", "Silmek istediğiniz hesapla giriş yapın.", "Hesabı Sil bölümüne ilerleyin. E-posta ve parola ile açılan hesaplarda mevcut parolanızı doğrulayın.", "Hesabı Sil düğmesine dokunun ve kalıcı silme işlemini onaylayın."],
+        warning: "Hesap silme işlemi kalıcıdır ve geri alınamaz. Silinen hesap ve hesap verileri kurtarılamaz.",
+        dataTitle: "Hesapla birlikte silinen veriler", data: ["Firebase Authentication hesabı", "Movie Quiz profili ve hesaba bağlı kullanıcı adı", "Hesaba bağlı puanlar, görevler ve liderlik tablosu profili", "Teknik olarak belirlenebilen hesaba bağlı multiplayer ve çevrimiçi durum verileri"],
+        retentionTitle: "Kalabilecek bilgiler", retention: "Yerel uygulama verileri, uygulama verilerini temizleyene veya uygulamayı kaldırana kadar cihazınızda kalır. Hesabınızla makul biçimde ilişkilendirilemeyen toplu veya anonim kayıtlar ile güvenlik, sahtekârlığı önleme, reklam ve analiz kayıtları ya da yasaların sınırlı süre saklanmasını gerektirdiği bilgiler tutulabilir.", privacy: "Movie Quiz Gizlilik Politikasını okuyun"
+      }
+    };
+
+    const supported = new Set(Object.keys(content));
+    const select = document.getElementById("languageSelect");
+
+    function languageFromUrl() {
+      const requested = new URLSearchParams(window.location.search).get("lang");
+      if (requested && supported.has(requested)) return requested;
+      const stored = localStorage.getItem("careo-language");
+      if (stored && supported.has(stored)) return stored;
+      const browser = String(navigator.language || "en").toLowerCase().split("-")[0];
+      return supported.has(browser) ? browser : "en";
+    }
+
+    function setList(id, items) {
+      const list = document.getElementById(id);
+      list.replaceChildren(...items.map((text) => {
+        const item = document.createElement("li");
+        item.textContent = text;
+        return item;
+      }));
+    }
+
+    function render(language) {
+      const lang = supported.has(language) ? language : "en";
+      const copy = content[lang];
+      document.documentElement.lang = lang;
+      document.title = `${copy.title} | Movie Quiz | CAREO LIMITED`;
+      select.value = lang;
+      ["badge", "title", "intro", "inAppTitle", "deletionWarning", "dataTitle", "retentionTitle", "retentionText"].forEach((id) => {
+        const key = id === "deletionWarning" ? "warning" : id === "retentionText" ? "retention" : id;
+        document.getElementById(id).textContent = copy[key];
+      });
+      setList("inAppSteps", copy.steps);
+      setList("dataItems", copy.data);
+      const privacy = document.getElementById("privacyLink");
+      privacy.textContent = copy.privacy;
+      privacy.href = `moviequiz.html?lang=${encodeURIComponent(lang)}`;
+      localStorage.setItem("careo-language", lang);
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState(null, "", url.toString());
+    }
+
+    select.addEventListener("change", (event) => render(event.target.value));
+    render(languageFromUrl());
+  </script>
+</body>
+</html>
