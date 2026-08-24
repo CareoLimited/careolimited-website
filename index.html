@@ -514,28 +514,33 @@
   }
   .object-stack {
     position:absolute;
-    inset: 11%;
+    width: 32%;
+    aspect-ratio: 1;
+    left: -12%;
+    top: 0;
     border:3px solid var(--panel-ink);
-    background: transparent;
-    border-radius: 28px;
-    box-shadow: none;
+    background: var(--panel);
+    border-radius: 20px;
+    box-shadow: 8px 8px 0 color-mix(in srgb, var(--panel-ink) 24%, transparent);
     overflow: hidden;
     transform-style: preserve-3d;
     pointer-events:none;
+    transition: transform .32s cubic-bezier(.2,.72,.2,1), filter .25s ease;
   }
   .object-stack img {
     width:100%;
     height:100%;
     display:block;
     object-fit:cover;
-    border-radius: 25px;
+    border-radius: 17px;
     background: transparent;
   }
-  .object-stack.stack-5 { transform: translate3d(-50px,-14px,-118px) rotate(-8deg); }
-  .object-stack.stack-4 { transform: translate3d(42px,-20px,-96px) rotate(7deg); }
-  .object-stack.stack-3 { transform: translate3d(-18px,34px,-74px) rotate(6deg); }
-  .object-stack.stack-2 { transform: translate3d(38px,28px,-54px) rotate(-5deg); }
-  .object-stack.stack-1 { transform: translate3d(-8px,-2px,-32px) rotate(3deg); }
+  /* Visible rotating deck: stack-1 is next in the canonical app order. */
+  .object-stack.stack-1 { top: 1%;  z-index: 5; transform: translate3d(0,0,18px) rotate(-9deg); }
+  .object-stack.stack-2 { top: 17%; z-index: 4; transform: translate3d(-12px,0,14px) rotate(-6deg); }
+  .object-stack.stack-3 { top: 33%; z-index: 3; transform: translate3d(-18px,0,10px) rotate(-3deg); }
+  .object-stack.stack-4 { top: 49%; z-index: 2; transform: translate3d(-12px,0,6px) rotate(3deg); }
+  .object-stack.stack-5 { top: 65%; z-index: 1; transform: translate3d(0,0,2px) rotate(7deg); }
 
   .object-icon {
     position:absolute; inset:12%;
@@ -543,6 +548,7 @@
     background: transparent;
     border: 0;
     box-shadow: none;
+    z-index: 10;
     transform: translateZ(68px) rotate(-2deg);
   }
   .object-icon img {
@@ -715,6 +721,14 @@
     .store-btn, .store-btn-disabled { flex:1; min-width:145px; }
     .privacy-link { width:100%; }
     .footer-bottom { flex-direction:column; align-items:flex-start; margin-top:70px; }
+  }
+
+  /* Must follow the 760px rules so phones stay in a true single-column layout. */
+  @media (max-width: 620px) {
+    .exhibit-grid { grid-template-columns:1fr; gap:24px; padding:62px 0 78px; }
+    .app-visual { min-height:390px; }
+    .object-frame { width:min(72%,330px); }
+    .app-copy { max-width:none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1479,6 +1493,41 @@ const translations = {
   });
 
   setLanguage(savedLanguage);
+
+  // Keep every logo deck in one explicit, cyclic order.
+  // The active app is front; each next app occupies stack-1 through stack-5.
+  (() => {
+    const canonicalApps = [
+      { id: "moviequiz", logo: "images/moviequiz-logo.png" },
+      { id: "fquiz", logo: "images/fquiz-logo.png" },
+      { id: "kitapp", logo: "images/kitapp-logo.png" },
+      { id: "spingo", logo: "images/spingo-logo.png" },
+      { id: "cvpilot", logo: "images/cvpilot-logo.png" },
+      { id: "archiver", logo: "images/archiver-logo.png" }
+    ];
+
+    document.querySelectorAll(".object-frame").forEach((frame) => {
+      const front = frame.querySelector("[data-front-app]");
+      if (!front) return;
+
+      const activeIndex = canonicalApps.findIndex((app) => app.id === front.dataset.frontApp);
+      if (activeIndex < 0) return;
+
+      for (let depth = 1; depth < canonicalApps.length; depth += 1) {
+        const slot = frame.querySelector(`.stack-${depth}`);
+        const app = canonicalApps[(activeIndex + depth) % canonicalApps.length];
+        if (!slot || !app) continue;
+
+        slot.dataset.stackApp = app.id;
+        slot.setAttribute("aria-hidden", "true");
+        const image = slot.querySelector("img");
+        if (image) {
+          image.src = app.logo;
+          image.alt = "";
+        }
+      }
+    });
+  })();
 
 
   // Interaction layer: light, local and independent from the translation/link system.

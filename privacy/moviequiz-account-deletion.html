@@ -9,161 +9,166 @@
   <link rel="icon" href="../images/careo-logo.jpg">
   <link rel="apple-touch-icon" href="../images/careo-logo.jpg">
   <style>
-  :root {
-    --bg-1:#090a0c; --bg-2:#15171b; --bg-3:#0f1013;
-    --text:#f1eee7; --muted:#c9c3b8; --accent:#d2af58;
-    --glow:rgba(143,36,50,.54); --glow-2:rgba(210,175,88,.18); --line:rgba(241,238,231,.14);
-    --panel:rgba(17,18,21,.78); --max:1020px;
-  }
-  * { box-sizing:border-box; }
-  html { color-scheme:dark; scroll-behavior:smooth; }
-  body {
-    margin:0; min-height:100vh; color:var(--text);
-    font-family:Arial,Helvetica,sans-serif; line-height:1.66;
-    background:
-      radial-gradient(circle at 9% 14%,var(--glow),transparent 30%),
-      radial-gradient(circle at 88% 78%,var(--glow-2),transparent 34%),
-      linear-gradient(135deg,var(--bg-1),var(--bg-2) 58%,var(--bg-3));
-    background-attachment:fixed;
-  }
-  body::before {
-    content:""; position:fixed; inset:0; pointer-events:none; opacity:.19;
-    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:54px 54px;
-  }
-  a { color:inherit; }
-  .shell { width:min(calc(100% - 32px),var(--max)); margin:0 auto; padding:18px 0 62px; position:relative; }
-  .topbar {
-    min-height:70px; display:flex; align-items:center; justify-content:space-between; gap:14px;
-    padding:9px 10px 9px 12px; margin-bottom:44px;
-    background:#061b36; color:#f3efe6; border:1px solid rgba(255,255,255,.16);
-    box-shadow:6px 6px 0 var(--accent);
-  }
-  .brand-link {
-    min-height:42px; display:inline-flex; align-items:center; gap:10px;
-    text-decoration:none; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.76rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
-  }
-  .brand-link img { width:42px; height:42px; object-fit:cover; border-radius:11px; border:1px solid rgba(255,255,255,.28); }
-  .language-select,#languageSelect {
-    appearance:none; min-height:40px; padding:0 38px 0 14px;
-    border:1px solid rgba(243,239,230,.28); border-radius:999px; color:#f3efe6;
-    background:
-      linear-gradient(45deg,transparent 50%,var(--accent) 50%) calc(100% - 16px) 16px/5px 5px no-repeat,
-      linear-gradient(135deg,var(--accent) 50%,transparent 50%) calc(100% - 11px) 16px/5px 5px no-repeat,
-      rgba(243,239,230,.055);
-    font:inherit; font-size:.76rem; font-weight:700; outline:none;
-  }
-  #languageSelect option,.language-select option { color:#061b36; background:#fff; }
+    :root {
+      --bg: #08090b;
+      --panel: #121318;
+      --panel-soft: rgba(185, 182, 174, 0.12);
+      --border: #2a2c32;
+      --border-strong: #3a3d45;
+      --text: #e2ded5;
+      --muted: #9a9791;
+      --silver: #b9b6ae;
+      --silver-bright: #ddd9d0;
+      --danger: #8f2432;
+      --max: 920px;
+    }
 
-  .hero {
-    position:relative; overflow:hidden;
-    padding:clamp(30px,6vw,60px);
-    border:1px solid var(--line); border-radius:30px;
-    background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025)),var(--panel);
-    box-shadow:0 28px 80px rgba(0,0,0,.28);
-    margin-bottom:18px;
-  }
-  .hero::before {
-    content:""; position:absolute; top:0; left:0; right:0; height:7px;
-    background:linear-gradient(90deg,var(--accent),transparent 72%);
-  }
-  .hero::after {
-    content:"Movie Quiz"; position:absolute; right:-.03em; bottom:-.23em;
-    font-size:clamp(6rem,18vw,13rem); font-weight:900; line-height:.8; letter-spacing:-.08em;
-    color:transparent; -webkit-text-stroke:1px var(--line); opacity:.64; pointer-events:none;
-  }
-  .app-mark {
-    width:76px; height:76px; object-fit:cover; border-radius:20px;
-    border:2px solid var(--text); margin-bottom:22px;
-  }
-  .eyebrow,.badge {
-    display:inline-flex; margin:0 0 13px; padding:7px 10px;
-    border:1px solid var(--line); border-radius:999px;
-    color:var(--accent); background:rgba(255,255,255,.045);
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.73rem; font-weight:900; letter-spacing:.10em; text-transform:uppercase;
-  }
-  h1 { position:relative; z-index:1; margin:0; max-width:780px; font-size:clamp(2.9rem,8vw,6rem); line-height:.96; letter-spacing:-.055em; overflow-wrap:anywhere; }
-  .hero p,.lead { position:relative; z-index:1; max-width:760px; margin:17px 0 0; color:var(--muted); font-size:1.06rem; }
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(221, 217, 208, 0.10), transparent 34%),
+        radial-gradient(circle at 95% 18%, rgba(116, 104, 82, 0.07), transparent 28%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 4px),
+        linear-gradient(180deg, #0d0e11 0%, var(--bg) 58%, #050608 100%);
+      line-height: 1.65;
+    }
 
-  main { padding-top:0; }
-  section,.card {
-    padding:28px; margin-top:16px; border:1px solid var(--line); border-radius:22px;
-    background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.022)),var(--panel);
-    box-shadow:0 18px 54px rgba(0,0,0,.16);
-  }
-  .grid { display:grid; grid-template-columns:1fr; gap:0; }
-  .card.wide { grid-column:auto; }
-  section h2,.card h2 {
-    margin:0 0 13px; font-size:1.28rem; line-height:1.25; overflow-wrap:anywhere;
-  }
-  section h2::before,.card h2::before {
-    content:""; display:inline-block; width:11px; height:11px; margin-right:10px;
-    background:var(--accent); transform:rotate(45deg); vertical-align:.02em;
-  }
-  p,li { color:var(--muted); overflow-wrap:anywhere; }
-  p { margin:0 0 12px; }
-  ol,ul { margin:13px 0 0; padding-left:24px; color:var(--muted); }
-  li { margin:8px 0; padding-left:4px; }
-  li strong { color:var(--text); }
-  .notice {
-    margin-top:18px; padding:14px 16px; border-left:5px solid var(--accent);
-    border-radius:0 12px 12px 0; background:rgba(255,255,255,.05); color:var(--text);
-  }
-  .privacy-note { border-left-color:var(--accent); }
-  .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
-  .button {
-    min-height:46px; display:inline-flex; align-items:center; justify-content:center;
-    padding:0 16px; border:1px solid var(--accent); border-radius:999px;
-    background:var(--accent); color:#090a0c; text-decoration:none; font-weight:900;
-  }
-  .button.secondary { color:var(--text); background:transparent; border-color:var(--line); }
-  .button:hover,.button:focus-visible { filter:brightness(1.08); }
-  footer {
-    padding:24px 0 0; color:var(--muted); font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:.74rem; letter-spacing:.06em;
-  }
-  html[lang="ja"] h1,html[lang="ko"] h1 { line-height:1.08; letter-spacing:-.035em; }
-  @media(max-width:620px) {
-    .shell { width:calc(100% - 20px); padding-top:10px; }
-    .topbar { margin-bottom:32px; box-shadow:4px 4px 0 var(--accent); }
-    .brand-link span { max-width:180px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-    .hero { padding:28px 21px 34px; border-radius:24px; }
-    .app-mark { width:64px; height:64px; border-radius:17px; }
-    section,.card { padding:22px 19px; border-radius:18px; }
-    .actions { flex-direction:column; }
-    .button { width:100%; }
-  }
-</style>
+    body::before {
+      content: "";
+      display: block;
+      height: 14px;
+      opacity: 0.78;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 8px, rgba(185,182,174,.46) 8px 17px, transparent 17px 24px),
+        linear-gradient(180deg, #0d0e11, #17191d 46%, #0d0e11 54%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    a { color: inherit; }
+    .shell { width: min(calc(100% - 30px), var(--max)); margin: 0 auto; padding: 24px 0 64px; }
+    .topbar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    select {
+      min-height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0 12px;
+      color: var(--text);
+      background: #181a20;
+      font: inherit;
+    }
+    select option { color: #e2ded5; background: #181a20; }
+
+    .hero, .card {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+    }
+    .hero { position: relative; overflow: hidden; border-radius: 16px; padding: clamp(26px, 6vw, 52px); margin-bottom: 18px; }
+    .hero::after {
+      content: "MQ";
+      position: absolute;
+      right: -18px;
+      bottom: -55px;
+      font-size: clamp(7rem, 25vw, 13rem);
+      line-height: 1;
+      font-family: "Bebas Neue", Impact, sans-serif;
+      font-weight: 400;
+      letter-spacing: .04em;
+      color: rgba(221, 217, 208, 0.055);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      color: var(--silver-bright);
+      background: var(--panel-soft);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1, h2, .button { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; }
+    h1 { max-width: 720px; margin: 18px 0 14px; font-size: clamp(2.7rem, 8vw, 5.2rem); line-height: 0.98; letter-spacing: 0.025em; }
+    .lead { position: relative; z-index: 1; max-width: 700px; margin: 0; color: var(--muted); font-size: 1.06rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { border-radius: 14px; padding: 26px; }
+    .card.wide { grid-column: 1 / -1; }
+    .card h2 { margin: 0 0 14px; color: var(--silver-bright); font-size: 1.65rem; letter-spacing: .04em; }
+    .card p { margin: 0; color: var(--muted); }
+    ol, ul { margin: 0; padding-left: 22px; color: var(--muted); }
+    li + li { margin-top: 9px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.12rem;
+      letter-spacing: .05em;
+      border: 1px solid transparent;
+    }
+    .button.secondary { border-color: var(--border-strong); color: var(--silver-bright); background: var(--panel-soft); }
+    .button.secondary:hover, .button.secondary:focus-visible { background: rgba(185, 182, 174, 0.15); }
+    .notice { border-left: 3px solid var(--danger); padding: 13px 15px; margin-top: 18px; border-radius: 0 8px 8px 0; background: rgba(143, 36, 50, 0.09); color: var(--muted); }
+    footer { padding-top: 24px; text-align: center; color: #77756f; font-size: 0.9rem; }
+
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .card.wide { grid-column: auto; }
+      .hero, .card { border-radius: 19px; }
+      .card { padding: 21px; }
+      .actions, .button { width: 100%; }
+    }
+  </style>
+  <link rel="stylesheet" href="privacy-theme.css">
 </head>
-<body>
+<body class="account-page theme-moviequiz">
   <main class="shell">
     <div class="topbar">
-      <a class="brand-link" id="backLink" href="../index.html">
-        <img src="../images/careo-logo.jpg" alt="CAREO LIMITED">
-        <span id="backLinkText">← Back to CAREO LIMITED</span>
-      </a>
+      <a class="home-button" id="homeLink" href="../index.html">← Home</a>
       <select id="languageSelect" aria-label="Language">
-        <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="ja">🇯🇵 日本語</option><option value="ko">🇰🇷 한국어</option><option value="pt">🇵🇹 Português</option><option value="ru">🇷🇺 Русский</option><option value="es">🇪🇸 Español</option><option value="tr">🇹🇷 Türkçe</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="tr">🇹🇷 Türkçe</option>
       </select>
     </div>
+
     <header class="hero">
-      <img class="app-mark" src="../images/moviequiz-logo.png" alt="Movie Quiz app icon">
       <span class="badge" id="badge"></span>
       <h1 id="title"></h1>
       <p class="lead" id="intro"></p>
     </header>
+
     <section class="grid">
       <article class="card wide">
         <h2 id="inAppTitle"></h2>
         <ol id="inAppSteps"></ol>
         <div class="notice" id="deletionWarning"></div>
       </article>
+
       <article class="card wide">
         <h2 id="dataTitle"></h2>
         <ul id="dataItems"></ul>
       </article>
+
       <article class="card wide">
         <h2 id="retentionTitle"></h2>
         <p id="retentionText"></p>
@@ -172,9 +177,11 @@
         </div>
       </article>
     </section>
+
     <footer>CAREO LIMITED · <a href="mailto:careolimited@gmail.com">careolimited@gmail.com</a></footer>
   </main>
-<script>
+
+  <script>
     const content = {
       en: {
         back: "← Back to CAREO LIMITED", badge: "Movie Quiz account", title: "Delete your account",
@@ -285,10 +292,6 @@
       document.documentElement.lang = lang;
       document.title = `${copy.title} | Movie Quiz | CAREO LIMITED`;
       select.value = lang;
-      const backLink = document.getElementById("backLink");
-      const backLinkText = document.getElementById("backLinkText");
-      backLink.href = `../index.html?lang=${encodeURIComponent(lang)}`;
-      backLinkText.textContent = copy.back;
       ["badge", "title", "intro", "inAppTitle", "deletionWarning", "dataTitle", "retentionTitle", "retentionText"].forEach((id) => {
         const key = id === "deletionWarning" ? "warning" : id === "retentionText" ? "retention" : id;
         document.getElementById(id).textContent = copy[key];
@@ -298,6 +301,9 @@
       const privacy = document.getElementById("privacyLink");
       privacy.textContent = copy.privacy;
       privacy.href = `moviequiz.html?lang=${encodeURIComponent(lang)}`;
+      const home = document.getElementById("homeLink");
+      home.textContent = ({ en:"← Home", fr:"← Accueil", de:"← Startseite", it:"← Home", ja:"← ホーム", ko:"← 홈", pt:"← Início", ru:"← Главная", es:"← Inicio", tr:"← Ana Sayfa" })[lang] || "← Home";
+      home.href = `../index.html?lang=${encodeURIComponent(lang)}#apps`;
       localStorage.setItem("careo-language", lang);
       const url = new URL(window.location.href);
       url.searchParams.set("lang", lang);
