@@ -8,36 +8,329 @@
   <link rel="apple-touch-icon" href="../images/careo-logo.jpg">
   <meta name="description" content="Privacy Policy for ArchiveR by CAREO LIMITED." />
   <style>
-    :root { --bg:#061b36; --card:rgba(255,255,255,0.08); --card-border:rgba(255,255,255,0.14); --text:#f5f7fb; --muted:#c8d2e3; --accent:#d7bc79; --shadow:0 20px 50px rgba(0,0,0,0.28); --radius:22px; --max:980px; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--text); background: radial-gradient(circle at top left, rgba(215,188,121,0.16), transparent 32%), radial-gradient(circle at top right, rgba(255,138,101,0.13), transparent 28%), linear-gradient(180deg, var(--bg) 0%, #041325 100%); line-height:1.7; }
-    .container { width:min(calc(100% - 32px), var(--max)); margin:0 auto; padding:32px 0 64px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:18px; flex-wrap:wrap; }
-    .back-link { display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-weight:600; text-decoration:none; font-size:0.95rem; }
-    .back-link:hover { color:var(--text); }
-    .language-select { min-height:38px; border-radius:12px; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.07); color:var(--text); padding:0 12px; font:inherit; font-size:0.92rem; outline:none; }
-    .language-select option { color:#061b36; background:#fff; }
-    .card { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); box-shadow:var(--shadow); padding:32px; }
-    h1,h2,p,ul { margin-top:0; }
-    h1 { font-size:clamp(2rem,5vw,3rem); line-height:1.1; margin-bottom:12px; }
-    h2 { font-size:1.2rem; margin:28px 0 12px; }
-    p,li { color:var(--muted); font-size:1rem; }
-    .meta { color:var(--muted); margin-bottom:24px; }
-    a { color:var(--text); }
-    ul { padding-left:22px; }
-    @media (max-width:720px) { .card { padding:22px; } }
-  </style>
+  :root {
+    --bg-1:#091b18;
+    --bg-2:#163a33;
+    --bg-3:#245b51;
+    --text:#f4f8f6;
+    --muted:#cfddd8;
+    --accent:#b7791f;
+    --glow:rgba(70,151,135,.36);
+    --glow-2:rgba(183,121,31,.30);
+    --line:rgba(244,248,246,.14);
+    --panel:rgba(10,31,27,.80);
+    --ink:#061b36;
+    --paper:#f3efe6;
+    --max:1120px;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0;
+    min-height:100vh;
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.68;
+    background:
+      radial-gradient(circle at 8% 12%, var(--glow), transparent 30%),
+      radial-gradient(circle at 90% 76%, var(--glow-2), transparent 32%),
+      linear-gradient(135deg,var(--bg-1) 0%,var(--bg-2) 58%,var(--bg-3) 100%);
+    background-attachment:fixed;
+    overflow-x:hidden;
+  }
+  body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.20;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:54px 54px;
+    mask-image:linear-gradient(to bottom,#000,transparent 92%);
+  }
+  body::after {
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+    opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    mix-blend-mode:soft-light;
+  }
+  a { color:inherit; }
+  img { display:block; max-width:100%; }
+
+  .legal-masthead {
+    width:min(calc(100% - 34px),1280px);
+    margin:18px auto 0;
+    min-height:72px;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:22px;
+    padding:9px 10px 9px 12px;
+    background:#061b36;
+    color:#f3efe6;
+    border:1px solid rgba(243,239,230,.18);
+    box-shadow:6px 6px 0 var(--accent);
+    position:relative;
+    z-index:5;
+  }
+  .legal-brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+  }
+  .legal-brand img {
+    width:46px;
+    height:46px;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,.34);
+    border-radius:12px;
+  }
+  .legal-brand strong {
+    display:block;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.80rem;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+  }
+  .legal-brand span {
+    display:block;
+    margin-top:2px;
+    font-size:.72rem;
+    opacity:.66;
+  }
+  .legal-rule {
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--accent),transparent);
+    opacity:.65;
+  }
+  .top-actions {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+    min-width:0;
+  }
+  .back-link {
+    min-height:40px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 13px;
+    border:1px solid rgba(243,239,230,.28);
+    border-radius:999px;
+    color:#f3efe6;
+    text-decoration:none;
+    font-size:.76rem;
+    font-weight:800;
+    white-space:nowrap;
+    transition:.18s ease;
+  }
+  .back-link:hover,.back-link:focus-visible {
+    border-color:var(--accent);
+    background:rgba(255,255,255,.07);
+  }
+  .language-select {
+    appearance:none;
+    min-height:40px;
+    padding:0 38px 0 14px;
+    border:1px solid rgba(243,239,230,.28);
+    border-radius:999px;
+    color:#f3efe6;
+    background:
+      linear-gradient(45deg,transparent 50%,var(--accent) 50%) calc(100% - 16px) 16px/5px 5px no-repeat,
+      linear-gradient(135deg,var(--accent) 50%,transparent 50%) calc(100% - 11px) 16px/5px 5px no-repeat,
+      rgba(243,239,230,.055);
+    font:inherit;
+    font-size:.76rem;
+    font-weight:700;
+    outline:none;
+    cursor:pointer;
+  }
+  .language-select option { color:#061b36; background:#fff; }
+
+  .container {
+    width:min(calc(100% - 34px),var(--max));
+    margin:0 auto;
+    padding:clamp(54px,8vw,100px) 0 84px;
+  }
+  .legal-shell {
+    position:relative;
+  }
+  .legal-shell::before {
+    content:"ArchiveR";
+    position:absolute;
+    right:-.03em;
+    top:-.25em;
+    z-index:-1;
+    font-size:clamp(7rem,19vw,15rem);
+    font-weight:900;
+    line-height:.8;
+    letter-spacing:-.08em;
+    color:transparent;
+    -webkit-text-stroke:1px var(--line);
+    opacity:.56;
+    pointer-events:none;
+    white-space:nowrap;
+  }
+  .card {
+    background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.025)),var(--panel);
+    border:1px solid var(--line);
+    border-radius:32px;
+    box-shadow:0 30px 90px rgba(0,0,0,.30);
+    padding:clamp(28px,5vw,62px);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    overflow:hidden;
+    position:relative;
+  }
+  .card::before {
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:7px;
+    background:linear-gradient(90deg,var(--accent),transparent 72%);
+  }
+  .card h1,.card h2,.card p,.card ul {
+    position:relative;
+    z-index:1;
+  }
+  .card h1 {
+    margin:0 0 24px;
+    max-width:900px;
+    font-size:clamp(2.9rem,7.4vw,6.6rem);
+    line-height:.96;
+    letter-spacing:-.055em;
+    font-weight:900;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    hyphens:auto;
+  }
+  .card .meta {
+    margin:0 0 34px;
+    padding:18px 20px;
+    border-left:5px solid var(--accent);
+    background:rgba(255,255,255,.055);
+    color:var(--muted);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.84rem;
+    line-height:1.75;
+    border-radius:0 14px 14px 0;
+  }
+  .card h2 {
+    margin:42px 0 13px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:clamp(1.18rem,2vw,1.55rem);
+    line-height:1.25;
+    letter-spacing:-.02em;
+    color:var(--text);
+    overflow-wrap:anywhere;
+  }
+  .card h2::before {
+    content:"";
+    display:inline-block;
+    width:13px;
+    height:13px;
+    margin-right:11px;
+    background:var(--accent);
+    transform:rotate(45deg);
+    vertical-align:.02em;
+  }
+  .card p,.card li {
+    color:var(--muted);
+    font-size:clamp(.98rem,1.25vw,1.08rem);
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+  .card p { margin:0 0 16px; }
+  .card ul {
+    margin:0 0 18px;
+    padding-left:24px;
+    color:var(--muted);
+  }
+  .card li { margin:8px 0; padding-left:4px; }
+  .card a {
+    color:var(--text);
+    text-decoration-color:var(--accent);
+    text-decoration-thickness:2px;
+    text-underline-offset:3px;
+  }
+  .card a:hover { color:var(--accent); }
+
+  .legal-footer {
+    width:min(calc(100% - 34px),var(--max));
+    margin:0 auto 42px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.72rem;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+  }
+
+  html[lang="ja"] .card h1,
+  html[lang="ko"] .card h1 { line-height:1.08; letter-spacing:-.035em; }
+
+  @media (max-width:760px) {
+    .legal-masthead {
+      width:calc(100% - 20px);
+      grid-template-columns:1fr auto;
+      gap:10px;
+      margin-top:10px;
+      box-shadow:4px 4px 0 var(--accent);
+    }
+    .legal-rule { display:none; }
+    .top-actions {
+      grid-column:1 / -1;
+      width:100%;
+      justify-content:space-between;
+      padding-top:7px;
+      border-top:1px solid rgba(255,255,255,.16);
+    }
+    .back-link { max-width:58%; overflow:hidden; text-overflow:ellipsis; }
+    .language-select { max-width:154px; }
+    .container { width:min(calc(100% - 22px),var(--max)); padding-top:48px; }
+    .card { border-radius:24px; padding:27px 21px 34px; }
+    .card h1 { font-size:clamp(2.7rem,14vw,4.8rem); }
+    .legal-shell::before { font-size:28vw; top:-.1em; }
+    .legal-footer { width:calc(100% - 22px); }
+  }
+</style>
 </head>
 <body>
-  <main class="container">
-    <div class="topbar">
+  <header class="legal-masthead">
+    <div class="legal-brand">
+      <img src="../images/archiver-logo.png" alt="ArchiveR app icon" />
+      <div>
+        <strong>CAreo Limited</strong>
+        <span>ArchiveR</span>
+      </div>
+    </div>
+    <div class="legal-rule" aria-hidden="true"></div>
+    <div class="top-actions">
       <a class="back-link" id="backLink" href="../index.html">← Back to CAREO LIMITED</a>
       <select class="language-select" id="languageSelect" aria-label="Language">
         <option value="en">🇬🇧 English</option><option value="fr">🇫🇷 Français</option><option value="de">🇩🇪 Deutsch</option><option value="it">🇮🇹 Italiano</option><option value="ja">🇯🇵 日本語</option><option value="ko">🇰🇷 한국어</option><option value="pt">🇵🇹 Português</option><option value="ru">🇷🇺 Русский</option><option value="es">🇪🇸 Español</option><option value="tr">🇹🇷 Türkçe</option>
       </select>
     </div>
-    <section class="card" id="policyContent"></section>
+  </header>
+  <main class="container">
+    <div class="legal-shell">
+      <section class="card" id="policyContent"></section>
+    </div>
   </main>
+  <footer class="legal-footer">CAREO LIMITED · careolimited.com</footer>
 <script>
   const policyData = {"en": [{"type": "h1", "text": "Privacy Policy - ArchiveR"}, {"type": "meta", "html": "<strong>Last updated:</strong> May 2026<br><strong>App:</strong> ArchiveR<br><strong>Developer / Publisher:</strong> CAREO LIMITED<br><strong>Contact:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR respects your privacy. This Policy explains what information may be processed, how it is used, and your rights when you use the mobile application on iOS and Android."}, {"type": "h2", "text": "1. Data Processing Overview"}, {"type": "p", "text": "ArchiveR is designed to keep core app data on your device where possible. We do not sell personal data and we only use third-party services where they are needed for the features described below."}, {"type": "h2", "text": "2. Locally Stored Data"}, {"type": "p", "text": "The app may store data related to inventory items, collections, quantities, prices, locations, notes, tags, barcode or QR mappings, photos, dashboard preferences and imported metadata locally on your device. This data is used to provide app features, remember preferences and support offline usage where available."}, {"type": "h2", "text": "3. Processing Purposes"}, {"type": "ul", "items": ["Provide core app functionality", "Remember user preferences", "Support offline usage where available", "Process purchases or premium access where applicable", "Improve stability and prevent abuse"]}, {"type": "h2", "text": "4. Third-Party Services"}, {"type": "p", "text": "The app may use the following third-party services or providers: Google AdMob and optional public metadata lookup providers. These services operate under their own privacy policies."}, {"type": "h2", "text": "5. Advertising and Tracking"}, {"type": "p", "text": "Google AdMob may be used for ads. Optional metadata lookup requests occur only when started by the user."}, {"type": "h2", "text": "6. Purchases and Premium Features"}, {"type": "p", "text": "Optional purchases, subscriptions or premium access may be processed by Apple App Store or Google Play. We do not receive or store credit card details. Purchase status may be stored locally or verified through the relevant store."}, {"type": "h2", "text": "7. Data Sharing"}, {"type": "p", "text": "We do not sell personal data. Locally stored app content is not shared with CAREO LIMITED servers. Limited data may be processed by third-party providers only as described in this Policy."}, {"type": "h2", "text": "8. Data Retention and Deletion"}, {"type": "p", "text": "Local data remains on your device until you delete it, reset the app, or uninstall the app. Store payment records, advertising data and analytics data are retained by the relevant providers according to their own policies."}, {"type": "h2", "text": "9. User Rights"}, {"type": "p", "text": "Depending on your region, you may have rights to access, correct, delete, restrict, or object to processing. Because most app data is stored locally, you can usually manage or remove it directly through the app or your device settings."}, {"type": "h2", "text": "10. Data Security"}, {"type": "p", "text": "We use HTTPS for external communications where applicable and design our apps to minimize data collection. No software or device environment can guarantee absolute security."}, {"type": "h2", "text": "11. Children’s Privacy"}, {"type": "p", "text": "The app is not directed to children under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided personal data, contact us."}, {"type": "h2", "text": "12. International Data Transfers"}, {"type": "p", "text": "Third-party providers may process limited data in countries outside your own. Appropriate safeguards apply where required by law."}, {"type": "h2", "text": "13. Contact"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Policy Updates"}, {"type": "p", "text": "We may update this Policy if app features, third-party services or legal requirements change. Updates will be reflected with a new Last updated date. Continued use of the app implies acceptance of the updated Policy."}], "fr": [{"type": "h1", "text": "Politique de confidentialité - ArchiveR"}, {"type": "meta", "html": "<strong>Dernière mise à jour:</strong> May 2026<br><strong>App:</strong> ArchiveR<br><strong>Développeur / Éditeur:</strong> CAREO LIMITED<br><strong>Contact:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR respecte votre vie privée. Cette Politique explique quelles informations peuvent être traitées, comment elles sont utilisées et quels sont vos droits lorsque vous utilisez l’application mobile sur iOS et Android."}, {"type": "h2", "text": "1. Aperçu du traitement des données"}, {"type": "p", "text": "ArchiveR est conçue pour conserver les données principales sur votre appareil lorsque cela est possible. Nous ne vendons pas de données personnelles et nous utilisons des services tiers uniquement lorsqu’ils sont nécessaires aux fonctions décrites ci-dessous."}, {"type": "h2", "text": "2. Données stockées localement"}, {"type": "p", "text": "L’application peut stocker localement sur votre appareil des données liées à articles d’inventaire, collections, quantités, prix, emplacements, notes, tags, correspondances barcode ou QR, photos, préférences du tableau de bord et métadonnées importées. Ces données servent à fournir les fonctions de l’app, mémoriser vos préférences et permettre l’utilisation hors ligne lorsque disponible."}, {"type": "h2", "text": "3. Finalités du traitement"}, {"type": "ul", "items": ["Fournir les fonctions principales de l’application", "Mémoriser les préférences utilisateur", "Permettre l’utilisation hors ligne lorsque disponible", "Traiter les achats ou l’accès Premium si applicable", "Améliorer la stabilité et prévenir les abus"]}, {"type": "h2", "text": "4. Services tiers"}, {"type": "p", "text": "L’application peut utiliser les services ou fournisseurs tiers suivants : Google AdMob and optional public metadata lookup providers. Ces services fonctionnent selon leurs propres politiques de confidentialité."}, {"type": "h2", "text": "5. Publicité et suivi"}, {"type": "p", "text": "Google AdMob peut être utilisé pour les publicités. Les recherches de métadonnées facultatives se produisent uniquement lorsque l’utilisateur les lance."}, {"type": "h2", "text": "6. Achats et fonctions Premium"}, {"type": "p", "text": "Les achats, abonnements ou accès Premium optionnels peuvent être traités par Apple App Store ou Google Play. Nous ne recevons ni ne stockons les informations de carte bancaire. L’état d’achat peut être stocké localement ou vérifié via la boutique concernée."}, {"type": "h2", "text": "7. Partage des données"}, {"type": "p", "text": "Nous ne vendons pas de données personnelles. Le contenu stocké localement n’est pas partagé avec les serveurs de CAREO LIMITED. Des données limitées peuvent être traitées par des fournisseurs tiers uniquement comme décrit dans cette Politique."}, {"type": "h2", "text": "8. Conservation et suppression"}, {"type": "p", "text": "Les données locales restent sur votre appareil jusqu’à ce que vous les supprimiez, réinitialisiez l’app ou désinstalliez l’app. Les enregistrements de paiement, données publicitaires et données d’analyse sont conservés par les fournisseurs concernés selon leurs propres politiques."}, {"type": "h2", "text": "9. Droits des utilisateurs"}, {"type": "p", "text": "Selon votre région, vous pouvez disposer de droits d’accès, de rectification, de suppression, de limitation ou d’opposition. Comme la plupart des données sont stockées localement, vous pouvez généralement les gérer ou les supprimer via l’app ou les réglages de votre appareil."}, {"type": "h2", "text": "10. Sécurité des données"}, {"type": "p", "text": "Nous utilisons HTTPS pour les communications externes lorsque cela s’applique et concevons nos apps pour réduire la collecte de données. Aucun logiciel ni appareil ne peut garantir une sécurité absolue."}, {"type": "h2", "text": "11. Confidentialité des enfants"}, {"type": "p", "text": "L’application ne s’adresse pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment de données personnelles d’enfants de moins de 13 ans. Si vous pensez qu’un enfant a fourni des données personnelles, contactez-nous."}, {"type": "h2", "text": "12. Transferts internationaux"}, {"type": "p", "text": "Des fournisseurs tiers peuvent traiter des données limitées dans des pays autres que le vôtre. Des garanties appropriées s’appliquent lorsque la loi l’exige."}, {"type": "h2", "text": "13. Contact"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Mises à jour de la Politique"}, {"type": "p", "text": "Nous pouvons mettre à jour cette Politique si les fonctions de l’app, les services tiers ou les exigences légales changent. Les mises à jour seront indiquées par une nouvelle date de mise à jour. L’utilisation continue de l’app implique l’acceptation de la Politique mise à jour."}], "de": [{"type": "h1", "text": "Datenschutzerklärung - ArchiveR"}, {"type": "meta", "html": "<strong>Letzte Aktualisierung:</strong> May 2026<br><strong>App:</strong> ArchiveR<br><strong>Entwickler / Herausgeber:</strong> CAREO LIMITED<br><strong>Kontakt:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR respektiert Ihre Privatsphäre. Diese Richtlinie erklärt, welche Informationen verarbeitet werden können, wie sie verwendet werden und welche Rechte Sie bei der Nutzung der mobilen App auf iOS und Android haben."}, {"type": "h2", "text": "1. Überblick zur Datenverarbeitung"}, {"type": "p", "text": "ArchiveR ist so gestaltet, dass Kerndaten nach Möglichkeit auf Ihrem Gerät bleiben. Wir verkaufen keine personenbezogenen Daten und verwenden Drittanbieter nur, wenn sie für die unten beschriebenen Funktionen erforderlich sind."}, {"type": "h2", "text": "2. Lokal gespeicherte Daten"}, {"type": "p", "text": "Die App kann Daten zu Inventarobjekte, Sammlungen, Mengen, Preise, Standorte, Notizen, Tags, Barcode- oder QR-Zuordnungen, Fotos, Dashboard-Einstellungen und importierte Metadaten lokal auf Ihrem Gerät speichern. Diese Daten werden genutzt, um App-Funktionen bereitzustellen, Einstellungen zu merken und Offline-Nutzung zu unterstützen, sofern verfügbar."}, {"type": "h2", "text": "3. Zwecke der Verarbeitung"}, {"type": "ul", "items": ["Bereitstellung der Kernfunktionen", "Speichern von Nutzereinstellungen", "Unterstützung der Offline-Nutzung, sofern verfügbar", "Verarbeitung von Käufen oder Premium-Zugriff, sofern zutreffend", "Verbesserung der Stabilität und Verhinderung von Missbrauch"]}, {"type": "h2", "text": "4. Drittanbieter-Dienste"}, {"type": "p", "text": "Die App kann folgende Drittanbieter-Dienste oder Anbieter verwenden: Google AdMob and optional public metadata lookup providers. Diese Dienste unterliegen ihren eigenen Datenschutzrichtlinien."}, {"type": "h2", "text": "5. Werbung und Tracking"}, {"type": "p", "text": "Google AdMob kann für Werbung verwendet werden. Optionale Metadatenabfragen erfolgen nur, wenn der Nutzer sie startet."}, {"type": "h2", "text": "6. Käufe und Premium-Funktionen"}, {"type": "p", "text": "Optionale Käufe, Abonnements oder Premium-Zugriffe können über Apple App Store oder Google Play verarbeitet werden. Wir erhalten oder speichern keine Kreditkartendaten. Der Kaufstatus kann lokal gespeichert oder über den jeweiligen Store geprüft werden."}, {"type": "h2", "text": "7. Datenweitergabe"}, {"type": "p", "text": "Wir verkaufen keine personenbezogenen Daten. Lokal gespeicherte App-Inhalte werden nicht mit CAREO LIMITED-Servern geteilt. Begrenzte Daten können nur wie in dieser Richtlinie beschrieben durch Drittanbieter verarbeitet werden."}, {"type": "h2", "text": "8. Aufbewahrung und Löschung"}, {"type": "p", "text": "Lokale Daten bleiben auf Ihrem Gerät, bis Sie sie löschen, die App zurücksetzen oder deinstallieren. Zahlungs-, Werbe- und Analysedaten werden von den jeweiligen Anbietern gemäß deren Richtlinien gespeichert."}, {"type": "h2", "text": "9. Nutzerrechte"}, {"type": "p", "text": "Je nach Region können Sie Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung oder Widerspruch haben. Da die meisten App-Daten lokal gespeichert werden, können Sie sie meist direkt in der App oder den Geräteeinstellungen verwalten oder entfernen."}, {"type": "h2", "text": "10. Datensicherheit"}, {"type": "p", "text": "Wir verwenden HTTPS für externe Kommunikation, sofern zutreffend, und gestalten unsere Apps so, dass die Datenerhebung minimiert wird. Keine Software- oder Geräteumgebung kann absolute Sicherheit garantieren."}, {"type": "h2", "text": "11. Datenschutz von Kindern"}, {"type": "p", "text": "Die App richtet sich nicht an Kinder unter 13 Jahren. Wir sammeln wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren. Wenn Sie glauben, dass ein Kind personenbezogene Daten bereitgestellt hat, kontaktieren Sie uns."}, {"type": "h2", "text": "12. Internationale Datenübertragungen"}, {"type": "p", "text": "Drittanbieter können begrenzte Daten in Ländern außerhalb Ihres Landes verarbeiten. Gesetzlich erforderliche Schutzmaßnahmen werden angewendet."}, {"type": "h2", "text": "13. Kontakt"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Aktualisierungen"}, {"type": "p", "text": "Wir können diese Richtlinie aktualisieren, wenn sich App-Funktionen, Drittanbieter-Dienste oder gesetzliche Anforderungen ändern. Aktualisierungen werden mit einem neuen Aktualisierungsdatum angezeigt. Die weitere Nutzung der App gilt als Zustimmung."}], "it": [{"type": "h1", "text": "Informativa sulla privacy - ArchiveR"}, {"type": "meta", "html": "<strong>Ultimo aggiornamento:</strong> May 2026<br><strong>App:</strong> ArchiveR<br><strong>Sviluppatore / Editore:</strong> CAREO LIMITED<br><strong>Contatto:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR rispetta la tua privacy. Questa Informativa spiega quali informazioni possono essere trattate, come vengono utilizzate e quali diritti hai quando usi l’app mobile su iOS e Android."}, {"type": "h2", "text": "1. Panoramica del trattamento dei dati"}, {"type": "p", "text": "ArchiveR è progettata per mantenere i dati principali sul dispositivo quando possibile. Non vendiamo dati personali e usiamo servizi di terze parti solo quando necessari per le funzioni descritte di seguito."}, {"type": "h2", "text": "2. Dati archiviati localmente"}, {"type": "p", "text": "L’app può archiviare localmente sul dispositivo dati relativi a articoli di inventario, collezioni, quantità, prezzi, posizioni, note, tag, associazioni barcode o QR, foto, preferenze dashboard e metadati importati. Questi dati servono a fornire le funzioni dell’app, ricordare le preferenze e supportare l’uso offline dove disponibile."}, {"type": "h2", "text": "3. Finalità del trattamento"}, {"type": "ul", "items": ["Fornire le funzioni principali dell’app", "Ricordare le preferenze dell’utente", "Supportare l’uso offline dove disponibile", "Gestire acquisti o accesso Premium se applicabile", "Migliorare stabilità e prevenire abusi"]}, {"type": "h2", "text": "4. Servizi di terze parti"}, {"type": "p", "text": "L’app può usare i seguenti servizi o fornitori di terze parti: Google AdMob and optional public metadata lookup providers. Questi servizi operano secondo le proprie informative sulla privacy."}, {"type": "h2", "text": "5. Pubblicità e tracciamento"}, {"type": "p", "text": "Google AdMob può essere usato per gli annunci. Le ricerche facoltative di metadati avvengono solo quando avviate dall’utente."}, {"type": "h2", "text": "6. Acquisti e funzioni Premium"}, {"type": "p", "text": "Acquisti, abbonamenti o accessi Premium facoltativi possono essere elaborati da Apple App Store o Google Play. Non riceviamo né memorizziamo dati della carta di credito. Lo stato di acquisto può essere salvato localmente o verificato tramite lo store pertinente."}, {"type": "h2", "text": "7. Condivisione dei dati"}, {"type": "p", "text": "Non vendiamo dati personali. I contenuti dell’app archiviati localmente non vengono condivisi con server CAREO LIMITED. Dati limitati possono essere trattati da fornitori terzi solo come descritto in questa Informativa."}, {"type": "h2", "text": "8. Conservazione e cancellazione"}, {"type": "p", "text": "I dati locali restano sul dispositivo finché non li elimini, reimposti l’app o disinstalli l’app. Dati di pagamento, pubblicità e analisi sono conservati dai rispettivi fornitori secondo le loro politiche."}, {"type": "h2", "text": "9. Diritti degli utenti"}, {"type": "p", "text": "A seconda della tua regione, potresti avere diritti di accesso, rettifica, cancellazione, limitazione o opposizione. Poiché la maggior parte dei dati è archiviata localmente, di solito puoi gestirli o rimuoverli tramite l’app o le impostazioni del dispositivo."}, {"type": "h2", "text": "10. Sicurezza dei dati"}, {"type": "p", "text": "Usiamo HTTPS per le comunicazioni esterne quando applicabile e progettiamo le nostre app per ridurre la raccolta dati. Nessun software o dispositivo può garantire sicurezza assoluta."}, {"type": "h2", "text": "11. Privacy dei minori"}, {"type": "p", "text": "L’app non è rivolta a minori di 13 anni. Non raccogliamo consapevolmente dati personali da minori di 13 anni. Se ritieni che un minore abbia fornito dati personali, contattaci."}, {"type": "h2", "text": "12. Trasferimenti internazionali"}, {"type": "p", "text": "Fornitori terzi possono trattare dati limitati in paesi diversi dal tuo. Si applicano garanzie adeguate quando richiesto dalla legge."}, {"type": "h2", "text": "13. Contatto"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Aggiornamenti"}, {"type": "p", "text": "Possiamo aggiornare questa Informativa se cambiano funzioni dell’app, servizi terzi o requisiti legali. Gli aggiornamenti saranno indicati con una nuova data. L’uso continuato dell’app implica accettazione."}], "ja": [{"type": "h1", "text": "プライバシーポリシー - ArchiveR"}, {"type": "meta", "html": "<strong>最終更新:</strong> May 2026<br><strong>アプリ:</strong> ArchiveR<br><strong>開発者 / 発行者:</strong> CAREO LIMITED<br><strong>連絡先:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveRはプライバシーを尊重します。本ポリシーは、iOSおよびAndroidのモバイルアプリを利用する際に処理される可能性のある情報、その利用方法、ユーザーの権利について説明します。"}, {"type": "h2", "text": "1. データ処理の概要"}, {"type": "p", "text": "ArchiveRは、可能な限り主要なアプリデータを端末内に保持するよう設計されています。個人データを販売することはなく、以下の機能に必要な場合のみ第三者サービスを使用します。"}, {"type": "h2", "text": "2. ローカル保存データ"}, {"type": "p", "text": "アプリは在庫アイテム、コレクション、数量、価格、場所、メモ、タグ、バーコードまたはQRの関連付け、写真、ダッシュボード設定、インポートされたメタデータに関連するデータを端末内に保存する場合があります。これらのデータは、機能提供、設定の保存、利用可能な場合のオフライン利用のために使用されます。"}, {"type": "h2", "text": "3. 処理目的"}, {"type": "ul", "items": ["アプリの主要機能を提供するため", "ユーザー設定を保存するため", "利用可能な場合にオフライン利用を支援するため", "該当する場合に購入またはPremiumアクセスを処理するため", "安定性を向上し、不正利用を防止するため"]}, {"type": "h2", "text": "4. 第三者サービス"}, {"type": "p", "text": "アプリは次の第三者サービスまたは提供元を使用する場合があります: Google AdMob and optional public metadata lookup providers。これらのサービスにはそれぞれのプライバシーポリシーが適用されます。"}, {"type": "h2", "text": "5. 広告とトラッキング"}, {"type": "p", "text": "Google AdMobが広告に使用される場合があります。任意のメタデータ検索はユーザーが開始した場合にのみ行われます。"}, {"type": "h2", "text": "6. 購入とPremium機能"}, {"type": "p", "text": "任意の購入、サブスクリプション、PremiumアクセスはApple App StoreまたはGoogle Playによって処理される場合があります。当社はクレジットカード情報を受け取ったり保存したりしません。購入状態はローカルに保存されるか、該当ストアで確認される場合があります。"}, {"type": "h2", "text": "7. データ共有"}, {"type": "p", "text": "当社は個人データを販売しません。端末内に保存されたアプリ内容はCAREO LIMITEDのサーバーと共有されません。限定的なデータは本ポリシーに記載された場合のみ第三者提供元により処理されます。"}, {"type": "h2", "text": "8. 保持と削除"}, {"type": "p", "text": "ローカルデータは、ユーザーが削除、アプリをリセット、またはアンインストールするまで端末に残ります。支払い記録、広告データ、分析データは各提供元のポリシーに従って保持されます。"}, {"type": "h2", "text": "9. ユーザーの権利"}, {"type": "p", "text": "地域によって、アクセス、訂正、削除、制限、異議申し立ての権利がある場合があります。多くのデータはローカル保存のため、通常はアプリまたは端末設定から管理または削除できます。"}, {"type": "h2", "text": "10. データセキュリティ"}, {"type": "p", "text": "該当する場合、外部通信にはHTTPSを使用し、データ収集を最小限にするよう設計しています。ただし、ソフトウェアや端末環境が絶対的な安全性を保証することはできません。"}, {"type": "h2", "text": "11. 子どものプライバシー"}, {"type": "p", "text": "本アプリは13歳未満の子どもを対象としていません。13歳未満の子どもから意図的に個人データを収集することはありません。子どもが個人データを提供したと思われる場合はお問い合わせください。"}, {"type": "h2", "text": "12. 国際データ移転"}, {"type": "p", "text": "第三者提供元は、ユーザーの国以外で限定的なデータを処理する場合があります。法律で求められる場合は適切な保護措置が適用されます。"}, {"type": "h2", "text": "13. お問い合わせ"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. ポリシー更新"}, {"type": "p", "text": "アプリ機能、第三者サービス、法的要件が変更された場合、本ポリシーを更新することがあります。更新は新しい最終更新日で表示されます。アプリの継続利用は更新後のポリシーへの同意を意味します。"}], "ko": [{"type": "h1", "text": "개인정보 처리방침 - ArchiveR"}, {"type": "meta", "html": "<strong>마지막 업데이트:</strong> May 2026<br><strong>앱:</strong> ArchiveR<br><strong>개발자 / 게시자:</strong> CAREO LIMITED<br><strong>문의:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR은 개인정보를 존중합니다. 본 정책은 iOS 및 Android 모바일 앱을 사용할 때 어떤 정보가 처리될 수 있는지, 어떻게 사용되는지, 사용자의 권리가 무엇인지 설명합니다."}, {"type": "h2", "text": "1. 데이터 처리 개요"}, {"type": "p", "text": "ArchiveR은 가능한 경우 핵심 앱 데이터를 사용자의 기기에 보관하도록 설계되었습니다. 당사는 개인정보를 판매하지 않으며 아래 기능에 필요한 경우에만 제3자 서비스를 사용합니다."}, {"type": "h2", "text": "2. 로컬 저장 데이터"}, {"type": "p", "text": "앱은 재고 항목, 컬렉션, 수량, 가격, 위치, 메모, 태그, 바코드 또는 QR 매핑, 사진, 대시보드 설정 및 가져온 메타데이터와 관련된 데이터를 기기에 로컬로 저장할 수 있습니다. 이 데이터는 앱 기능 제공, 설정 기억, 가능한 경우 오프라인 사용 지원에 사용됩니다."}, {"type": "h2", "text": "3. 처리 목적"}, {"type": "ul", "items": ["핵심 앱 기능 제공", "사용자 설정 기억", "가능한 경우 오프라인 사용 지원", "해당되는 경우 구매 또는 Premium 접근 처리", "안정성 개선 및 남용 방지"]}, {"type": "h2", "text": "4. 제3자 서비스"}, {"type": "p", "text": "앱은 다음 제3자 서비스 또는 제공업체를 사용할 수 있습니다: Google AdMob and optional public metadata lookup providers. 해당 서비스에는 각자의 개인정보 처리방침이 적용됩니다."}, {"type": "h2", "text": "5. 광고 및 추적"}, {"type": "p", "text": "Google AdMob이 광고에 사용될 수 있습니다. 선택적 메타데이터 조회는 사용자가 시작한 경우에만 발생합니다."}, {"type": "h2", "text": "6. 구매 및 Premium 기능"}, {"type": "p", "text": "선택적 구매, 구독 또는 Premium 접근은 Apple App Store 또는 Google Play에서 처리될 수 있습니다. 당사는 신용카드 정보를 받거나 저장하지 않습니다. 구매 상태는 로컬에 저장되거나 해당 스토어를 통해 확인될 수 있습니다."}, {"type": "h2", "text": "7. 데이터 공유"}, {"type": "p", "text": "당사는 개인정보를 판매하지 않습니다. 로컬에 저장된 앱 콘텐츠는 CAREO LIMITED 서버와 공유되지 않습니다. 제한된 데이터는 본 정책에 설명된 경우에만 제3자 제공업체에 의해 처리될 수 있습니다."}, {"type": "h2", "text": "8. 보관 및 삭제"}, {"type": "p", "text": "로컬 데이터는 사용자가 삭제하거나 앱을 초기화하거나 제거할 때까지 기기에 남습니다. 스토어 결제 기록, 광고 데이터 및 분석 데이터는 해당 제공업체 정책에 따라 보관됩니다."}, {"type": "h2", "text": "9. 사용자 권리"}, {"type": "p", "text": "지역에 따라 접근, 정정, 삭제, 제한 또는 반대 권리가 있을 수 있습니다. 대부분의 앱 데이터는 로컬에 저장되므로 일반적으로 앱 또는 기기 설정에서 직접 관리하거나 제거할 수 있습니다."}, {"type": "h2", "text": "10. 데이터 보안"}, {"type": "p", "text": "해당되는 경우 외부 통신에 HTTPS를 사용하며 데이터 수집을 최소화하도록 앱을 설계합니다. 어떤 소프트웨어나 기기 환경도 절대적인 보안을 보장할 수는 없습니다."}, {"type": "h2", "text": "11. 아동 개인정보"}, {"type": "p", "text": "앱은 13세 미만 아동을 대상으로 하지 않습니다. 당사는 13세 미만 아동의 개인정보를 고의로 수집하지 않습니다. 아동이 개인정보를 제공했다고 생각되면 문의해 주세요."}, {"type": "h2", "text": "12. 국제 데이터 이전"}, {"type": "p", "text": "제3자 제공업체는 사용자의 국가 외 지역에서 제한된 데이터를 처리할 수 있습니다. 법에서 요구하는 경우 적절한 보호조치가 적용됩니다."}, {"type": "h2", "text": "13. 문의"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. 정책 업데이트"}, {"type": "p", "text": "앱 기능, 제3자 서비스 또는 법적 요구사항이 변경되면 본 정책을 업데이트할 수 있습니다. 업데이트는 새로운 마지막 업데이트 날짜로 표시됩니다. 앱을 계속 사용하면 업데이트된 정책에 동의한 것으로 간주됩니다."}], "pt": [{"type": "h1", "text": "Política de Privacidade - ArchiveR"}, {"type": "meta", "html": "<strong>Última atualização:</strong> May 2026<br><strong>App:</strong> ArchiveR<br><strong>Programador / Editor:</strong> CAREO LIMITED<br><strong>Contacto:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR respeita a sua privacidade. Esta Política explica que informações podem ser tratadas, como são utilizadas e quais são os seus direitos ao usar a aplicação móvel em iOS e Android."}, {"type": "h2", "text": "1. Visão geral do tratamento de dados"}, {"type": "p", "text": "ArchiveR foi concebida para manter os dados principais no seu dispositivo sempre que possível. Não vendemos dados pessoais e usamos serviços de terceiros apenas quando são necessários para as funcionalidades descritas abaixo."}, {"type": "h2", "text": "2. Dados armazenados localmente"}, {"type": "p", "text": "A aplicação pode armazenar localmente no seu dispositivo dados relacionados com itens de inventário, coleções, quantidades, preços, localizações, notas, etiquetas, mapeamentos de código de barras ou QR, fotografias, preferências do painel e metadados importados. Estes dados são usados para fornecer funcionalidades, lembrar preferências e suportar utilização offline quando disponível."}, {"type": "h2", "text": "3. Finalidades do tratamento"}, {"type": "ul", "items": ["Fornecer as funcionalidades principais da aplicação", "Lembrar preferências do utilizador", "Suportar utilização offline quando disponível", "Processar compras ou acesso Premium quando aplicável", "Melhorar a estabilidade e prevenir abusos"]}, {"type": "h2", "text": "4. Serviços de terceiros"}, {"type": "p", "text": "A aplicação pode usar os seguintes serviços ou fornecedores de terceiros: Google AdMob and optional public metadata lookup providers. Estes serviços operam segundo as suas próprias políticas de privacidade."}, {"type": "h2", "text": "5. Publicidade e rastreio"}, {"type": "p", "text": "O Google AdMob pode ser usado para anúncios. As pesquisas opcionais de metadados ocorrem apenas quando iniciadas pelo utilizador."}, {"type": "h2", "text": "6. Compras e funcionalidades Premium"}, {"type": "p", "text": "Compras, subscrições ou acesso Premium opcionais podem ser processados pela Apple App Store ou Google Play. Não recebemos nem armazenamos dados de cartão de crédito. O estado da compra pode ser guardado localmente ou verificado através da loja relevante."}, {"type": "h2", "text": "7. Partilha de dados"}, {"type": "p", "text": "Não vendemos dados pessoais. O conteúdo armazenado localmente na app não é partilhado com servidores da CAREO LIMITED. Dados limitados podem ser tratados por fornecedores terceiros apenas conforme descrito nesta Política."}, {"type": "h2", "text": "8. Retenção e eliminação"}, {"type": "p", "text": "Os dados locais permanecem no dispositivo até os apagar, reiniciar a app ou desinstalar a app. Registos de pagamento, dados de publicidade e dados analíticos são retidos pelos respetivos fornecedores segundo as suas políticas."}, {"type": "h2", "text": "9. Direitos dos utilizadores"}, {"type": "p", "text": "Dependendo da sua região, pode ter direitos de acesso, correção, eliminação, limitação ou oposição. Como a maioria dos dados da app é armazenada localmente, normalmente pode geri-los ou removê-los diretamente pela app ou definições do dispositivo."}, {"type": "h2", "text": "10. Segurança dos dados"}, {"type": "p", "text": "Usamos HTTPS para comunicações externas quando aplicável e concebemos as nossas apps para minimizar a recolha de dados. Nenhum software ou dispositivo pode garantir segurança absoluta."}, {"type": "h2", "text": "11. Privacidade das crianças"}, {"type": "p", "text": "A app não se destina a crianças menores de 13 anos. Não recolhemos conscientemente dados pessoais de crianças menores de 13 anos. Se acredita que uma criança forneceu dados pessoais, contacte-nos."}, {"type": "h2", "text": "12. Transferências internacionais"}, {"type": "p", "text": "Fornecedores terceiros podem tratar dados limitados em países fora do seu. São aplicadas salvaguardas adequadas quando exigido por lei."}, {"type": "h2", "text": "13. Contacto"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Atualizações da Política"}, {"type": "p", "text": "Podemos atualizar esta Política se as funcionalidades da app, serviços terceiros ou requisitos legais mudarem. As atualizações serão refletidas com uma nova data. A utilização continuada da app implica aceitação."}], "ru": [{"type": "h1", "text": "Политика конфиденциальности - ArchiveR"}, {"type": "meta", "html": "<strong>Последнее обновление:</strong> May 2026<br><strong>Приложение:</strong> ArchiveR<br><strong>Разработчик / Издатель:</strong> CAREO LIMITED<br><strong>Контакт:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR уважает вашу конфиденциальность. Эта Политика объясняет, какие сведения могут обрабатываться, как они используются и какие права у вас есть при использовании мобильного приложения на iOS и Android."}, {"type": "h2", "text": "1. Обзор обработки данных"}, {"type": "p", "text": "ArchiveR разработано так, чтобы по возможности хранить основные данные приложения на вашем устройстве. Мы не продаем персональные данные и используем сторонние сервисы только там, где это необходимо для функций, описанных ниже."}, {"type": "h2", "text": "2. Локально хранимые данные"}, {"type": "p", "text": "Приложение может локально хранить на вашем устройстве данные, связанные с предметы инвентаря, коллекции, количества, цены, места, заметки, теги, сопоставления штрихкодов или QR, фотографии, настройки панели и импортированные метаданные. Эти данные используются для работы функций приложения, сохранения настроек и поддержки офлайн-использования, если оно доступно."}, {"type": "h2", "text": "3. Цели обработки"}, {"type": "ul", "items": ["Предоставление основных функций приложения", "Сохранение пользовательских настроек", "Поддержка офлайн-использования, если доступно", "Обработка покупок или доступа Premium, если применимо", "Повышение стабильности и предотвращение злоупотреблений"]}, {"type": "h2", "text": "4. Сторонние сервисы"}, {"type": "p", "text": "Приложение может использовать следующие сторонние сервисы или поставщиков: Google AdMob and optional public metadata lookup providers. Эти сервисы работают по собственным политикам конфиденциальности."}, {"type": "h2", "text": "5. Реклама и отслеживание"}, {"type": "p", "text": "Google AdMob может использоваться для рекламы. Необязательные запросы метаданных выполняются только по инициативе пользователя."}, {"type": "h2", "text": "6. Покупки и функции Premium"}, {"type": "p", "text": "Необязательные покупки, подписки или доступ Premium могут обрабатываться Apple App Store или Google Play. Мы не получаем и не храним данные кредитных карт. Статус покупки может храниться локально или проверяться через соответствующий магазин."}, {"type": "h2", "text": "7. Передача данных"}, {"type": "p", "text": "Мы не продаем персональные данные. Локально сохраненное содержимое приложения не передается на серверы CAREO LIMITED. Ограниченные данные могут обрабатываться сторонними поставщиками только как описано в этой Политике."}, {"type": "h2", "text": "8. Хранение и удаление"}, {"type": "p", "text": "Локальные данные остаются на устройстве, пока вы не удалите их, не сбросите приложение или не удалите приложение. Платежные записи, рекламные и аналитические данные хранятся соответствующими поставщиками согласно их политикам."}, {"type": "h2", "text": "9. Права пользователя"}, {"type": "p", "text": "В зависимости от вашего региона у вас могут быть права на доступ, исправление, удаление, ограничение или возражение против обработки. Поскольку большинство данных хранится локально, обычно ими можно управлять или удалить их через приложение или настройки устройства."}, {"type": "h2", "text": "10. Безопасность данных"}, {"type": "p", "text": "Мы используем HTTPS для внешних соединений, где это применимо, и проектируем приложения так, чтобы минимизировать сбор данных. Ни одна программная или аппаратная среда не может гарантировать абсолютную безопасность."}, {"type": "h2", "text": "11. Конфиденциальность детей"}, {"type": "p", "text": "Приложение не предназначено для детей младше 13 лет. Мы сознательно не собираем персональные данные детей младше 13 лет. Если вы считаете, что ребенок предоставил персональные данные, свяжитесь с нами."}, {"type": "h2", "text": "12. Международная передача данных"}, {"type": "p", "text": "Сторонние поставщики могут обрабатывать ограниченные данные в странах за пределами вашей страны. При необходимости применяются соответствующие гарантии."}, {"type": "h2", "text": "13. Контакты"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Обновления Политики"}, {"type": "p", "text": "Мы можем обновлять эту Политику при изменении функций приложения, сторонних сервисов или требований закона. Обновления будут отражены новой датой. Продолжение использования приложения означает принятие обновленной Политики."}], "es": [{"type": "h1", "text": "Política de privacidad - ArchiveR"}, {"type": "meta", "html": "<strong>Última actualización:</strong> May 2026<br><strong>App:</strong> ArchiveR<br><strong>Desarrollador / Editor:</strong> CAREO LIMITED<br><strong>Contacto:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR respeta tu privacidad. Esta Política explica qué información puede procesarse, cómo se utiliza y cuáles son tus derechos al usar la aplicación móvil en iOS y Android."}, {"type": "h2", "text": "1. Resumen del procesamiento de datos"}, {"type": "p", "text": "ArchiveR está diseñada para mantener los datos principales en tu dispositivo cuando sea posible. No vendemos datos personales y usamos servicios de terceros solo cuando son necesarios para las funciones descritas abajo."}, {"type": "h2", "text": "2. Datos almacenados localmente"}, {"type": "p", "text": "La app puede almacenar localmente en tu dispositivo datos relacionados con artículos de inventario, colecciones, cantidades, precios, ubicaciones, notas, etiquetas, asignaciones de código de barras o QR, fotos, preferencias del panel y metadatos importados. Estos datos se usan para ofrecer funciones, recordar preferencias y permitir el uso sin conexión cuando esté disponible."}, {"type": "h2", "text": "3. Finalidades del procesamiento"}, {"type": "ul", "items": ["Proporcionar las funciones principales de la app", "Recordar preferencias del usuario", "Permitir uso sin conexión cuando esté disponible", "Procesar compras o acceso Premium cuando corresponda", "Mejorar la estabilidad y prevenir abusos"]}, {"type": "h2", "text": "4. Servicios de terceros"}, {"type": "p", "text": "La app puede usar los siguientes servicios o proveedores de terceros: Google AdMob and optional public metadata lookup providers. Estos servicios operan bajo sus propias políticas de privacidad."}, {"type": "h2", "text": "5. Publicidad y seguimiento"}, {"type": "p", "text": "Google AdMob puede usarse para anuncios. Las búsquedas opcionales de metadatos ocurren solo cuando las inicia el usuario."}, {"type": "h2", "text": "6. Compras y funciones Premium"}, {"type": "p", "text": "Las compras, suscripciones o accesos Premium opcionales pueden ser procesados por Apple App Store o Google Play. No recibimos ni almacenamos datos de tarjetas de crédito. El estado de compra puede guardarse localmente o verificarse mediante la tienda correspondiente."}, {"type": "h2", "text": "7. Compartición de datos"}, {"type": "p", "text": "No vendemos datos personales. El contenido almacenado localmente no se comparte con servidores de CAREO LIMITED. Datos limitados pueden ser procesados por proveedores terceros solo como se describe en esta Política."}, {"type": "h2", "text": "8. Conservación y eliminación"}, {"type": "p", "text": "Los datos locales permanecen en tu dispositivo hasta que los elimines, reinicies la app o desinstales la app. Los registros de pago, datos publicitarios y analíticos se conservan según las políticas de los proveedores correspondientes."}, {"type": "h2", "text": "9. Derechos del usuario"}, {"type": "p", "text": "Según tu región, puedes tener derechos de acceso, corrección, eliminación, limitación u oposición. Como la mayoría de los datos se almacenan localmente, normalmente puedes gestionarlos o eliminarlos desde la app o los ajustes del dispositivo."}, {"type": "h2", "text": "10. Seguridad de datos"}, {"type": "p", "text": "Usamos HTTPS para comunicaciones externas cuando corresponde y diseñamos nuestras apps para minimizar la recopilación de datos. Ningún software o dispositivo puede garantizar seguridad absoluta."}, {"type": "h2", "text": "11. Privacidad de menores"}, {"type": "p", "text": "La app no está dirigida a menores de 13 años. No recopilamos conscientemente datos personales de menores de 13 años. Si crees que un menor proporcionó datos personales, contáctanos."}, {"type": "h2", "text": "12. Transferencias internacionales"}, {"type": "p", "text": "Los proveedores terceros pueden procesar datos limitados en países fuera del tuyo. Se aplican salvaguardias adecuadas cuando lo exige la ley."}, {"type": "h2", "text": "13. Contacto"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Actualizaciones de la Política"}, {"type": "p", "text": "Podemos actualizar esta Política si cambian las funciones de la app, servicios terceros o requisitos legales. Las actualizaciones se reflejarán con una nueva fecha. El uso continuado de la app implica aceptación."}], "tr": [{"type": "h1", "text": "Gizlilik Politikası - ArchiveR"}, {"type": "meta", "html": "<strong>Son güncelleme:</strong> May 2026<br><strong>Uygulama:</strong> ArchiveR<br><strong>Geliştirici / Yayıncı:</strong> CAREO LIMITED<br><strong>İletişim:</strong> careolimited@gmail.com"}, {"type": "p", "text": "ArchiveR gizliliğinize saygı duyar. Bu Politika, iOS ve Android mobil uygulamasını kullanırken hangi bilgilerin işlenebileceğini, nasıl kullanıldığını ve haklarınızı açıklar."}, {"type": "h2", "text": "1. Veri İşleme Özeti"}, {"type": "p", "text": "ArchiveR, temel uygulama verilerini mümkün olduğunda cihazınızda tutacak şekilde tasarlanmıştır. Kişisel verileri satmayız ve üçüncü taraf hizmetleri yalnızca aşağıda açıklanan özellikler için gerekli olduğunda kullanırız."}, {"type": "h2", "text": "2. Yerel Olarak Saklanan Veriler"}, {"type": "p", "text": "Uygulama, envanter öğeleri, koleksiyonlar, miktarlar, fiyatlar, konumlar, notlar, etiketler, barkod veya QR eşleştirmeleri, fotoğraflar, panel tercihleri ve içe aktarılan metadata ile ilgili verileri cihazınızda yerel olarak saklayabilir. Bu veriler uygulama özelliklerini sunmak, tercihleri hatırlamak ve varsa çevrimdışı kullanımı desteklemek için kullanılır."}, {"type": "h2", "text": "3. İşleme Amaçları"}, {"type": "ul", "items": ["Temel uygulama özelliklerini sunmak", "Kullanıcı tercihlerini hatırlamak", "Varsa çevrimdışı kullanımı desteklemek", "Uygunsa satın alma veya Premium erişimi işlemek", "Kararlılığı artırmak ve kötüye kullanımı önlemek"]}, {"type": "h2", "text": "4. Üçüncü Taraf Hizmetler"}, {"type": "p", "text": "Uygulama şu üçüncü taraf hizmetleri veya sağlayıcıları kullanabilir: Google AdMob and optional public metadata lookup providers. Bu hizmetler kendi gizlilik politikalarına göre çalışır."}, {"type": "h2", "text": "5. Reklam ve Takip"}, {"type": "p", "text": "Google AdMob reklamlar için kullanılabilir. İsteğe bağlı metadata aramaları yalnızca kullanıcı başlattığında yapılır."}, {"type": "h2", "text": "6. Satın Almalar ve Premium Özellikler"}, {"type": "p", "text": "İsteğe bağlı satın almalar, abonelikler veya Premium erişim Apple App Store ya da Google Play tarafından işlenebilir. Kredi kartı bilgilerini almayız veya saklamayız. Satın alma durumu yerel olarak saklanabilir veya ilgili mağaza üzerinden doğrulanabilir."}, {"type": "h2", "text": "7. Veri Paylaşımı"}, {"type": "p", "text": "Kişisel verileri satmayız. Yerel olarak saklanan uygulama içeriği CAREO LIMITED sunucularıyla paylaşılmaz. Sınırlı veriler yalnızca bu Politikada açıklandığı şekilde üçüncü taraf sağlayıcılar tarafından işlenebilir."}, {"type": "h2", "text": "8. Saklama ve Silme"}, {"type": "p", "text": "Yerel veriler siz silene, uygulamayı sıfırlayana veya kaldırana kadar cihazınızda kalır. Mağaza ödeme kayıtları, reklam verileri ve analiz verileri ilgili sağlayıcıların politikalarına göre saklanır."}, {"type": "h2", "text": "9. Kullanıcı Hakları"}, {"type": "p", "text": "Bölgenize bağlı olarak erişim, düzeltme, silme, sınırlandırma veya itiraz haklarınız olabilir. Verilerin çoğu yerel saklandığı için bunları genellikle uygulama veya cihaz ayarları üzerinden yönetebilir ya da silebilirsiniz."}, {"type": "h2", "text": "10. Veri Güvenliği"}, {"type": "p", "text": "Uygun durumlarda harici iletişim için HTTPS kullanırız ve uygulamalarımızı veri toplamayı azaltacak şekilde tasarlarız. Hiçbir yazılım veya cihaz ortamı mutlak güvenlik garanti edemez."}, {"type": "h2", "text": "11. Çocukların Gizliliği"}, {"type": "p", "text": "Uygulama 13 yaş altındaki çocuklara yönelik değildir. 13 yaş altındaki çocuklardan bilerek kişisel veri toplamayız. Bir çocuğun kişisel veri sağladığını düşünüyorsanız bizimle iletişime geçin."}, {"type": "h2", "text": "12. Uluslararası Veri Aktarımları"}, {"type": "p", "text": "Üçüncü taraf sağlayıcılar sınırlı verileri ülkeniz dışındaki ülkelerde işleyebilir. Kanunen gerekli olduğunda uygun korumalar uygulanır."}, {"type": "h2", "text": "13. İletişim"}, {"type": "p", "html": "<strong>CAREO LIMITED</strong><br>careolimited@gmail.com<br>ArchiveR - Privacy Inquiry"}, {"type": "h2", "text": "14. Politika Güncellemeleri"}, {"type": "p", "text": "Uygulama özellikleri, üçüncü taraf hizmetler veya yasal gereklilikler değişirse bu Politikayı güncelleyebiliriz. Güncellemeler yeni Son güncelleme tarihiyle gösterilir. Uygulamayı kullanmaya devam etmeniz güncel Politikayı kabul ettiğiniz anlamına gelir."}]};
   const uiText = {"en": {"back": "← Back to CAREO LIMITED", "privacy": "Privacy Policy", "last": "Last updated", "app": "App", "dev": "Developer / Publisher", "contact": "Contact", "lang": "Language"}, "fr": {"back": "← Retour à CAREO LIMITED", "privacy": "Politique de confidentialité", "last": "Dernière mise à jour", "app": "App", "dev": "Développeur / Éditeur", "contact": "Contact", "lang": "Langue"}, "de": {"back": "← Zurück zu CAREO LIMITED", "privacy": "Datenschutzerklärung", "last": "Letzte Aktualisierung", "app": "App", "dev": "Entwickler / Herausgeber", "contact": "Kontakt", "lang": "Sprache"}, "it": {"back": "← Torna a CAREO LIMITED", "privacy": "Informativa sulla privacy", "last": "Ultimo aggiornamento", "app": "App", "dev": "Sviluppatore / Editore", "contact": "Contatto", "lang": "Lingua"}, "ja": {"back": "← CAREO LIMITEDに戻る", "privacy": "プライバシーポリシー", "last": "最終更新", "app": "アプリ", "dev": "開発者 / 発行者", "contact": "連絡先", "lang": "言語"}, "ko": {"back": "← CAREO LIMITED로 돌아가기", "privacy": "개인정보 처리방침", "last": "마지막 업데이트", "app": "앱", "dev": "개발자 / 게시자", "contact": "문의", "lang": "언어"}, "pt": {"back": "← Voltar para CAREO LIMITED", "privacy": "Política de Privacidade", "last": "Última atualização", "app": "App", "dev": "Programador / Editor", "contact": "Contacto", "lang": "Idioma"}, "ru": {"back": "← Назад к CAREO LIMITED", "privacy": "Политика конфиденциальности", "last": "Последнее обновление", "app": "Приложение", "dev": "Разработчик / Издатель", "contact": "Контакт", "lang": "Язык"}, "es": {"back": "← Volver a CAREO LIMITED", "privacy": "Política de privacidad", "last": "Última actualización", "app": "App", "dev": "Desarrollador / Editor", "contact": "Contacto", "lang": "Idioma"}, "tr": {"back": "← CAREO LIMITED’a dön", "privacy": "Gizlilik Politikası", "last": "Son güncelleme", "app": "Uygulama", "dev": "Geliştirici / Yayıncı", "contact": "İletişim", "lang": "Dil"}};
