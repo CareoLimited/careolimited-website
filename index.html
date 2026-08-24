@@ -516,7 +516,7 @@
     position:absolute;
     inset: 11%;
     border:3px solid var(--panel-ink);
-    background: var(--panel);
+    background: transparent;
     border-radius: 28px;
     box-shadow: none;
     overflow: hidden;
@@ -529,6 +529,7 @@
     display:block;
     object-fit:cover;
     border-radius: 25px;
+    background: transparent;
   }
   .object-stack.stack-5 { transform: translate3d(-50px,-14px,-118px) rotate(-8deg); }
   .object-stack.stack-4 { transform: translate3d(42px,-20px,-96px) rotate(7deg); }
@@ -551,7 +552,7 @@
     object-fit:cover;
     border:3px solid var(--panel-ink);
     border-radius: 28px;
-    box-shadow: 14px 14px 0 var(--panel-ink);
+    box-shadow: none;
     background: transparent;
   }
   .object-chip {
@@ -810,17 +811,22 @@
       </div>
     </section>
 
+
+    <!-- Canonical stacked order rule:
+         moviequiz > fquiz > kitapp > spingo > cvpilot > archiver
+         In each panel: current app is front, stack-1 is the next app in this sequence,
+         and the previous panel's front app becomes stack-5. -->
     <section class="app-exhibit app-moviequiz" aria-labelledby="moviequiz-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">01</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-3"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-2"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-1"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-icon"><img src="images/moviequiz-logo.png" alt="Movie Quiz app icon" onerror="this.style.display='none'" /></div>
+            <div class="object-stack stack-5" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="moviequiz"><img src="images/moviequiz-logo.png" alt="Movie Quiz app icon" onerror="this.style.display='none'" /></div>
             <div class="object-chip" data-i18n="moviequiz.tag">Trivia & Casual</div>
           </div>
         </div>
@@ -847,12 +853,12 @@
         <div class="app-visual">
           <div class="app-number">02</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-3"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-2"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-icon"><img src="images/fquiz-logo.png" alt="F Quiz app icon" /></div>
+            <div class="object-stack stack-5" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="fquiz"><img src="images/fquiz-logo.png" alt="F Quiz app icon" /></div>
             <div class="object-chip" data-i18n="fquiz.tag">Trivia & Motorsport</div>
           </div>
         </div>
@@ -875,12 +881,12 @@
         <div class="app-visual">
           <div class="app-number">03</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-3"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-icon"><img src="images/kitapp-logo.png" alt="KitApp app icon" /></div>
+            <div class="object-stack stack-5" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="kitapp"><img src="images/kitapp-logo.png" alt="KitApp app icon" /></div>
             <div class="object-chip" data-i18n="kitapp.tag">Books & Library</div>
           </div>
         </div>
@@ -903,12 +909,12 @@
         <div class="app-visual">
           <div class="app-number">04</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-3"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-icon"><img src="images/spingo-logo.png" alt="Spin&Go app icon" /></div>
+            <div class="object-stack stack-5" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="spingo"><img src="images/spingo-logo.png" alt="Spin&Go app icon" /></div>
             <div class="object-chip" data-i18n="spingo.tag">Fun & Decisions</div>
           </div>
         </div>
@@ -931,12 +937,12 @@
         <div class="app-visual">
           <div class="app-number">05</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-4"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-3"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-icon"><img src="images/cvpilot-logo.png" alt="CVPilot app icon" /></div>
+            <div class="object-stack stack-5" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="cvpilot"><img src="images/cvpilot-logo.png" alt="CVPilot app icon" /></div>
             <div class="object-chip" data-i18n="cvpilot.tag">Career & Productivity</div>
           </div>
         </div>
@@ -959,12 +965,12 @@
         <div class="app-visual">
           <div class="app-number">06</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-4"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-3"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-icon"><img src="images/archiver-logo.png" alt="ArchiveR app icon" /></div>
+            <div class="object-stack stack-5" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="archiver"><img src="images/archiver-logo.png" alt="ArchiveR app icon" /></div>
             <div class="object-chip" data-i18n="archiver.tag">Stock & Collection</div>
           </div>
         </div>
