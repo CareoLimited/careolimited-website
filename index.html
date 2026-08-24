@@ -403,17 +403,77 @@
     --panel: var(--paper);
     --panel-ink: var(--ink);
     --accent: var(--red);
+    --accent-ink: var(--ink);
+    --panel-art: var(--panel);
     min-height: 92svh;
-    background: var(--panel);
+    background: var(--panel-art);
     color: var(--panel-ink);
     border-bottom: 2px solid var(--ink);
     position:relative;
     overflow: clip;
   }
-  .app-exhibit.theme-dark { --panel:#061b36; --panel-ink:#f3efe6; --accent:#d7bc79; }
-  .app-exhibit.theme-red { --panel:#ff8a65; --panel-ink:#061b36; --accent:#f3efe6; }
-  .app-exhibit.theme-acid { --panel:#d7bc79; --panel-ink:#061b36; --accent:#ff8a65; }
-  .app-exhibit.theme-blue { --panel:#0b2447; --panel-ink:#f3efe6; --accent:#ff8a65; }
+  /* Each exhibit borrows its palette from the corresponding app. */
+  .app-exhibit.app-moviequiz {
+    --panel:#090a0c;
+    --panel-ink:#f1eee7;
+    --accent:#d2af58;
+    --accent-ink:#090a0c;
+    --panel-art:
+      radial-gradient(circle at 9% 22%, rgba(143,36,50,.52), transparent 28%),
+      radial-gradient(circle at 89% 80%, rgba(210,175,88,.18), transparent 30%),
+      linear-gradient(135deg, #090a0c 0%, #15171b 58%, #0f1013 100%);
+  }
+  .app-exhibit.app-fquiz {
+    --panel:#0a0a0a;
+    --panel-ink:#ffffff;
+    --accent:#e10600;
+    --accent-ink:#ffffff;
+    --panel-art:
+      linear-gradient(112deg, transparent 0 62%, rgba(225,6,0,.18) 62% 64%, transparent 64%),
+      radial-gradient(circle at 84% 18%, rgba(225,6,0,.32), transparent 27%),
+      linear-gradient(135deg, #050505 0%, #141414 54%, #0a0a0a 100%);
+  }
+  .app-exhibit.app-booklio {
+    --panel:#f8f9fa;
+    --panel-ink:#202124;
+    --accent:#1a73e8;
+    --accent-ink:#ffffff;
+    --panel-art:
+      radial-gradient(circle at 10% 76%, rgba(251,188,4,.18), transparent 25%),
+      radial-gradient(circle at 86% 18%, rgba(26,115,232,.16), transparent 31%),
+      linear-gradient(135deg, #ffffff 0%, #f8f9fa 52%, #e8f0fe 100%);
+  }
+  .app-exhibit.app-spingo {
+    --panel:#f6f8ff;
+    --panel-ink:#111827;
+    --accent:#ff4d5e;
+    --accent-ink:#111827;
+    --panel-art:
+      radial-gradient(circle at 8% 20%, rgba(78,205,196,.32), transparent 28%),
+      radial-gradient(circle at 90% 76%, rgba(255,77,94,.30), transparent 29%),
+      radial-gradient(circle at 70% 9%, rgba(0,122,255,.15), transparent 23%),
+      linear-gradient(135deg, #ffffff 0%, #f6f8ff 62%, #eef3ff 100%);
+  }
+  .app-exhibit.app-cvpilot {
+    --panel:#f7f9fb;
+    --panel-ink:#191c1e;
+    --accent:#10b981;
+    --accent-ink:#062e24;
+    --panel-art:
+      radial-gradient(circle at 11% 78%, rgba(16,185,129,.24), transparent 28%),
+      radial-gradient(circle at 86% 20%, rgba(15,82,186,.22), transparent 32%),
+      linear-gradient(135deg, #ffffff 0%, #f7f9fb 52%, #d9e2ff 100%);
+  }
+  .app-exhibit.app-archiver {
+    --panel:#f6f8f7;
+    --panel-ink:#17211e;
+    --accent:#2d6a5f;
+    --accent-ink:#ffffff;
+    --panel-art:
+      radial-gradient(circle at 10% 18%, rgba(183,121,31,.16), transparent 25%),
+      radial-gradient(circle at 88% 76%, rgba(45,106,95,.24), transparent 31%),
+      linear-gradient(135deg, #ffffff 0%, #f6f8f7 55%, #ddece8 100%);
+  }
   .exhibit-grid {
     min-height: 92svh;
     display:grid;
@@ -527,10 +587,10 @@
     font-size:.75rem; font-weight:900; text-transform:uppercase; letter-spacing:.06em;
   }
   .store-btn { background:var(--panel-ink); color:var(--panel); }
-  .store-btn:hover, .store-btn:focus-visible { background:var(--accent); color:var(--ink); border-color:var(--panel-ink); }
+  .store-btn:hover, .store-btn:focus-visible { background:var(--accent); color:var(--accent-ink); border-color:var(--panel-ink); }
   .store-btn-disabled { opacity:.38; cursor:not-allowed; }
   .privacy-link { background:transparent; }
-  .privacy-link:hover, .privacy-link:focus-visible { background:var(--accent); color:var(--ink); }
+  .privacy-link:hover, .privacy-link:focus-visible { background:var(--accent); color:var(--accent-ink); }
   .store-icon { width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center; }
 
   /* Contact */
@@ -729,7 +789,7 @@
       </div>
     </section>
 
-    <section class="app-exhibit" aria-labelledby="moviequiz-title">
+    <section class="app-exhibit app-moviequiz" aria-labelledby="moviequiz-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">01</div>
@@ -757,7 +817,7 @@
         </div>
       </div>
     </section>
-    <section class="app-exhibit theme-dark" aria-labelledby="fquiz-title">
+    <section class="app-exhibit app-fquiz" aria-labelledby="fquiz-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">02</div>
@@ -781,7 +841,7 @@
         </div>
       </div>
     </section>
-    <section class="app-exhibit" aria-labelledby="kitapp-title">
+    <section class="app-exhibit app-booklio" aria-labelledby="kitapp-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">03</div>
@@ -805,7 +865,7 @@
         </div>
       </div>
     </section>
-    <section class="app-exhibit theme-red" aria-labelledby="spingo-title">
+    <section class="app-exhibit app-spingo" aria-labelledby="spingo-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">04</div>
@@ -829,7 +889,7 @@
         </div>
       </div>
     </section>
-    <section class="app-exhibit theme-acid" aria-labelledby="cvpilot-title">
+    <section class="app-exhibit app-cvpilot" aria-labelledby="cvpilot-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">05</div>
@@ -853,7 +913,7 @@
         </div>
       </div>
     </section>
-    <section class="app-exhibit theme-blue" aria-labelledby="archiver-title">
+    <section class="app-exhibit app-archiver" aria-labelledby="archiver-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">06</div>
