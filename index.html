@@ -3,848 +3,861 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Careo Limited</title>
-
 <link rel="icon" href="images/careo-logo.jpg">
 <link rel="apple-touch-icon" href="images/careo-logo.jpg">
-
 <meta name="description" content="Careo Limited develops mobile applications and digital products." />
 <style>
   :root {
-    --bg: #061b36;
-    --bg-2: #0b2447;
-    --card: rgba(255,255,255,0.08);
-    --card-border: rgba(255,255,255,0.14);
-    --text: #f5f7fb;
-    --muted: #c8d2e3;
-    --accent: #d7bc79;
-    --accent-2: #ff8a65;
-    --shadow: 0 20px 50px rgba(0,0,0,0.28);
-    --radius: 22px;
-    --max: 1180px;
+    --paper: #f3efe6;
+    --ink: #061b36;
+    --red: #ff8a65;
+    --acid: #d7bc79;
+    --blue: #0b2447;
+    --line: rgba(17,17,15,.18);
+    --shadow: 0 26px 70px rgba(0,0,0,.18);
+    --max: 1440px;
+    --mx: 0;
+    --my: 0;
   }
 
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text);
-    background:
-      radial-gradient(circle at top left, rgba(215,188,121,0.16), transparent 32%),
-      radial-gradient(circle at top right, rgba(255,138,101,0.13), transparent 28%),
-      linear-gradient(180deg, var(--bg) 0%, #041325 100%);
-    line-height: 1.6;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.45;
+    overflow-x: hidden;
   }
-
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: .055;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
   a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  button, select { font: inherit; }
+  .shell { width: min(calc(100% - 44px), var(--max)); margin: 0 auto; }
 
-  img { max-width: 100%; display: block; }
-
-  .container {
-    width: min(calc(100% - 32px), var(--max));
-    margin: 0 auto;
+  /* Kinetic masthead */
+  .masthead {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    translate: -50% 0;
+    z-index: 80;
+    width: min(calc(100% - 36px), 1360px);
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--red);
   }
-
-  .nav {
-    position: relative;
-    z-index: 50;
-    backdrop-filter: blur(14px);
-    background: rgba(4, 18, 37, 0.72);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .nav-inner {
-    display: flex;
+  .masthead-inner {
+    min-height: 64px;
+    padding: 8px 10px 8px 12px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 16px 0;
+    gap: 24px;
   }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    min-width: 0;
-  }
-
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
   .brand img {
-    width: 52px;
-    height: 52px;
-    object-fit: cover;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
+    width: 42px; height: 42px; object-fit: cover;
+    border: 1px solid rgba(255,255,255,.32);
+    border-radius: 2px;
   }
-
-  .brand-text { min-width: 0; }
-
-  .brand-text strong {
+  .brand-copy strong {
     display: block;
-    font-size: 0.98rem;
-    letter-spacing: 0.06em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
   }
-
-  .brand-text span {
-    display: block;
-    color: var(--muted);
-    font-size: 0.88rem;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
+  .brand-copy span { display: block; opacity: .62; font-size: .72rem; margin-top: 2px; }
+  .nav-links { justify-self: center; display: flex; align-items: center; gap: 7px; }
   .nav-links a {
-    color: var(--muted);
-    font-size: 0.95rem;
+    position: relative;
+    padding: 11px 14px;
+    font-size: .79rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    overflow: hidden;
   }
-
-  .nav-links a:hover,
-  .nav-links a:focus-visible { color: var(--text); }
-
+  .nav-links a::after {
+    content:""; position:absolute; left:12px; right:12px; bottom:7px; height:2px;
+    background: var(--acid); transform: scaleX(0); transform-origin: left; transition: transform .22s ease;
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
   .language-select {
-    min-height: 38px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.16);
-    background: rgba(255,255,255,0.07);
-    color: var(--text);
-    padding: 0 12px;
-    font: inherit;
-    font-size: 0.92rem;
-    outline: none;
-  }
-
-  .language-select option {
-    color: #061b36;
-    background: #ffffff;
-  }
-
-  .hero { padding: 78px 0 46px; }
-
-  .hero-wrap {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 28px;
-    align-items: stretch;
-  }
-
-  .hero-copy {
-    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 30px;
-    padding: 34px;
-    box-shadow: var(--shadow);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
+    appearance: none;
+    min-height: 40px;
+    padding: 0 37px 0 14px;
+    border: 1px solid rgba(243,239,230,.28);
     border-radius: 999px;
-    background: rgba(215,188,121,0.12);
-    color: #f8e7bc;
-    font-size: 0.86rem;
-    border: 1px solid rgba(215,188,121,0.24);
-    margin-bottom: 18px;
-    width: fit-content;
+    color: var(--paper);
+    background:
+      linear-gradient(45deg, transparent 50%, var(--acid) 50%) calc(100% - 16px) 16px/5px 5px no-repeat,
+      linear-gradient(135deg, var(--acid) 50%, transparent 50%) calc(100% - 11px) 16px/5px 5px no-repeat,
+      rgba(243,239,230,.055);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .01em;
+    outline: none;
+    cursor: pointer;
+    transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
   }
-
-  h1, h2, h3, p { margin: 0; }
-
-  h1 {
-    font-size: clamp(2.3rem, 6vw, 4.7rem);
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-    margin-bottom: 16px;
+  .language-select:hover {
+    border-color: rgba(215,188,121,.72);
+    background-color: rgba(243,239,230,.09);
   }
-
-  .hero-copy p {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 640px;
+  .language-select:focus-visible {
+    border-color: var(--acid);
+    box-shadow: 0 0 0 3px rgba(215,188,121,.16);
   }
+  .language-select option { color: var(--ink); background: var(--paper); }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 28px;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    padding: 0 20px;
-    border-radius: 14px;
-    font-weight: 600;
-    border: 1px solid transparent;
-    transition: 0.2s ease;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), #f0d79a);
-    color: #081a31;
-    box-shadow: 0 10px 25px rgba(215,188,121,0.28);
-  }
-
-  .btn-secondary {
-    background: rgba(255,255,255,0.05);
-    color: var(--text);
-    border-color: rgba(255,255,255,0.12);
-  }
-
-  .btn:hover,
-  .btn:focus-visible {
-    transform: translateY(-1px);
-    opacity: 0.96;
-  }
-
-  .hero-side {
+  /* HERO */
+  .hero {
+    min-height: 100svh;
+    position: relative;
     display: grid;
-    gap: 16px;
-    height: 100%;
-  }
-
-  .company-card,
-  .mini-card,
-  .app-card {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-  }
-
-  .company-card {
-    padding: 28px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .company-card .logo-box {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 24px;
-    border-radius: 22px;
-    background: rgba(4,18,37,0.46);
-    border: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 20px;
-    flex: 1;
-    min-height: 0;
+    padding: 130px 0 74px;
+    border-bottom: 2px solid var(--ink);
+    overflow: clip;
+    background: var(--paper);
   }
-
-  .company-card .logo-box img {
-    width: min(100%, 340px);
-    border-radius: 18px;
+  .hero::before {
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%);
+    opacity:.35;
+    pointer-events:none;
   }
+  .hero-layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, .88fr) minmax(520px, 1.12fr);
+    align-items: center;
+    gap: clamp(36px, 6vw, 110px);
+  }
+  .hero-copy { position: relative; z-index: 7; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .19em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before { content:""; width: 44px; height: 8px; background: var(--red); }
+  h1,h2,h3,p { margin: 0; }
+  h1 {
+    max-width: 900px;
+    font-size: clamp(3.35rem, 6.2vw, 7.8rem);
+    line-height: .96;
+    letter-spacing: -.06em;
+    font-weight: 900;
+    text-wrap: balance;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    hyphens:auto;
+  }
+  .hero-copy > p {
+    max-width: 700px;
+    margin-top: 28px;
+    font-size: clamp(1rem, 1.3vw, 1.28rem);
+    line-height: 1.52;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .btn {
+    --push-x: 0px; --push-y: 0px;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 52px; padding: 0 21px;
+    border: 2px solid var(--ink);
+    font-size: .79rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+    transform: translate3d(var(--push-x),var(--push-y),0);
+    transition: background .18s ease, color .18s ease, box-shadow .18s ease, transform .12s ease;
+  }
+  .btn-primary { background: var(--red); box-shadow: 5px 5px 0 var(--ink); }
+  .btn-secondary { background: var(--paper); }
+  .btn:hover, .btn:focus-visible { background: var(--acid); color: var(--ink); box-shadow: 2px 2px 0 var(--ink); }
 
-  .stats {
+  .hero-stage {
+    height: min(690px, 70vw);
+    min-height: 560px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    isolation: isolate;
+  }
+  .careo-word {
+    position: absolute;
+    inset: 7% -5% auto auto;
+    z-index: -2;
+    font-size: clamp(7rem, 13vw, 12rem);
+    line-height: .74;
+    font-weight: 900;
+    letter-spacing: -.11em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink);
+    writing-mode: vertical-rl;
+    opacity: .16;
+    user-select: none;
+  }
+  .machine {
+    position: absolute;
+    inset: 8% 4% 5% 4%;
+    transform-style: preserve-3d;
+    transform:
+      rotateX(calc(-8deg + (var(--my) * 6deg)))
+      rotateY(calc(10deg + (var(--mx) * 9deg)))
+      translateZ(0);
+    transition: transform .18s ease-out;
+  }
+  .machine-shadow {
+    position: absolute;
+    left: 20%; right: 5%; bottom: 3%; height: 16%;
+    background: rgba(17,17,15,.28);
+    filter: blur(24px);
+    border-radius: 50%;
+    transform: rotateX(72deg) translateZ(-120px);
+    z-index: -4;
+  }
+  .axis-ring {
+    position:absolute;
+    left: 50%; top: 49%;
+    width: 70%; aspect-ratio: 1;
+    translate: -50% -50%;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+  }
+  .axis-ring.r1 { transform: rotateX(65deg) rotateZ(12deg); animation: ringA 13s linear infinite; }
+  .axis-ring.r2 { width: 56%; border-color: var(--red); transform: rotateY(64deg) rotateZ(-12deg); animation: ringB 10s linear infinite reverse; }
+  .axis-ring.r3 { width: 43%; border-style: dashed; transform: rotateX(54deg) rotateY(38deg); animation: ringA 16s linear infinite reverse; }
+  @keyframes ringA { to { rotate: 1turn; } }
+  @keyframes ringB { to { rotate: -1turn; } }
+
+  .logo-block {
+    position:absolute;
+    left:50%; top:50%;
+    width: clamp(190px, 23vw, 330px);
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    transform-style: preserve-3d;
+    transform: translateZ(85px) rotateZ(-4deg);
+    background: var(--ink);
+    border: 3px solid var(--ink);
+    box-shadow: 14px 14px 0 var(--red), 28px 28px 0 var(--acid);
+  }
+  .logo-block::before,
+  .logo-block::after {
+    content:""; position:absolute; background: var(--ink); pointer-events:none;
+  }
+  .logo-block::before { width: 28px; right:-29px; top:14px; bottom:-29px; transform: skewY(45deg); transform-origin:left top; opacity:.92; }
+  .logo-block::after { height: 28px; left:14px; right:-29px; bottom:-29px; transform: skewX(45deg); transform-origin:left top; opacity:.72; }
+  .logo-block img { width:100%; height:100%; object-fit:cover; filter: saturate(.86) contrast(1.03); }
+
+  .app-orb {
+    position: absolute;
+    width: clamp(72px, 7.5vw, 108px);
+    aspect-ratio:1;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid var(--ink);
+    box-shadow: 7px 7px 0 var(--ink);
+    transform-style: preserve-3d;
+    animation: floatTile 4.5s ease-in-out infinite alternate;
+  }
+  .app-orb img { width:100%; height:100%; object-fit:cover; }
+  .app-orb:nth-of-type(1) { left: 3%; top: 17%; transform: translateZ(110px) rotate(-10deg); animation-delay: -.6s; }
+  .app-orb:nth-of-type(2) { right: 3%; top: 12%; transform: translateZ(35px) rotate(7deg); animation-delay: -1.7s; }
+  .app-orb:nth-of-type(3) { right: 0; top: 52%; transform: translateZ(130px) rotate(-4deg); animation-delay: -2.4s; }
+  .app-orb:nth-of-type(4) { right: 20%; bottom: 2%; transform: translateZ(50px) rotate(8deg); animation-delay: -.9s; }
+  .app-orb:nth-of-type(5) { left: 7%; bottom: 8%; transform: translateZ(140px) rotate(5deg); animation-delay: -1.1s; }
+  .app-orb:nth-of-type(6) { left: -2%; top: 48%; transform: translateZ(15px) rotate(-8deg); animation-delay: -3.2s; }
+  @keyframes floatTile { from { margin-top: -7px; } to { margin-top: 9px; } }
+
+  .hero-ledger {
+    position: absolute;
+    right: 0; bottom: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    width: min(680px, 78%);
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    transform: translate(3%, 18%);
+    z-index: 5;
+  }
+  .ledger-item { padding: 14px 16px; border-right: 2px solid var(--ink); }
+  .ledger-item:last-child { border-right: 0; }
+  .ledger-item strong {
+    display:block;
+    font-size:clamp(1rem,1.6vw,1.6rem);
+    line-height:1.08;
+    letter-spacing:-.04em;
+    overflow-wrap:anywhere;
+  }
+  .ledger-item span {
+    display:block;
+    margin-top:5px;
+    font-size:.67rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.055em;
+    line-height:1.3;
+    overflow-wrap:anywhere;
   }
 
-  .mini-card { padding: 18px; }
-
-  .mini-card strong {
-    display: block;
-    font-size: 1.4rem;
-    margin-bottom: 4px;
-  }
-
-  .mini-card span {
-    color: var(--muted);
-    font-size: 0.92rem;
-  }
-
-  .section { padding: 24px 0 30px; }
-
-  .section-head {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-
-  .section-head h2 {
-    font-size: clamp(1.7rem, 4vw, 2.8rem);
-    letter-spacing: -0.03em;
-  }
-
-  .section-head p {
-    color: var(--muted);
-    max-width: 760px;
-  }
-
-  .apps-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 18px;
-  }
-
-  .app-card {
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    min-height: 100%;
-  }
-
-  .app-top {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .app-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-width: 0;
-    gap: 8px;
-  }
-
-  .app-icon {
-    width: 86px;
-    height: 86px;
-    border-radius: 22px;
+  /* ABOUT */
+  .about {
+    position: relative;
+    background: var(--ink);
+    color: var(--paper);
+    padding: clamp(90px, 12vw, 180px) 0;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(255,255,255,0.04);
-    flex-shrink: 0;
   }
-
-  .app-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .about::after {
+    content:"06";
+    position:absolute; right:-.04em; bottom:-.24em;
+    font-size: clamp(18rem, 42vw, 42rem);
+    line-height:.75;
+    font-weight:900;
+    letter-spacing:-.12em;
+    color: var(--red);
+    opacity:.13;
+    pointer-events:none;
   }
+  .about-grid { position:relative; z-index:2; display:grid; grid-template-columns: .58fr 1.42fr; gap: clamp(40px, 9vw, 150px); align-items:start; }
+  .section-index {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; font-weight:800;
+    display:flex; align-items:center; gap:12px;
+  }
+  .section-index::before { content:""; width:34px; height:8px; background:var(--acid); }
+  .about h2 {
+    font-size: clamp(3.5rem, 8vw, 9.4rem);
+    line-height:.92;
+    letter-spacing:-.065em;
+    font-weight:900;
+    max-width: 900px;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    hyphens:auto;
+  }
+  .about p { max-width:860px; margin-top:36px; font-size:clamp(1.1rem,2vw,1.65rem); line-height:1.42; }
+  .about-rule { margin-top:46px; width:100%; height:2px; background:var(--paper); position:relative; }
+  .about-rule::after { content:""; display:block; width:28%; height:10px; background:var(--red); transform:translateY(-4px); }
 
+  /* Apps */
+  .apps-intro {
+    padding: clamp(90px, 11vw, 155px) 0 72px;
+    border-bottom: 2px solid var(--ink);
+    background: var(--paper);
+  }
+  .apps-intro-grid { display:grid; grid-template-columns:.58fr 1.42fr; gap: clamp(40px,9vw,150px); align-items:end; }
+  .apps-intro h2 {
+    font-size:clamp(4rem,9vw,10.5rem);
+    line-height:.9;
+    letter-spacing:-.075em;
+    font-weight:900;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    hyphens:auto;
+  }
+  .apps-intro p { max-width:760px; margin-top:30px; font-size:clamp(1rem,1.5vw,1.25rem); }
+
+  .app-exhibit {
+    --panel: var(--paper);
+    --panel-ink: var(--ink);
+    --accent: var(--red);
+    min-height: 92svh;
+    background: var(--panel);
+    color: var(--panel-ink);
+    border-bottom: 2px solid var(--ink);
+    position:relative;
+    overflow: clip;
+  }
+  .app-exhibit.theme-dark { --panel:#061b36; --panel-ink:#f3efe6; --accent:#d7bc79; }
+  .app-exhibit.theme-red { --panel:#ff8a65; --panel-ink:#061b36; --accent:#f3efe6; }
+  .app-exhibit.theme-acid { --panel:#d7bc79; --panel-ink:#061b36; --accent:#ff8a65; }
+  .app-exhibit.theme-blue { --panel:#0b2447; --panel-ink:#f3efe6; --accent:#ff8a65; }
+  .exhibit-grid {
+    min-height: 92svh;
+    display:grid;
+    grid-template-columns: minmax(0,1.02fr) minmax(420px,.98fr);
+    gap: clamp(36px,7vw,100px);
+    align-items:center;
+    padding: 86px 0;
+  }
+  .app-visual {
+    min-height: 560px;
+    position:relative;
+    display:grid;
+    place-items:center;
+    perspective: 1100px;
+  }
+  .app-number {
+    position:absolute;
+    left:-.06em; top:-.03em;
+    font-size:clamp(10rem,24vw,24rem);
+    line-height:.78;
+    letter-spacing:-.11em;
+    font-weight:900;
+    color:transparent;
+    -webkit-text-stroke: 2px currentColor;
+    opacity:.17;
+    pointer-events:none;
+  }
+  .object-frame {
+    --tx:0deg; --ty:0deg;
+    width:min(68%,520px);
+    aspect-ratio:1;
+    position:relative;
+    transform-style:preserve-3d;
+    transform: rotateX(var(--tx)) rotateY(var(--ty));
+    transition: transform .18s ease-out;
+  }
+  .object-back {
+    position:absolute; inset:7%;
+    background: var(--accent);
+    border:3px solid var(--panel-ink);
+    transform: translate3d(34px,34px,-50px) rotate(9deg);
+  }
+  .object-mid {
+    position:absolute; inset:4%;
+    border:3px solid var(--panel-ink);
+    background: transparent;
+    transform: translate3d(-20px,18px,-20px) rotate(-7deg);
+  }
+  .object-icon {
+    position:absolute; inset:12%;
+    padding: clamp(14px,2vw,24px);
+    background:#fff;
+    border:3px solid var(--panel-ink);
+    box-shadow: 14px 14px 0 var(--panel-ink);
+    transform: translateZ(68px) rotate(-2deg);
+  }
+  .object-icon img { width:100%; height:100%; object-fit:cover; }
+  .object-chip {
+    position:absolute;
+    right:-9%; bottom:4%;
+    padding:12px 15px;
+    background:var(--panel-ink);
+    color:var(--panel);
+    border:2px solid var(--panel-ink);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.12em;
+    transform: translateZ(100px) rotate(5deg);
+    white-space:normal;
+    max-width:min(280px,72vw);
+    text-align:center;
+    line-height:1.28;
+    overflow-wrap:anywhere;
+  }
+  .app-copy { max-width:690px; position:relative; z-index:3; }
+  .hero-copy, .about-grid > div, .apps-intro-grid > div, .app-copy, .footer-contact { min-width:0; }
+  .app-tag {
+    display:inline-flex;
+    border:2px solid currentColor;
+    padding:8px 11px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em;
+    margin-bottom:24px;
+  }
   .app-title {
-    font-size: 1.16rem;
-    line-height: 1.25;
+    font-size:clamp(3rem,6vw,7.4rem);
+    line-height:.95;
+    letter-spacing:-.06em;
+    font-weight:900;
+    text-wrap:balance;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    hyphens:auto;
   }
-
-  .app-tag {
-    display: inline-flex;
-    align-self: flex-start;
-    width: fit-content;
-    max-width: 100%;
-    padding: 7px 11px;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    line-height: 1.1;
-    color: #f8e7bc;
-    background: rgba(215,188,121,0.12);
-    border: 1px solid rgba(215,188,121,0.2);
-    white-space: normal;
-    overflow-wrap: anywhere;
+  .app-copy > p { margin-top:28px; max-width:620px; font-size:clamp(1.05rem,1.65vw,1.38rem); line-height:1.45; }
+  .app-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; align-items:center; }
+  .store-row { display:flex; flex-wrap:wrap; gap:10px; }
+  .store-btn, .store-btn-disabled, .privacy-link {
+    min-height:46px;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:0 15px;
+    border:2px solid currentColor;
+    font-size:.75rem; font-weight:900; text-transform:uppercase; letter-spacing:.06em;
   }
+  .store-btn { background:var(--panel-ink); color:var(--panel); }
+  .store-btn:hover, .store-btn:focus-visible { background:var(--accent); color:var(--ink); border-color:var(--panel-ink); }
+  .store-btn-disabled { opacity:.38; cursor:not-allowed; }
+  .privacy-link { background:transparent; }
+  .privacy-link:hover, .privacy-link:focus-visible { background:var(--accent); color:var(--ink); }
+  .store-icon { width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center; }
 
-  .app-card p {
-    color: var(--muted);
-    font-size: 0.97rem;
-  }
-
-  .app-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: auto;
-    width: 100%;
-  }
-
-  .store-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-  }
-
-  .store-btn,
-  .store-btn-disabled {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    width: 100%;
-    min-height: 40px;
-    padding: 0 11px;
-    border-radius: 13px;
-    font-size: 0.84rem;
-    font-weight: 700;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(255,255,255,0.06);
-    color: var(--text);
-    white-space: nowrap;
-    transition: 0.2s ease;
-  }
-
-  .store-btn:hover,
-  .store-btn:focus-visible {
-    background: rgba(255,255,255,0.11);
-    transform: translateY(-1px);
-  }
-
-  .store-btn-disabled {
-    opacity: 0.42;
-    cursor: not-allowed;
-    filter: grayscale(0.3);
-  }
-
-  .store-icon {
-    width: 17px;
-    height: 17px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .privacy-link {
-    display: inline-flex;
-    justify-content: center;
-    color: var(--muted);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
-    margin-top: 2px;
-  }
-
-  .privacy-link:hover,
-  .privacy-link:focus-visible {
-    color: var(--text);
-  }
-
+  /* Contact */
   .footer {
-    padding: 40px 0 50px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: clamp(90px,12vw,160px) 0 52px;
+    position:relative;
+    overflow:hidden;
   }
-
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 22px;
-    align-items: flex-start;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 24px;
-    flex-wrap: wrap;
+  .footer::before {
+    content:"CAREO";
+    position:absolute; left:-.04em; bottom:-.16em;
+    font-size:clamp(11rem,30vw,31rem);
+    line-height:.76; font-weight:900; letter-spacing:-.11em;
+    color:var(--paper); opacity:.035; pointer-events:none;
   }
+  .footer-grid { position:relative; z-index:2; display:grid; grid-template-columns:.58fr 1.42fr; gap:clamp(40px,9vw,150px); }
+  .footer-contact { grid-column: 2; }
+  .footer-contact strong { display:block; font-size:clamp(3.4rem,8vw,8.5rem); line-height:.86; letter-spacing:-.07em; }
+  .footer-contact p { font-size:clamp(1rem,1.5vw,1.3rem); margin-top:18px; max-width:760px; }
+  .footer-contact a { border-bottom:2px solid var(--red); }
+  .footer-bottom { position:relative; z-index:2; margin-top:100px; padding-top:20px; border-top:1px solid rgba(255,255,255,.26); display:flex; justify-content:flex-start; gap:20px; align-items:flex-end; }
+  .footer-bottom p { font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; }
 
-  .footer-left,
-  .footer-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  /* reveal without generic fade-card look */
+  [data-reveal] {
+    clip-path: inset(-.32em 100% -.38em -.12em);
+    transform: translateX(-12px);
   }
-
-  .footer p,
-  .footer a {
-    color: var(--muted);
-    font-size: 0.92rem;
-  }
-
-  .footer-contact strong {
-    color: var(--text);
-    font-size: 0.95rem;
-    margin-bottom: 2px;
-  }
-
-  @media (max-width: 1280px) {
-    .apps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-
-  @media (max-width: 980px) {
-    .hero-wrap { grid-template-columns: 1fr; }
-    .stats { grid-template-columns: 1fr 1fr 1fr; }
-  }
-
-  @media (max-width: 820px) {
-    .apps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-  @media (max-width: 720px) {
-    .nav-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .nav-right,
-    .nav-links { justify-content: flex-start; }
-
-    .hero { padding-top: 42px; }
-
-    .hero-copy,
-    .company-card,
-    .app-card { padding: 20px; }
-
-    .stats,
-    .apps-grid { grid-template-columns: 1fr; }
-
-    .app-top { align-items: center; }
-
-    .app-icon {
-      width: 74px;
-      height: 74px;
-      border-radius: 18px;
-    }
-
-    .footer-inner {
-      flex-direction: column;
-      align-items: flex-start;
+  [data-reveal].is-visible { animation: wipeIn .82s cubic-bezier(.2,.72,.2,1) both; }
+  @keyframes wipeIn {
+    to {
+      clip-path: inset(-.32em -.12em -.38em -.12em);
+      transform: translateX(0);
     }
   }
 
-  /* Final app layout override: max 3 cards per row, 2 centered on second row */
-  @media (min-width: 1281px) {
-    .apps-grid {
-      grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
-      gap: 18px;
-    }
-
-    .app-card {
-      grid-column: span 2;
-    }
-
+  /* CJK glyphs need more vertical room and less aggressive tracking. */
+  html[lang="ja"] h1,
+  html[lang="ja"] .about h2,
+  html[lang="ja"] .apps-intro h2,
+  html[lang="ja"] .app-title,
+  html[lang="ko"] h1,
+  html[lang="ko"] .about h2,
+  html[lang="ko"] .apps-intro h2,
+  html[lang="ko"] .app-title {
+    line-height:1.08;
+    letter-spacing:-.035em;
   }
 
-  @media (max-width: 1280px) {
-    .apps-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-
-    .app-card {
-      grid-column: auto !important;
-    }
+  @media (max-width: 1050px) {
+    .hero-layout { grid-template-columns:1fr; gap:42px; }
+    .hero-copy { max-width:900px; }
+    .hero-stage { height:620px; width:min(760px,100%); margin:0 auto; }
+    .hero-ledger { width:76%; right:8%; }
+    .about-grid, .apps-intro-grid, .footer-grid { grid-template-columns:1fr; gap:34px; }
+    .footer-contact { grid-column: 1; }
+    .exhibit-grid { grid-template-columns:1fr; padding:72px 0; }
+    .app-visual { min-height:500px; }
+    .app-copy { max-width:900px; }
   }
 
-  @media (max-width: 820px) {
-    .apps-grid {
-      grid-template-columns: 1fr !important;
-    }
+  @media (max-width: 760px) {
+    .shell { width:min(calc(100% - 26px), var(--max)); }
+    .masthead { top:10px; width:calc(100% - 20px); box-shadow:4px 4px 0 var(--red); }
+    .masthead-inner { grid-template-columns:1fr auto; gap:10px; padding:8px; }
+    .brand-copy span { display:none; }
+    .nav-links { grid-column:1 / -1; grid-row:2; width:100%; justify-content:space-between; gap:0; border-top:1px solid rgba(255,255,255,.18); padding-top:2px; }
+    .nav-links a { padding:8px 7px; font-size:.67rem; }
+    .language-select { min-height:38px; padding-left:9px; max-width:148px; }
+    .hero { padding-top:154px; }
+    h1 { font-size:clamp(3.2rem,15vw,5.3rem); }
+    .hero-stage { height:520px; min-height:0; }
+    .machine { inset:4% -2% 10%; }
+    .axis-ring { width:84%; }
+    .logo-block { width:200px; box-shadow:10px 10px 0 var(--red),20px 20px 0 var(--acid); }
+    .app-orb { width:70px; padding:5px; box-shadow:5px 5px 0 var(--ink); }
+    .hero-ledger { width:94%; right:3%; transform:translateY(20%); }
+    .ledger-item { padding:10px 8px; }
+    .ledger-item strong { font-size:1.2rem; }
+    .ledger-item span { font-size:.57rem; }
+    .about, .apps-intro { padding-top:90px; padding-bottom:90px; }
+    .about h2 { font-size:clamp(3.2rem,16vw,5.7rem); line-height:.98; }
+    .apps-intro h2 { font-size:clamp(3.55rem,17vw,6rem); line-height:.95; }
+    .app-exhibit, .exhibit-grid { min-height:auto; }
+    .exhibit-grid { padding:62px 0 78px; }
+    .app-visual { min-height:380px; }
+    .object-frame { width:min(76%,360px); }
+    .object-chip { right:-4%; bottom:-3%; font-size:.62rem; }
+    .app-title { font-size:clamp(2.75rem,12.8vw,5.15rem); line-height:1; }
+    .store-row { width:100%; }
+    .store-btn, .store-btn-disabled { flex:1; min-width:145px; }
+    .privacy-link { width:100%; }
+    .footer-bottom { flex-direction:column; align-items:flex-start; margin-top:70px; }
   }
 
-  .app-top {
-    display: grid !important;
-    grid-template-columns: 86px minmax(0, 1fr);
-    align-items: start;
-    gap: 16px;
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+    .machine, .object-frame, .btn { transform:none !important; }
   }
-
-  .app-tag {
-    font-size: 0.84rem !important;
-    line-height: 1.18 !important;
-    max-width: 100%;
-  }
-
-  .store-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    width: 100%;
-  }
-
-  .store-btn,
-  .store-btn-disabled {
-    min-height: 42px;
-    padding: 0 12px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-
-  .store-icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  @media (max-width: 720px) {
-    .app-top {
-      grid-template-columns: 74px minmax(0, 1fr);
-      align-items: center;
-    }
-
-    .store-btn,
-    .store-btn-disabled {
-      font-size: 0.86rem;
-      padding: 0 10px;
-    }
-  }
-
 </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
+  <header class="masthead">
+    <div class="masthead-inner">
       <a class="brand" href="#top" aria-label="CAREO LIMITED home">
         <img src="images/careo-logo.jpg" alt="CAREO LIMITED logo" />
-        <div class="brand-text">
+        <div class="brand-copy">
           <strong>Careo Limited</strong>
           <span data-i18n="brand.subtitle">Mobile apps & digital products</span>
         </div>
       </a>
-
-      <div class="nav-right">
-        <div class="nav-links">
-          <a href="#about" data-i18n="nav.about">About</a>
-          <a href="#apps" data-i18n="nav.apps">Apps</a>
-          <a href="#contact" data-i18n="nav.contact">Contact</a>
-        </div>
-
-        <select class="language-select" id="languageSelect" aria-label="Language">
-          <option value="en">🇬🇧 English</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="it">🇮🇹 Italiano</option>
-          <option value="ja">🇯🇵 日本語</option>
-          <option value="ko">🇰🇷 한국어</option>
-          <option value="pt">🇵🇹 Português</option>
-          <option value="ru">🇷🇺 Русский</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="tr">🇹🇷 Türkçe</option>
-        </select>
-      </div>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#apps" data-i18n="nav.apps">Apps</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <select class="language-select" id="languageSelect" aria-label="Language">
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
     </div>
-  </nav>
+  </header>
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-wrap">
+      <div class="shell hero-layout">
         <div class="hero-copy">
-          <div class="eyebrow">CAREO LIMITED</div>
-          <h1 data-i18n="hero.title">Apps built for curiosity, fun, productivity & everyday utility.</h1>
-          <p data-i18n="hero.description">
-            Careo Limited develops mobile applications focused on entertainment, smart utility, productivity, inventory management & simple user experiences.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#apps" data-i18n="hero.ctaApps">Explore our apps</a>
-            <a class="btn btn-secondary" href="#contact" data-i18n="hero.ctaContact">Contact us</a>
+          <div class="eyebrow" data-reveal>CAREO LIMITED</div>
+          <h1 data-i18n="hero.title" data-reveal>Apps built for curiosity, fun, productivity & everyday utility.</h1>
+          <p data-i18n="hero.description" data-reveal>Careo Limited develops mobile applications focused on entertainment, smart utility, productivity, inventory management & simple user experiences.</p>
+          <div class="hero-actions" data-reveal>
+            <a class="btn btn-primary magnetic" href="#apps" data-i18n="hero.ctaApps">Explore our apps</a>
+            <a class="btn btn-secondary magnetic" href="#contact" data-i18n="hero.ctaContact">Contact us</a>
           </div>
         </div>
 
-        <div class="hero-side">
-          <div class="company-card">
-            <div class="logo-box">
-              <img src="images/careo-logo.jpg" alt="CAREO LIMITED brand logo" />
-            </div>
-            <div class="stats">
-              <div class="mini-card">
-                <strong>6</strong>
-                <span data-i18n="stats.apps">Published apps</span>
-              </div>
-              <div class="mini-card">
-                <strong>UK</strong>
-                <span data-i18n="stats.company">Registered company</span>
-              </div>
-              <div class="mini-card">
-                <strong>24/7</strong>
-                <span data-i18n="stats.access">Public website access</span>
-              </div>
-            </div>
+        <div class="hero-stage" id="heroStage" aria-hidden="true">
+          <div class="careo-word">CAREO</div>
+          <div class="machine" id="heroMachine">
+            <div class="machine-shadow"></div>
+            <div class="axis-ring r1"></div>
+            <div class="axis-ring r2"></div>
+            <div class="axis-ring r3"></div>
+            <div class="logo-block"><img src="images/careo-logo.jpg" alt="" /></div>            <div class="app-orb"><img src="images/moviequiz-logo.png" alt="" onerror="this.parentElement.style.display='none'" /></div>
+            <div class="app-orb"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="app-orb"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="app-orb"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="app-orb"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="app-orb"><img src="images/archiver-logo.png" alt="" /></div>
+          </div>
+          <div class="hero-ledger">
+            <div class="ledger-item"><strong>6</strong><span data-i18n="stats.apps">Published apps</span></div>
+            <div class="ledger-item"><strong>10</strong><span data-i18n="stats.languages">Languages</span></div>
+            <div class="ledger-item"><strong data-i18n="stats.usersCount">Thousands</strong><span data-i18n="stats.community">of Users</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="about.title">About CAREO LIMITED</h2>
-          <p data-i18n="about.description">
-            CAREO LIMITED is a United Kingdom registered company creating mobile applications & digital products. We focus on polished design, practical features & accessible experiences across our app portfolio.
-          </p>
+    <section class="about" id="about">
+      <div class="shell about-grid">
+        <div class="section-index">01 / Careo</div>
+        <div>
+          <h2 data-i18n="about.title" data-reveal>About CAREO LIMITED</h2>
+          <p data-i18n="about.description" data-reveal>CAREO LIMITED is a United Kingdom registered company creating mobile applications & digital products. We focus on polished design, practical features & accessible experiences across our app portfolio.</p>
+          <div class="about-rule"></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="apps">
-      <div class="container">
-        <div class="section-head">
-          <h2 data-i18n="apps.title">Our Apps</h2>
-          <p data-i18n="apps.description">
-            Discover our current applications across books, motorsport trivia, quick decision tools, career productivity, and stock & collection management.
-          </p>
+    <section class="apps-intro" id="apps">
+      <div class="shell apps-intro-grid">
+        <div class="section-index">02 / 06</div>
+        <div>
+          <h2 data-i18n="apps.title" data-reveal>Our Apps</h2>
+          <p data-i18n="apps.description" data-reveal>Discover our current applications across books, motorsport and movie trivia, quick decision tools, career productivity, and stock & collection management.</p>
         </div>
+      </div>
+    </section>
 
-        <div class="apps-grid">
-          <article class="app-card">
-            <div class="app-top">
-              <div class="app-icon">
-                <img src="images/kitapp-logo.png" alt="KitApp app icon" />
-              </div>
-              <div class="app-content">
-                <div class="app-tag" data-i18n="kitapp.tag">Books & Library</div>
-                <h3 class="app-title" data-i18n="kitapp.title">Booklio: Reading Log</h3>
-              </div>
+    <section class="app-exhibit" aria-labelledby="moviequiz-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">01</div>
+          <div class="object-frame tilt-object">
+            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-icon"><img src="images/moviequiz-logo.png" alt="Movie Quiz app icon" onerror="this.style.display='none'" /></div>
+            <div class="object-chip" data-i18n="moviequiz.tag">Trivia & Casual</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="moviequiz.tag">Trivia & Casual</div>
+          <h3 class="app-title" id="moviequiz-title" data-i18n="moviequiz.title" data-reveal>Movie Quiz: The Cinephile Test</h3>
+          <p data-i18n="moviequiz.description">Test your knowledge of movies, characters, filmmakers and awards.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
+              <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
             </div>
-            <p data-i18n="kitapp.description">Scan book barcodes, organize your library & track reading stats.</p>
-            <div class="app-actions">
-              <div class="store-row">
-                <a class="store-btn" href="https://apps.apple.com/us/app/kitapp-book-tracker-app/id6764900083" target="_blank" rel="noopener">
-                  <span class="store-icon"></span><span data-i18n="links.appStore">App Store</span>
-                </a>
-                <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.kitapp" target="_blank" rel="noopener">
-                  <span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span>
-                </a>
-              </div>
-              <a class="privacy-link" href="privacy/kitapp.html" data-privacy-link="kitapp" data-i18n="links.privacy">Privacy Policy</a>
+            <a class="privacy-link" href="privacy/moviequiz.html" data-privacy-link="moviequiz" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit theme-dark" aria-labelledby="fquiz-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">02</div>
+          <div class="object-frame tilt-object">
+            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-icon"><img src="images/fquiz-logo.png" alt="F Quiz app icon" /></div>
+            <div class="object-chip" data-i18n="fquiz.tag">Trivia & Motorsport</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="fquiz.tag">Trivia & Motorsport</div>
+          <h3 class="app-title" id="fquiz-title" data-i18n="fquiz.title" data-reveal>F Quiz: Motorsport Trivia Game</h3>
+          <p data-i18n="fquiz.description">Think fast, race smart & prove your motorsport knowledge.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <a class="store-btn" href="https://apps.apple.com/us/app/f-quiz-motorsport-trivia-game/id6754612653" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
+              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.nuric.fquiz" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
             </div>
-          </article>
-
-          <article class="app-card">
-            <div class="app-top">
-              <div class="app-icon">
-                <img src="images/fquiz-logo.png" alt="F Quiz app icon" />
-              </div>
-              <div class="app-content">
-                <div class="app-tag" data-i18n="fquiz.tag">Trivia & Motorsport</div>
-                <h3 class="app-title" data-i18n="fquiz.title">F Quiz: Motorsport Trivia Game</h3>
-              </div>
+            <a class="privacy-link" href="privacy/fquiz.html" data-privacy-link="fquiz" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit" aria-labelledby="kitapp-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">03</div>
+          <div class="object-frame tilt-object">
+            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-icon"><img src="images/kitapp-logo.png" alt="KitApp app icon" /></div>
+            <div class="object-chip" data-i18n="kitapp.tag">Books & Library</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="kitapp.tag">Books & Library</div>
+          <h3 class="app-title" id="kitapp-title" data-i18n="kitapp.title" data-reveal>Booklio: Reading Log</h3>
+          <p data-i18n="kitapp.description">Scan book barcodes, organize your library & track reading stats.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <a class="store-btn" href="https://apps.apple.com/us/app/kitapp-book-tracker-app/id6764900083" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
+              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.kitapp" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
             </div>
-            <p data-i18n="fquiz.description">Think fast, race smart & prove your motorsport knowledge.</p>
-            <div class="app-actions">
-              <div class="store-row">
-                <a class="store-btn" href="https://apps.apple.com/us/app/f-quiz-motorsport-trivia-game/id6754612653" target="_blank" rel="noopener">
-                  <span class="store-icon"></span><span data-i18n="links.appStore">App Store</span>
-                </a>
-                <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.nuric.fquiz" target="_blank" rel="noopener">
-                  <span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span>
-                </a>
-              </div>
-              <a class="privacy-link" href="privacy/fquiz.html" data-privacy-link="fquiz" data-i18n="links.privacy">Privacy Policy</a>
+            <a class="privacy-link" href="privacy/kitapp.html" data-privacy-link="kitapp" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit theme-red" aria-labelledby="spingo-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">04</div>
+          <div class="object-frame tilt-object">
+            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-icon"><img src="images/spingo-logo.png" alt="Spin&Go app icon" /></div>
+            <div class="object-chip" data-i18n="spingo.tag">Fun & Decisions</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="spingo.tag">Fun & Decisions</div>
+          <h3 class="app-title" id="spingo-title" data-i18n="spingo.title" data-reveal>Spin&Go: Decision Maker App</h3>
+          <p data-i18n="spingo.description">Spin the wheel, flip a coin & make fun decisions instantly.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <a class="store-btn" href="https://apps.apple.com/us/app/spin-go-decision-maker-app/id6765473545" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
+              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.spinandgo" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
             </div>
-          </article>
-
-          <article class="app-card">
-            <div class="app-top">
-              <div class="app-icon">
-                <img src="images/spingo-logo.png" alt="Spin&Go app icon" />
-              </div>
-              <div class="app-content">
-                <div class="app-tag" data-i18n="spingo.tag">Fun & Decisions</div>
-                <h3 class="app-title" data-i18n="spingo.title">Spin&Go: Decision Maker App</h3>
-              </div>
+            <a class="privacy-link" href="privacy/spingo.html" data-privacy-link="spingo" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit theme-acid" aria-labelledby="cvpilot-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">05</div>
+          <div class="object-frame tilt-object">
+            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-icon"><img src="images/cvpilot-logo.png" alt="CVPilot app icon" /></div>
+            <div class="object-chip" data-i18n="cvpilot.tag">Career & Productivity</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="cvpilot.tag">Career & Productivity</div>
+          <h3 class="app-title" id="cvpilot-title" data-i18n="cvpilot.title" data-reveal>CVPilot: AI CV Analyzer</h3>
+          <p data-i18n="cvpilot.description">Analyze resumes with smart guidance, practical feedback & clear CV improvement support.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
+              <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
             </div>
-            <p data-i18n="spingo.description">Spin the wheel, flip a coin & make fun decisions instantly.</p>
-            <div class="app-actions">
-              <div class="store-row">
-                <a class="store-btn" href="https://apps.apple.com/us/app/spin-go-decision-maker-app/id6765473545" target="_blank" rel="noopener">
-                  <span class="store-icon"></span><span data-i18n="links.appStore">App Store</span>
-                </a>
-                <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.spinandgo" target="_blank" rel="noopener">
-                  <span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span>
-                </a>
-              </div>
-              <a class="privacy-link" href="privacy/spingo.html" data-privacy-link="spingo" data-i18n="links.privacy">Privacy Policy</a>
+            <a class="privacy-link" href="privacy/cvpilot.html" data-privacy-link="cvpilot" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit theme-blue" aria-labelledby="archiver-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">06</div>
+          <div class="object-frame tilt-object">
+            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-icon"><img src="images/archiver-logo.png" alt="ArchiveR app icon" /></div>
+            <div class="object-chip" data-i18n="archiver.tag">Stock & Collection</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="archiver.tag">Stock & Collection</div>
+          <h3 class="app-title" id="archiver-title" data-i18n="archiver.title" data-reveal>ArchiveR: Stock&Collection App</h3>
+          <p data-i18n="archiver.description">Track stock, collections, barcodes, locations & item values in one simple inventory app.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
+              <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
             </div>
-          </article>
-
-          <article class="app-card">
-            <div class="app-top">
-              <div class="app-icon">
-                <img src="images/cvpilot-logo.png" alt="CVPilot app icon" />
-              </div>
-              <div class="app-content">
-                <div class="app-tag" data-i18n="cvpilot.tag">Career & Productivity</div>
-                <h3 class="app-title" data-i18n="cvpilot.title">CVPilot: AI CV Analyzer</h3>
-              </div>
-            </div>
-            <p data-i18n="cvpilot.description">Analyze resumes with smart guidance, practical feedback & clear CV improvement support.</p>
-            <div class="app-actions">
-              <div class="store-row">
-                <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
-                <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
-              </div>
-              <a class="privacy-link" href="privacy/cvpilot.html" data-privacy-link="cvpilot" data-i18n="links.privacy">Privacy Policy</a>
-            </div>
-          </article>
-
-          <article class="app-card">
-            <div class="app-top">
-              <div class="app-icon">
-                <img src="images/archiver-logo.png" alt="ArchiveR app icon" />
-              </div>
-              <div class="app-content">
-                <div class="app-tag" data-i18n="archiver.tag">Stock & Collection</div>
-                <h3 class="app-title" data-i18n="archiver.title">ArchiveR: Stock&Collection App</h3>
-              </div>
-            </div>
-            <p data-i18n="archiver.description">Track stock, collections, barcodes, locations & item values in one simple inventory app.</p>
-            <div class="app-actions">
-              <div class="store-row">
-                <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
-                <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
-              </div>
-              <a class="privacy-link" href="privacy/archiver.html" data-privacy-link="archiver" data-i18n="links.privacy">Privacy Policy</a>
-            </div>
-          </article>
-
-          <article class="app-card">
-            <div class="app-top">
-              <div class="app-icon">
-                <img src="images/moviequiz-logo.png" alt="Movie Quiz app icon" onerror="this.style.display='none'" />
-              </div>
-              <div class="app-content">
-                <div class="app-tag" data-i18n="moviequiz.tag">Trivia & Casual</div>
-                <h3 class="app-title" data-i18n="moviequiz.title">Movie Quiz: The Cinephile Test</h3>
-              </div>
-            </div>
-            <p data-i18n="moviequiz.description">Test your knowledge of movies, characters, filmmakers and awards.</p>
-            <div class="app-actions">
-              <div class="store-row">
-                <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
-                <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
-              </div>
-              <a class="privacy-link" href="privacy/moviequiz.html" data-privacy-link="moviequiz" data-i18n="links.privacy">Privacy Policy</a>
-            </div>
-          </article>
+            <a class="privacy-link" href="privacy/archiver.html" data-privacy-link="archiver" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer" id="contact">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <p data-i18n="footer.rights">© 2026 CAREO LIMITED. All rights reserved.</p>
-      </div>
-
+    <div class="shell footer-grid">
       <div class="footer-contact">
         <strong data-i18n="contact.title">Contact</strong>
         <p><a href="mailto:careolimited@gmail.com">careolimited@gmail.com</a></p>
         <p>71-75 Shelton Street, Covent Garden, London, United Kingdom, WC2H 9JQ</p>
       </div>
     </div>
+    <div class="shell footer-bottom">
+      <p data-i18n="footer.rights">© 2026 CAREO LIMITED. All rights reserved.</p>
+    </div>
   </footer>
 
 <script>
-  const translations = {
+const translations = {
     en: {
       "brand.subtitle": "Mobile apps & digital products",
       "nav.about": "About",
@@ -855,8 +868,9 @@
       "hero.ctaApps": "Explore our apps",
       "hero.ctaContact": "Contact us",
       "stats.apps": "Published apps",
-      "stats.company": "Registered company",
-      "stats.access": "Public website access",
+      "stats.languages": "Languages",
+      "stats.usersCount": "Thousands",
+      "stats.community": "of Users",
       "about.title": "About CAREO LIMITED",
       "about.description": "CAREO LIMITED is a United Kingdom registered company creating mobile applications & digital products. We focus on polished design, practical features & accessible experiences across our app portfolio.",
       "apps.title": "Our Apps",
@@ -895,8 +909,9 @@
       "hero.ctaApps": "Découvrir nos apps",
       "hero.ctaContact": "Nous contacter",
       "stats.apps": "Apps publiées",
-      "stats.company": "Société enregistrée",
-      "stats.access": "Site accessible 24/7",
+      "stats.languages": "Langues",
+      "stats.usersCount": "Des milliers",
+      "stats.community": "d’utilisateurs",
       "about.title": "À propos de CAREO LIMITED",
       "about.description": "CAREO LIMITED est une société enregistrée au Royaume-Uni qui crée des applications mobiles & des produits numériques. Nous privilégions un design soigné, des fonctions utiles & des expériences accessibles dans tout notre portefeuille.",
       "apps.title": "Nos apps",
@@ -935,8 +950,9 @@
       "hero.ctaApps": "Unsere Apps ansehen",
       "hero.ctaContact": "Kontakt aufnehmen",
       "stats.apps": "Veröffentlichte Apps",
-      "stats.company": "Registriertes Unternehmen",
-      "stats.access": "Website 24/7 erreichbar",
+      "stats.languages": "Sprachen",
+      "stats.usersCount": "Tausende",
+      "stats.community": "Nutzer",
       "about.title": "Über CAREO LIMITED",
       "about.description": "CAREO LIMITED ist ein im Vereinigten Königreich registriertes Unternehmen, das mobile Anwendungen & digitale Produkte erstellt. Wir konzentrieren uns auf hochwertiges Design, praktische Funktionen & zugängliche Erlebnisse in unserem App-Portfolio.",
       "apps.title": "Unsere Apps",
@@ -975,8 +991,9 @@
       "hero.ctaApps": "Esplora le nostre app",
       "hero.ctaContact": "Contattaci",
       "stats.apps": "App pubblicate",
-      "stats.company": "Società registrata",
-      "stats.access": "Sito accessibile 24/7",
+      "stats.languages": "Lingue",
+      "stats.usersCount": "Migliaia",
+      "stats.community": "di utenti",
       "about.title": "Informazioni su CAREO LIMITED",
       "about.description": "CAREO LIMITED è una società registrata nel Regno Unito che crea applicazioni mobili & prodotti digitali. Ci concentriamo su design curato, funzioni pratiche & esperienze accessibili nel nostro portfolio di app.",
       "apps.title": "Le nostre app",
@@ -1001,7 +1018,7 @@
       "moviequiz.description": "Metti alla prova le tue conoscenze su film, personaggi, cineasti e premi.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
-      "links.privacy": "Privacy Policy",
+      "links.privacy": "Informativa sulla privacy",
       "contact.title": "Contatti",
       "footer.rights": "© 2026 CAREO LIMITED. Tutti i diritti riservati."
     },
@@ -1015,8 +1032,9 @@
       "hero.ctaApps": "アプリを見る",
       "hero.ctaContact": "お問い合わせ",
       "stats.apps": "公開済みアプリ",
-      "stats.company": "英国登録会社",
-      "stats.access": "24時間アクセス可能なサイト",
+      "stats.languages": "対応言語",
+      "stats.usersCount": "数千人の",
+      "stats.community": "ユーザー",
       "about.title": "CAREO LIMITEDについて",
       "about.description": "CAREO LIMITEDは英国で登録された会社で、モバイルアプリ & デジタル製品を制作しています。私たちは洗練されたデザイン、実用的な機能 & 使いやすい体験を重視しています。",
       "apps.title": "アプリ一覧",
@@ -1043,7 +1061,7 @@
       "links.googlePlay": "Google Play",
       "links.privacy": "プライバシーポリシー",
       "contact.title": "お問い合わせ",
-      "footer.rights": "© 2026 CAREO LIMITED. All rights reserved."
+      "footer.rights": "© 2026 CAREO LIMITED. 無断転載を禁じます。"
     },
     ko: {
       "brand.subtitle": "모바일 앱 & 디지털 제품",
@@ -1055,8 +1073,9 @@
       "hero.ctaApps": "앱 둘러보기",
       "hero.ctaContact": "문의하기",
       "stats.apps": "출시된 앱",
-      "stats.company": "영국 등록 회사",
-      "stats.access": "24/7 웹사이트 접근",
+      "stats.languages": "지원 언어",
+      "stats.usersCount": "수천 명의",
+      "stats.community": "사용자",
       "about.title": "CAREO LIMITED 소개",
       "about.description": "CAREO LIMITED는 영국에 등록된 회사로 모바일 애플리케이션 & 디지털 제품을 만듭니다. 우리는 세련된 디자인, 실용적인 기능 & 접근하기 쉬운 경험에 집중합니다.",
       "apps.title": "앱",
@@ -1083,7 +1102,7 @@
       "links.googlePlay": "Google Play",
       "links.privacy": "개인정보 처리방침",
       "contact.title": "문의",
-      "footer.rights": "© 2026 CAREO LIMITED. All rights reserved."
+      "footer.rights": "© 2026 CAREO LIMITED. 모든 권리 보유."
     },
     pt: {
       "brand.subtitle": "Apps móveis & produtos digitais",
@@ -1095,8 +1114,9 @@
       "hero.ctaApps": "Explorar as nossas apps",
       "hero.ctaContact": "Contacte-nos",
       "stats.apps": "Apps publicadas",
-      "stats.company": "Empresa registada",
-      "stats.access": "Acesso público 24/7",
+      "stats.languages": "Idiomas",
+      "stats.usersCount": "Milhares",
+      "stats.community": "de utilizadores",
       "about.title": "Sobre a CAREO LIMITED",
       "about.description": "A CAREO LIMITED é uma empresa registada no Reino Unido que cria aplicações móveis & produtos digitais. Focamo-nos em design cuidado, funcionalidades práticas & experiências acessíveis em todo o nosso portefólio.",
       "apps.title": "As nossas apps",
@@ -1135,8 +1155,9 @@
       "hero.ctaApps": "Посмотреть приложения",
       "hero.ctaContact": "Связаться с нами",
       "stats.apps": "Опубликованных приложений",
-      "stats.company": "Зарегистрированная компания",
-      "stats.access": "Доступ к сайту 24/7",
+      "stats.languages": "Языков",
+      "stats.usersCount": "Тысячи",
+      "stats.community": "пользователей",
       "about.title": "О CAREO LIMITED",
       "about.description": "CAREO LIMITED является компанией, зарегистрированной в Великобритании, и создает мобильные приложения & цифровые продукты. Мы уделяем внимание качественному дизайну, практичным функциям & доступному опыту во всем портфеле приложений.",
       "apps.title": "Наши приложения",
@@ -1175,8 +1196,9 @@
       "hero.ctaApps": "Explorar nuestras apps",
       "hero.ctaContact": "Contactar",
       "stats.apps": "Apps publicadas",
-      "stats.company": "Empresa registrada",
-      "stats.access": "Acceso público 24/7",
+      "stats.languages": "Idiomas",
+      "stats.usersCount": "Miles",
+      "stats.community": "de usuarios",
       "about.title": "Acerca de CAREO LIMITED",
       "about.description": "CAREO LIMITED es una empresa registrada en el Reino Unido que crea aplicaciones móviles & productos digitales. Nos enfocamos en diseño cuidado, funciones prácticas & experiencias accesibles en todo nuestro portafolio.",
       "apps.title": "Nuestras apps",
@@ -1196,7 +1218,7 @@
       "archiver.tag": "Stock & Colección",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Gestiona stock, colecciones, códigos de barras, ubicaciones & valores de artículos en una app de inventario simple.",
-      "moviequiz.tag": "Trivia & Casual",
+      "moviequiz.tag": "Trivia y entretenimiento",
       "moviequiz.title": "Quiz de Cine: Test Cinéfilo",
       "moviequiz.description": "Pon a prueba tus conocimientos sobre películas, personajes, cineastas y premios.",
       "links.appStore": "App Store",
@@ -1215,8 +1237,9 @@
       "hero.ctaApps": "Uygulamalarımızı keşfet",
       "hero.ctaContact": "Bize ulaş",
       "stats.apps": "Yayınlanan uygulama",
-      "stats.company": "Kayıtlı şirket",
-      "stats.access": "7/24 açık web sitesi",
+      "stats.languages": "Dil",
+      "stats.usersCount": "Binlerce",
+      "stats.community": "Kullanıcı",
       "about.title": "CAREO LIMITED Hakkında",
       "about.description": "CAREO LIMITED, Birleşik Krallık’ta kayıtlı bir şirkettir ve mobil uygulamalar & dijital ürünler geliştirir. Uygulama portföyümüzde şık tasarıma, pratik özelliklere & erişilebilir deneyimlere odaklanıyoruz.",
       "apps.title": "Uygulamalarımız",
@@ -1241,7 +1264,7 @@
       "moviequiz.description": "Filmler, karakterler, sinemacılar ve ödüller hakkındaki bilgini test et.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
-      "links.privacy": "Privacy Policy",
+      "links.privacy": "Gizlilik Politikası",
       "contact.title": "İletişim",
       "footer.rights": "© 2026 CAREO LIMITED. Tüm hakları saklıdır."
     }
@@ -1309,6 +1332,84 @@
   });
 
   setLanguage(savedLanguage);
+
+
+  // Interaction layer: light, local and independent from the translation/link system.
+  (() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+    // Letter/section reveal inspired by kinetic reveal patterns, but implemented locally.
+    const revealItems = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .14, rootMargin: '0px 0px -6% 0px' });
+      revealItems.forEach((el) => revealObserver.observe(el));
+    } else {
+      revealItems.forEach((el) => el.classList.add('is-visible'));
+    }
+
+    // One shared pointer tracker for the 3D hero.
+    const heroStage = document.getElementById('heroStage');
+    if (heroStage && finePointer && !reduceMotion) {
+      let raf = 0;
+      heroStage.addEventListener('pointermove', (event) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          const r = heroStage.getBoundingClientRect();
+          const mx = ((event.clientX - r.left) / r.width - .5) * 2;
+          const my = ((event.clientY - r.top) / r.height - .5) * 2;
+          heroStage.style.setProperty('--mx', mx.toFixed(3));
+          heroStage.style.setProperty('--my', my.toFixed(3));
+          raf = 0;
+        });
+      }, { passive:true });
+      heroStage.addEventListener('pointerleave', () => {
+        heroStage.style.setProperty('--mx', 0);
+        heroStage.style.setProperty('--my', 0);
+      });
+    }
+
+    // 3D physical tilt for app objects. The hit target never moves.
+    document.querySelectorAll('.app-visual').forEach((visual) => {
+      const obj = visual.querySelector('.tilt-object');
+      if (!obj || !finePointer || reduceMotion) return;
+      visual.addEventListener('pointermove', (event) => {
+        const r = visual.getBoundingClientRect();
+        const x = (event.clientX - r.left) / r.width - .5;
+        const y = (event.clientY - r.top) / r.height - .5;
+        obj.style.setProperty('--ty', `${(x * 13).toFixed(2)}deg`);
+        obj.style.setProperty('--tx', `${(-y * 10).toFixed(2)}deg`);
+      }, { passive:true });
+      visual.addEventListener('pointerleave', () => {
+        obj.style.setProperty('--ty', '0deg');
+        obj.style.setProperty('--tx', '0deg');
+      });
+    });
+
+    // Magnetic buttons: subtle displacement only, preserving the original link targets.
+    if (finePointer && !reduceMotion) {
+      document.querySelectorAll('.magnetic').forEach((el) => {
+        el.addEventListener('pointermove', (event) => {
+          const r = el.getBoundingClientRect();
+          const x = (event.clientX - (r.left + r.width / 2)) * .12;
+          const y = (event.clientY - (r.top + r.height / 2)) * .12;
+          el.style.setProperty('--push-x', `${Math.max(-8, Math.min(8, x)).toFixed(1)}px`);
+          el.style.setProperty('--push-y', `${Math.max(-6, Math.min(6, y)).toFixed(1)}px`);
+        }, { passive:true });
+        el.addEventListener('pointerleave', () => {
+          el.style.setProperty('--push-x', '0px');
+          el.style.setProperty('--push-y', '0px');
+        });
+      });
+    }
+  })();
 </script>
 </body>
 </html>
