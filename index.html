@@ -512,18 +512,30 @@
     transform: rotateX(var(--tx)) rotateY(var(--ty));
     transition: transform .18s ease-out;
   }
-  .object-back {
-    position:absolute; inset:7%;
-    background: var(--accent);
+  .object-stack {
+    position:absolute;
+    inset: 11%;
     border:3px solid var(--panel-ink);
-    transform: translate3d(34px,34px,-50px) rotate(9deg);
+    background: var(--panel);
+    border-radius: 28px;
+    box-shadow: none;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    pointer-events:none;
   }
-  .object-mid {
-    position:absolute; inset:4%;
-    border:3px solid var(--panel-ink);
-    background: transparent;
-    transform: translate3d(-20px,18px,-20px) rotate(-7deg);
+  .object-stack img {
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius: 25px;
   }
+  .object-stack.stack-5 { transform: translate3d(-50px,-14px,-118px) rotate(-8deg); }
+  .object-stack.stack-4 { transform: translate3d(42px,-20px,-96px) rotate(7deg); }
+  .object-stack.stack-3 { transform: translate3d(-18px,34px,-74px) rotate(6deg); }
+  .object-stack.stack-2 { transform: translate3d(38px,28px,-54px) rotate(-5deg); }
+  .object-stack.stack-1 { transform: translate3d(-8px,-2px,-32px) rotate(3deg); }
+
   .object-icon {
     position:absolute; inset:12%;
     padding: 0;
@@ -658,8 +670,15 @@
     .hero-ledger { width:76%; right:8%; }
     .about-grid, .apps-intro-grid, .footer-grid { grid-template-columns:1fr; gap:34px; }
     .footer-contact { grid-column: 1; }
-    .exhibit-grid { grid-template-columns:1fr; padding:72px 0; }
+    .exhibit-grid { grid-template-columns:minmax(260px,.88fr) minmax(0,1.12fr); gap:28px; padding:72px 0; }
     .app-visual { min-height:500px; }
+    .app-copy { max-width:900px; }
+  }
+
+
+  @media (max-width: 620px) {
+    .exhibit-grid { grid-template-columns:1fr; gap:24px; }
+    .app-visual { min-height:360px; }
     .app-copy { max-width:900px; }
   }
 
@@ -686,7 +705,7 @@
     .about h2 { font-size:clamp(3.2rem,16vw,5.7rem); line-height:.98; }
     .apps-intro h2 { font-size:clamp(3.55rem,17vw,6rem); line-height:.95; }
     .app-exhibit, .exhibit-grid { min-height:auto; }
-    .exhibit-grid { padding:62px 0 78px; }
+    .exhibit-grid { grid-template-columns:minmax(210px,.84fr) minmax(0,1.16fr); gap:18px; padding:62px 0 78px; }
     .app-visual { min-height:380px; }
     .object-frame { width:min(76%,360px); }
     .object-chip { right:-4%; bottom:-3%; font-size:.62rem; }
@@ -796,7 +815,11 @@
         <div class="app-visual">
           <div class="app-number">01</div>
           <div class="object-frame tilt-object">
-            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-3"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-2"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-1"><img src="images/fquiz-logo.png" alt="" /></div>
             <div class="object-icon"><img src="images/moviequiz-logo.png" alt="Movie Quiz app icon" onerror="this.style.display='none'" /></div>
             <div class="object-chip" data-i18n="moviequiz.tag">Trivia & Casual</div>
           </div>
@@ -824,7 +847,11 @@
         <div class="app-visual">
           <div class="app-number">02</div>
           <div class="object-frame tilt-object">
-            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-3"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-2"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-icon"><img src="images/fquiz-logo.png" alt="F Quiz app icon" /></div>
             <div class="object-chip" data-i18n="fquiz.tag">Trivia & Motorsport</div>
           </div>
@@ -848,7 +875,11 @@
         <div class="app-visual">
           <div class="app-number">03</div>
           <div class="object-frame tilt-object">
-            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-3"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-icon"><img src="images/kitapp-logo.png" alt="KitApp app icon" /></div>
             <div class="object-chip" data-i18n="kitapp.tag">Books & Library</div>
           </div>
@@ -872,7 +903,11 @@
         <div class="app-visual">
           <div class="app-number">04</div>
           <div class="object-frame tilt-object">
-            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-4"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-3"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-icon"><img src="images/spingo-logo.png" alt="Spin&Go app icon" /></div>
             <div class="object-chip" data-i18n="spingo.tag">Fun & Decisions</div>
           </div>
@@ -896,7 +931,11 @@
         <div class="app-visual">
           <div class="app-number">05</div>
           <div class="object-frame tilt-object">
-            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-stack stack-5"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-4"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-3"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-icon"><img src="images/cvpilot-logo.png" alt="CVPilot app icon" /></div>
             <div class="object-chip" data-i18n="cvpilot.tag">Career & Productivity</div>
           </div>
@@ -920,7 +959,11 @@
         <div class="app-visual">
           <div class="app-number">06</div>
           <div class="object-frame tilt-object">
-            <div class="object-back"></div><div class="object-mid"></div>
+            <div class="object-stack stack-5"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-4"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-3"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-2"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-icon"><img src="images/archiver-logo.png" alt="ArchiveR app icon" /></div>
             <div class="object-chip" data-i18n="archiver.tag">Stock & Collection</div>
           </div>
