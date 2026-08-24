@@ -285,14 +285,22 @@
     position: absolute;
     width: clamp(72px, 7.5vw, 108px);
     aspect-ratio:1;
-    padding: 8px;
-    background: #fff;
-    border: 2px solid var(--ink);
-    box-shadow: 7px 7px 0 var(--ink);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
     transform-style: preserve-3d;
     animation: floatTile 4.5s ease-in-out infinite alternate;
   }
-  .app-orb img { width:100%; height:100%; object-fit:cover; }
+  .app-orb img {
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border: 2px solid var(--ink);
+    box-shadow: 7px 7px 0 var(--ink);
+    background: transparent;
+  }
   .app-orb.orb-1 { left: 3%; top: 17%; transform: translateZ(110px) rotate(-10deg); animation-delay: -.6s; }
   .app-orb.orb-2 { right: 3%; top: 12%; transform: translateZ(35px) rotate(7deg); animation-delay: -1.7s; }
   .app-orb.orb-3 { right: 0; top: 52%; transform: translateZ(130px) rotate(-4deg); animation-delay: -2.4s; }
@@ -455,13 +463,21 @@
   }
   .object-icon {
     position:absolute; inset:12%;
-    padding: clamp(14px,2vw,24px);
-    background:#fff;
-    border:3px solid var(--panel-ink);
-    box-shadow: 14px 14px 0 var(--panel-ink);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
     transform: translateZ(68px) rotate(-2deg);
   }
-  .object-icon img { width:100%; height:100%; object-fit:cover; }
+  .object-icon img {
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border:3px solid var(--panel-ink);
+    box-shadow: 14px 14px 0 var(--panel-ink);
+    background: transparent;
+  }
   .object-chip {
     position:absolute;
     right:-9%; bottom:4%;
@@ -597,7 +613,7 @@
     .machine { inset:4% -2% 10%; }
     .axis-ring { width:84%; }
     .logo-block { width:200px; box-shadow:10px 10px 0 var(--red),20px 20px 0 var(--acid); }
-    .app-orb { width:70px; padding:5px; box-shadow:5px 5px 0 var(--ink); }
+    .app-orb { width:70px; } .app-orb img { box-shadow:5px 5px 0 var(--ink); }
     .hero-ledger { width:94%; right:3%; transform:translateY(20%); }
     .ledger-item { padding:10px 8px; }
     .ledger-item strong { font-size:1.2rem; }
