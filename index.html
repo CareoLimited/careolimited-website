@@ -517,11 +517,12 @@
     background: transparent;
   }
   /* Visible rotating deck: stack-1 is next in the canonical app order. */
-  .object-stack.stack-1 { top: 1%;  z-index: 5; transform: translate3d(0,0,18px) rotate(-9deg); }
-  .object-stack.stack-2 { top: 17%; z-index: 4; transform: translate3d(-12px,0,14px) rotate(-6deg); }
-  .object-stack.stack-3 { top: 33%; z-index: 3; transform: translate3d(-18px,0,10px) rotate(-3deg); }
-  .object-stack.stack-4 { top: 49%; z-index: 2; transform: translate3d(-12px,0,6px) rotate(3deg); }
-  .object-stack.stack-5 { top: 65%; z-index: 1; transform: translate3d(0,0,2px) rotate(7deg); }
+  .object-stack.stack-1 { top: 1%;  z-index: 6; transform: translate3d(0,0,18px) rotate(-9deg); }
+  .object-stack.stack-2 { top: 14%; z-index: 5; transform: translate3d(-10px,0,15px) rotate(-6deg); }
+  .object-stack.stack-3 { top: 27%; z-index: 4; transform: translate3d(-16px,0,12px) rotate(-3deg); }
+  .object-stack.stack-4 { top: 40%; z-index: 3; transform: translate3d(-16px,0,8px) rotate(1deg); }
+  .object-stack.stack-5 { top: 53%; z-index: 2; transform: translate3d(-10px,0,5px) rotate(4deg); }
+  .object-stack.stack-6 { top: 66%; z-index: 1; transform: translate3d(0,0,2px) rotate(7deg); }
 
   .object-icon {
     position:absolute; inset:12%;
@@ -802,12 +803,13 @@
     <!-- Canonical stacked order rule:
          dishtopia > cvpilot > moviequiz > kitapp > spingo > fquiz > archiver
          In each panel: current app is front, stack-1 is the next app in this sequence,
-         and the previous panel's front app becomes stack-5. -->
+         and the previous panel's front app becomes stack-6. -->
     <section class="app-exhibit app-dishtopia" aria-labelledby="dishtopia-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">01</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-6" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
             <div class="object-stack stack-5" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
             <div class="object-stack stack-4" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
@@ -836,6 +838,7 @@
         <div class="app-visual">
           <div class="app-number">02</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-6" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
             <div class="object-stack stack-5" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
             <div class="object-stack stack-4" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
@@ -864,6 +867,7 @@
         <div class="app-visual">
           <div class="app-number">03</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-6" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
             <div class="object-stack stack-5" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
             <div class="object-stack stack-4" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
@@ -896,6 +900,7 @@
         <div class="app-visual">
           <div class="app-number">04</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-6" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-stack stack-5" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
             <div class="object-stack stack-4" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
@@ -924,6 +929,7 @@
         <div class="app-visual">
           <div class="app-number">05</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-6" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
             <div class="object-stack stack-5" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-stack stack-4" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
@@ -952,6 +958,7 @@
         <div class="app-visual">
           <div class="app-number">06</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-6" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
             <div class="object-stack stack-5" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
             <div class="object-stack stack-4" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
@@ -980,6 +987,7 @@
         <div class="app-visual">
           <div class="app-number">07</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-6" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
             <div class="object-stack stack-5" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
             <div class="object-stack stack-4" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
@@ -1491,7 +1499,7 @@ const translations = {
   setLanguage(savedLanguage);
 
   // Keep every logo deck in one explicit, cyclic order.
-  // The active app is front; each next app occupies stack-1 through stack-5.
+  // The active app is front; each next app occupies stack-1 through stack-6.
   (() => {
     const canonicalApps = [
       { id: "dishtopia", logo: "images/dishtopia-logo.png" },
