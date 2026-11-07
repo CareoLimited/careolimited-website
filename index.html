@@ -308,38 +308,9 @@
   .app-orb.orb-4 { right: 20%; bottom: 2%; transform: translateZ(50px) rotate(8deg); animation-delay: -.9s; }
   .app-orb.orb-5 { left: 7%; bottom: 8%; transform: translateZ(140px) rotate(5deg); animation-delay: -1.1s; }
   .app-orb.orb-6 { left: -2%; top: 48%; transform: translateZ(15px) rotate(-8deg); animation-delay: -3.2s; }
+  .app-orb.orb-7 { left: 36%; bottom: -4%; transform: translateZ(70px) rotate(-6deg); animation-delay: -2s; }
   @keyframes floatTile { from { margin-top: -7px; } to { margin-top: 9px; } }
 
-  .hero-ledger {
-    position: absolute;
-    right: 0; bottom: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: min(680px, 78%);
-    border: 2px solid var(--ink);
-    background: var(--paper);
-    transform: translate(3%, 18%);
-    z-index: 5;
-  }
-  .ledger-item { padding: 14px 16px; border-right: 2px solid var(--ink); }
-  .ledger-item:last-child { border-right: 0; }
-  .ledger-item strong {
-    display:block;
-    font-size:clamp(1rem,1.6vw,1.6rem);
-    line-height:1.08;
-    letter-spacing:-.04em;
-    overflow-wrap:anywhere;
-  }
-  .ledger-item span {
-    display:block;
-    margin-top:5px;
-    font-size:.67rem;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.055em;
-    line-height:1.3;
-    overflow-wrap:anywhere;
-  }
 
   /* ABOUT */
   .about {
@@ -350,7 +321,7 @@
     overflow: hidden;
   }
   .about::after {
-    content:"06";
+    content:"07";
     position:absolute; right:-.04em; bottom:-.24em;
     font-size: clamp(18rem, 42vw, 42rem);
     line-height:.75;
@@ -454,6 +425,16 @@
       radial-gradient(circle at 90% 76%, rgba(255,77,94,.42), transparent 32%),
       radial-gradient(circle at 70% 9%, rgba(79,127,255,.30), transparent 26%),
       linear-gradient(135deg, #090b10 0%, #121621 60%, #171329 100%);
+  }
+  .app-exhibit.app-dishtopia {
+    --panel:#0b2747;
+    --panel-ink:#f5fbff;
+    --accent:#08efe2;
+    --accent-ink:#153a61;
+    --panel-art:
+      radial-gradient(circle at 10% 20%, rgba(8,239,226,.34), transparent 30%),
+      radial-gradient(circle at 88% 78%, rgba(5,152,243,.48), transparent 34%),
+      linear-gradient(135deg, #0b2747 0%, #075583 56%, #0582ee 100%);
   }
   .app-exhibit.app-cvpilot {
     --panel:#081f46;
@@ -674,7 +655,6 @@
     .hero-layout { grid-template-columns:1fr; gap:42px; }
     .hero-copy { max-width:900px; }
     .hero-stage { height:620px; width:min(760px,100%); margin:0 auto; }
-    .hero-ledger { width:76%; right:8%; }
     .about-grid, .apps-intro-grid, .footer-grid { grid-template-columns:1fr; gap:34px; }
     .footer-contact { grid-column: 1; }
     .exhibit-grid { grid-template-columns:minmax(260px,.88fr) minmax(0,1.12fr); gap:28px; padding:72px 0; }
@@ -704,10 +684,6 @@
     .axis-ring { width:84%; }
     .logo-block { width:200px; box-shadow:10px 10px 0 var(--red),20px 20px 0 var(--acid); }
     .app-orb { width:70px; } .app-orb img { border-radius:18px; box-shadow:5px 5px 0 var(--ink); }
-    .hero-ledger { width:94%; right:3%; transform:translateY(20%); }
-    .ledger-item { padding:10px 8px; }
-    .ledger-item strong { font-size:1.2rem; }
-    .ledger-item span { font-size:.57rem; }
     .about, .apps-intro { padding-top:90px; padding-bottom:90px; }
     .about h2 { font-size:clamp(3.2rem,16vw,5.7rem); line-height:.98; }
     .apps-intro h2 { font-size:clamp(3.55rem,17vw,6rem); line-height:.95; }
@@ -788,17 +764,14 @@
             <div class="axis-ring r1"></div>
             <div class="axis-ring r2"></div>
             <div class="axis-ring r3"></div>
-            <div class="logo-block"><img src="images/careo-logo.jpg" alt="" /></div>            <div class="app-orb orb-1"><img src="images/moviequiz-logo.png" alt="" onerror="this.parentElement.style.display='none'" /></div>
-            <div class="app-orb orb-2"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="app-orb orb-3"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="app-orb orb-4"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="app-orb orb-5"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="app-orb orb-6"><img src="images/archiver-logo.png" alt="" /></div>
-          </div>
-          <div class="hero-ledger">
-            <div class="ledger-item"><strong>6</strong><span data-i18n="stats.apps">Published apps</span></div>
-            <div class="ledger-item"><strong>10</strong><span data-i18n="stats.languages">Languages</span></div>
-            <div class="ledger-item"><strong data-i18n="stats.usersCount">Thousands</strong><span data-i18n="stats.community">of Users</span></div>
+            <div class="logo-block"><img src="images/careo-logo.jpg" alt="" /></div>
+            <div class="app-orb orb-1"><img src="images/dishtopia-logo.png" alt="" /></div>
+            <div class="app-orb orb-2"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="app-orb orb-3"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="app-orb orb-4"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="app-orb orb-5"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="app-orb orb-6"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="app-orb orb-7"><img src="images/archiver-logo.png" alt="" /></div>
           </div>
         </div>
       </div>
@@ -817,36 +790,92 @@
 
     <section class="apps-intro" id="apps">
       <div class="shell apps-intro-grid">
-        <div class="section-index">02 / 06</div>
+        <div class="section-index">02 / 07</div>
         <div>
           <h2 data-i18n="apps.title" data-reveal>Our Apps</h2>
-          <p data-i18n="apps.description" data-reveal>Discover our current applications across books, motorsport and movie trivia, quick decision tools, career productivity, and stock & collection management.</p>
+          <p data-i18n="apps.description" data-reveal>Discover our current applications across cosy puzzle games, movie and motorsport trivia, books, quick decision tools, career productivity, and stock & collection management.</p>
         </div>
       </div>
     </section>
 
 
     <!-- Canonical stacked order rule:
-         moviequiz > fquiz > kitapp > spingo > cvpilot > archiver
+         dishtopia > cvpilot > moviequiz > kitapp > spingo > fquiz > archiver
          In each panel: current app is front, stack-1 is the next app in this sequence,
          and the previous panel's front app becomes stack-5. -->
-    <section class="app-exhibit app-moviequiz" aria-labelledby="moviequiz-title">
+    <section class="app-exhibit app-dishtopia" aria-labelledby="dishtopia-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
           <div class="app-number">01</div>
           <div class="object-frame tilt-object">
+            <div class="object-stack stack-5" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="dishtopia"><img src="images/dishtopia-logo.png" alt="Dishtopia app icon" /></div>
+            <div class="object-chip" data-i18n="dishtopia.tag">Puzzle & Casual</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="dishtopia.tag">Puzzle & Casual</div>
+          <h3 class="app-title" id="dishtopia-title" data-i18n="dishtopia.title" data-reveal>Dishtopia</h3>
+          <p data-i18n="dishtopia.description">Sort dishes, match three, wash them sparkling clean & restore cosy kitchens with a raccoon chef.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
+              <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
+            </div>
+            <a class="privacy-link" href="privacy/dishtopia.html" data-privacy-link="dishtopia" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit app-cvpilot" aria-labelledby="cvpilot-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">02</div>
+          <div class="object-frame tilt-object">
             <div class="object-stack stack-5" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-4" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
             <div class="object-stack stack-2" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-1" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="cvpilot"><img src="images/cvpilot-logo.png" alt="CVPilot app icon" /></div>
+            <div class="object-chip" data-i18n="cvpilot.tag">Career & Productivity</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="cvpilot.tag">Career & Productivity</div>
+          <h3 class="app-title" id="cvpilot-title" data-i18n="cvpilot.title" data-reveal>CVPilot: AI Resume Builder</h3>
+          <p data-i18n="cvpilot.description">Your AI resume builder & CV checker: score your CV, match it to a job post & see what to fix first before you apply.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <a class="store-btn" href="https://apps.apple.com/us/app/cvpilot-ai-resume-builder/id6776770683" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
+              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.cvpilot" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
+            </div>
+            <a class="privacy-link" href="privacy/cvpilot.html" data-privacy-link="cvpilot" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit app-moviequiz" aria-labelledby="moviequiz-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">03</div>
+          <div class="object-frame tilt-object">
+            <div class="object-stack stack-5" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
             <div class="object-icon" data-front-app="moviequiz"><img src="images/moviequiz-logo.png" alt="Movie Quiz app icon" onerror="this.style.display='none'" /></div>
             <div class="object-chip" data-i18n="moviequiz.tag">Trivia & Casual</div>
           </div>
         </div>
         <div class="app-copy">
           <div class="app-tag" data-i18n="moviequiz.tag">Trivia & Casual</div>
-          <h3 class="app-title" id="moviequiz-title" data-i18n="moviequiz.title" data-reveal>Movie Quiz: The Cinephile Test</h3>
+          <h3 class="app-title" id="moviequiz-title" data-i18n="moviequiz.title" data-reveal>Movie Quiz: Cinema Trivia Game</h3>
           <p data-i18n="moviequiz.description">Test your knowledge of movies, characters, filmmakers and awards.</p>
           <div class="app-actions">
             <div class="store-row">
@@ -862,16 +891,72 @@
         </div>
       </div>
     </section>
+    <section class="app-exhibit app-booklio" aria-labelledby="kitapp-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">04</div>
+          <div class="object-frame tilt-object">
+            <div class="object-stack stack-5" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="kitapp"><img src="images/kitapp-logo.png" alt="Booklio app icon" /></div>
+            <div class="object-chip" data-i18n="kitapp.tag">Books & Library</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="kitapp.tag">Books & Library</div>
+          <h3 class="app-title" id="kitapp-title" data-i18n="kitapp.title" data-reveal>Booklio: Book Tracker</h3>
+          <p data-i18n="kitapp.description">Scan book barcodes, organize your library & track reading stats.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <a class="store-btn" href="https://apps.apple.com/us/app/kitapp-book-tracker-app/id6764900083" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
+              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.kitapp" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
+            </div>
+            <a class="privacy-link" href="privacy/kitapp.html" data-privacy-link="kitapp" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app-exhibit app-spingo" aria-labelledby="spingo-title">
+      <div class="shell exhibit-grid">
+        <div class="app-visual">
+          <div class="app-number">05</div>
+          <div class="object-frame tilt-object">
+            <div class="object-stack stack-5" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
+            <div class="object-icon" data-front-app="spingo"><img src="images/spingo-logo.png" alt="Spin&Go app icon" /></div>
+            <div class="object-chip" data-i18n="spingo.tag">Fun & Decisions</div>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-tag" data-i18n="spingo.tag">Fun & Decisions</div>
+          <h3 class="app-title" id="spingo-title" data-i18n="spingo.title" data-reveal>Spin&amp;Go: Spin the Wheel!</h3>
+          <p data-i18n="spingo.description">Spin the wheel, flip a coin & make fun decisions instantly.</p>
+          <div class="app-actions">
+            <div class="store-row">
+              <a class="store-btn" href="https://apps.apple.com/us/app/spin-go-decision-maker-app/id6765473545" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
+              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.spinandgo" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
+            </div>
+            <a class="privacy-link" href="privacy/spingo.html" data-privacy-link="spingo" data-i18n="links.privacy">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="app-exhibit app-fquiz" aria-labelledby="fquiz-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
-          <div class="app-number">02</div>
+          <div class="app-number">06</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-4" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
+            <div class="object-stack stack-5" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
             <div class="object-stack stack-3" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-2" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-1" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
             <div class="object-icon" data-front-app="fquiz"><img src="images/fquiz-logo.png" alt="F Quiz app icon" /></div>
             <div class="object-chip" data-i18n="fquiz.tag">Trivia & Motorsport</div>
           </div>
@@ -890,100 +975,16 @@
         </div>
       </div>
     </section>
-    <section class="app-exhibit app-booklio" aria-labelledby="kitapp-title">
-      <div class="shell exhibit-grid">
-        <div class="app-visual">
-          <div class="app-number">03</div>
-          <div class="object-frame tilt-object">
-            <div class="object-stack stack-5" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-4" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-3" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-2" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-1" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-icon" data-front-app="kitapp"><img src="images/kitapp-logo.png" alt="KitApp app icon" /></div>
-            <div class="object-chip" data-i18n="kitapp.tag">Books & Library</div>
-          </div>
-        </div>
-        <div class="app-copy">
-          <div class="app-tag" data-i18n="kitapp.tag">Books & Library</div>
-          <h3 class="app-title" id="kitapp-title" data-i18n="kitapp.title" data-reveal>Booklio: Reading Log</h3>
-          <p data-i18n="kitapp.description">Scan book barcodes, organize your library & track reading stats.</p>
-          <div class="app-actions">
-            <div class="store-row">
-              <a class="store-btn" href="https://apps.apple.com/us/app/kitapp-book-tracker-app/id6764900083" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
-              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.kitapp" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
-            </div>
-            <a class="privacy-link" href="privacy/kitapp.html" data-privacy-link="kitapp" data-i18n="links.privacy">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="app-exhibit app-spingo" aria-labelledby="spingo-title">
-      <div class="shell exhibit-grid">
-        <div class="app-visual">
-          <div class="app-number">04</div>
-          <div class="object-frame tilt-object">
-            <div class="object-stack stack-5" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-4" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-3" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-2" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-stack stack-1" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-icon" data-front-app="spingo"><img src="images/spingo-logo.png" alt="Spin&Go app icon" /></div>
-            <div class="object-chip" data-i18n="spingo.tag">Fun & Decisions</div>
-          </div>
-        </div>
-        <div class="app-copy">
-          <div class="app-tag" data-i18n="spingo.tag">Fun & Decisions</div>
-          <h3 class="app-title" id="spingo-title" data-i18n="spingo.title" data-reveal>Spin&Go: Decision Maker App</h3>
-          <p data-i18n="spingo.description">Spin the wheel, flip a coin & make fun decisions instantly.</p>
-          <div class="app-actions">
-            <div class="store-row">
-              <a class="store-btn" href="https://apps.apple.com/us/app/spin-go-decision-maker-app/id6765473545" target="_blank" rel="noopener"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></a>
-              <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.careolimited.spinandgo" target="_blank" rel="noopener"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></a>
-            </div>
-            <a class="privacy-link" href="privacy/spingo.html" data-privacy-link="spingo" data-i18n="links.privacy">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="app-exhibit app-cvpilot" aria-labelledby="cvpilot-title">
-      <div class="shell exhibit-grid">
-        <div class="app-visual">
-          <div class="app-number">05</div>
-          <div class="object-frame tilt-object">
-            <div class="object-stack stack-5" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-4" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-3" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-2" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-1" data-stack-app="archiver"><img src="images/archiver-logo.png" alt="" /></div>
-            <div class="object-icon" data-front-app="cvpilot"><img src="images/cvpilot-logo.png" alt="CVPilot app icon" /></div>
-            <div class="object-chip" data-i18n="cvpilot.tag">Career & Productivity</div>
-          </div>
-        </div>
-        <div class="app-copy">
-          <div class="app-tag" data-i18n="cvpilot.tag">Career & Productivity</div>
-          <h3 class="app-title" id="cvpilot-title" data-i18n="cvpilot.title" data-reveal>CVPilot: AI CV Analyzer</h3>
-          <p data-i18n="cvpilot.description">Analyze resumes with smart guidance, practical feedback & clear CV improvement support.</p>
-          <div class="app-actions">
-            <div class="store-row">
-              <span class="store-btn-disabled"><span class="store-icon"></span><span data-i18n="links.appStore">App Store</span></span>
-              <span class="store-btn-disabled"><span class="store-icon">▶</span><span data-i18n="links.googlePlay">Google Play</span></span>
-            </div>
-            <a class="privacy-link" href="privacy/cvpilot.html" data-privacy-link="cvpilot" data-i18n="links.privacy">Privacy Policy</a>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="app-exhibit app-archiver" aria-labelledby="archiver-title">
       <div class="shell exhibit-grid">
         <div class="app-visual">
-          <div class="app-number">06</div>
+          <div class="app-number">07</div>
           <div class="object-frame tilt-object">
-            <div class="object-stack stack-5" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
-            <div class="object-stack stack-4" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
-            <div class="object-stack stack-3" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
-            <div class="object-stack stack-2" data-stack-app="fquiz"><img src="images/fquiz-logo.png" alt="" /></div>
-            <div class="object-stack stack-1" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-5" data-stack-app="spingo"><img src="images/spingo-logo.png" alt="" /></div>
+            <div class="object-stack stack-4" data-stack-app="kitapp"><img src="images/kitapp-logo.png" alt="" /></div>
+            <div class="object-stack stack-3" data-stack-app="moviequiz"><img src="images/moviequiz-logo.png" alt="" /></div>
+            <div class="object-stack stack-2" data-stack-app="cvpilot"><img src="images/cvpilot-logo.png" alt="" /></div>
+            <div class="object-stack stack-1" data-stack-app="dishtopia"><img src="images/dishtopia-logo.png" alt="" /></div>
             <div class="object-icon" data-front-app="archiver"><img src="images/archiver-logo.png" alt="ArchiveR app icon" /></div>
             <div class="object-chip" data-i18n="archiver.tag">Stock & Collection</div>
           </div>
@@ -1018,6 +1019,11 @@
   </footer>
 
 <script>
+    // Browsers can block site storage (private modes, strict settings); the page must still work, it just forgets the language.
+    const careoStorage = {
+      get(key) { try { return window.localStorage.getItem(key); } catch (error) { return null; } },
+      set(key, value) { try { window.localStorage.setItem(key, value); } catch (error) { /* not remembered */ } }
+    };
 const translations = {
     en: {
       "brand.subtitle": "Mobile apps & digital products",
@@ -1028,37 +1034,36 @@ const translations = {
       "hero.description": "Careo Limited develops mobile applications focused on entertainment, smart utility, productivity, inventory management & simple user experiences.",
       "hero.ctaApps": "Explore our apps",
       "hero.ctaContact": "Contact us",
-      "stats.apps": "Published apps",
-      "stats.languages": "Languages",
-      "stats.usersCount": "Thousands",
-      "stats.community": "of Users",
       "about.title": "About CAREO LIMITED",
       "about.description": "CAREO LIMITED is a United Kingdom registered company creating mobile applications & digital products. We focus on polished design, practical features & accessible experiences across our app portfolio.",
       "apps.title": "Our Apps",
-      "apps.description": "Discover our current applications across books, motorsport and movie trivia, quick decision tools, career productivity, and stock & collection management.",
+      "apps.description": "Discover our current applications across cosy puzzle games, movie and motorsport trivia, books, quick decision tools, career productivity, and stock & collection management.",
       "kitapp.tag": "Books & Library",
-      "kitapp.title": "Booklio: Reading Log",
+      "kitapp.title": "Booklio: Book Tracker",
       "kitapp.description": "Scan book barcodes, organize your library & track reading stats.",
       "fquiz.tag": "Trivia & Motorsport",
       "fquiz.title": "F Quiz: Motorsport Trivia Game",
       "fquiz.description": "Think fast, race smart & prove your motorsport knowledge.",
       "spingo.tag": "Fun & Decisions",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: Spin the Wheel!",
       "spingo.description": "Spin the wheel, flip a coin & make fun decisions instantly.",
+      "dishtopia.tag": "Puzzle & Casual",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Sort dishes, match three, wash them sparkling clean & restore cosy kitchens with a raccoon chef.",
       "cvpilot.tag": "Career & Productivity",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "Analyze resumes with smart guidance, practical feedback & clear CV improvement support.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "Your AI resume builder & CV checker: score your CV, match it to a job post & see what to fix first before you apply.",
       "archiver.tag": "Stock & Collection",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Track stock, collections, barcodes, locations & item values in one simple inventory app.",
       "moviequiz.tag": "Trivia & Casual",
-      "moviequiz.title": "Movie Quiz: The Cinephile Test",
+      "moviequiz.title": "Movie Quiz: Cinema Trivia Game",
       "moviequiz.description": "Test your knowledge of movies, characters, filmmakers and awards.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Privacy Policy",
       "contact.title": "Contact",
-      "footer.rights": "© 2026 CAREO LIMITED. All rights reserved."
+      "footer.rights": "© {year} CAREO LIMITED. All rights reserved."
     },
     fr: {
       "brand.subtitle": "Apps mobiles & produits numériques",
@@ -1069,37 +1074,36 @@ const translations = {
       "hero.description": "Careo Limited développe des applications mobiles axées sur le divertissement, les outils pratiques, la productivité, la gestion d’inventaire & des expériences simples.",
       "hero.ctaApps": "Découvrir nos apps",
       "hero.ctaContact": "Nous contacter",
-      "stats.apps": "Apps publiées",
-      "stats.languages": "Langues",
-      "stats.usersCount": "Des milliers",
-      "stats.community": "d’utilisateurs",
       "about.title": "À propos de CAREO LIMITED",
       "about.description": "CAREO LIMITED est une société enregistrée au Royaume-Uni qui crée des applications mobiles & des produits numériques. Nous privilégions un design soigné, des fonctions utiles & des expériences accessibles dans tout notre portefeuille.",
       "apps.title": "Nos apps",
-      "apps.description": "Découvrez nos applications pour les livres, les quiz de sport automobile et de cinéma, les décisions rapides, la productivité professionnelle, et la gestion de stock & collection.",
+      "apps.description": "Découvrez nos applications : jeux de réflexion chaleureux, quiz de cinéma et de sport automobile, livres, décisions rapides, productivité professionnelle, et gestion de stock & collection.",
       "kitapp.tag": "Livres & Bibliothèque",
-      "kitapp.title": "Livreo: Suivi Lecture",
+      "kitapp.title": "Livreo: Suivi Livres & Lecture",
       "kitapp.description": "Scannez les codes-barres des livres, organisez votre bibliothèque & suivez vos statistiques de lecture.",
       "fquiz.tag": "Quiz & Sport Auto",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: Culture Motorsport",
       "fquiz.description": "Réfléchissez vite, jouez intelligemment & prouvez vos connaissances en sport automobile.",
       "spingo.tag": "Fun & Décisions",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: Tourne la roue !",
       "spingo.description": "Faites tourner la roue, lancez une pièce & prenez des décisions amusantes instantanément.",
+      "dishtopia.tag": "Puzzle & Casual",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Triez la vaisselle, alignez-en trois, lavez-la jusqu’à ce qu’elle brille & restaurez des cuisines chaleureuses avec un chef raton laveur.",
       "cvpilot.tag": "Carrière & Productivité",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "Analysez vos CV avec des conseils intelligents, des retours pratiques & une aide claire à l’amélioration.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "Votre créateur et correcteur de CV par IA : notez votre CV, comparez-le à une offre d’emploi & voyez quoi corriger en premier avant de postuler.",
       "archiver.tag": "Stock & Collection",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Suivez stocks, collections, codes-barres, emplacements & valeurs d’objets dans une app d’inventaire simple.",
       "moviequiz.tag": "Quiz & Casual",
-      "moviequiz.title": "Quiz Cinéma : Test Cinéphile",
+      "moviequiz.title": "Movie Quiz: Culture Cinéma",
       "moviequiz.description": "Testez vos connaissances sur les films, personnages, cinéastes et récompenses.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Politique de confidentialité",
       "contact.title": "Contact",
-      "footer.rights": "© 2026 CAREO LIMITED. Tous droits réservés."
+      "footer.rights": "© {year} CAREO LIMITED. Tous droits réservés."
     },
     de: {
       "brand.subtitle": "Mobile Apps & digitale Produkte",
@@ -1110,37 +1114,36 @@ const translations = {
       "hero.description": "Careo Limited entwickelt mobile Anwendungen für Unterhaltung, smarte Werkzeuge, Produktivität, Inventarverwaltung & einfache Nutzererlebnisse.",
       "hero.ctaApps": "Unsere Apps ansehen",
       "hero.ctaContact": "Kontakt aufnehmen",
-      "stats.apps": "Veröffentlichte Apps",
-      "stats.languages": "Sprachen",
-      "stats.usersCount": "Tausende",
-      "stats.community": "Nutzer",
       "about.title": "Über CAREO LIMITED",
       "about.description": "CAREO LIMITED ist ein im Vereinigten Königreich registriertes Unternehmen, das mobile Anwendungen & digitale Produkte erstellt. Wir konzentrieren uns auf hochwertiges Design, praktische Funktionen & zugängliche Erlebnisse in unserem App-Portfolio.",
       "apps.title": "Unsere Apps",
-      "apps.description": "Entdecken Sie unsere Anwendungen für Bücher, Motorsport- und Filmquiz, schnelle Entscheidungen, Karriereproduktivität sowie Bestands- & Sammlungsverwaltung.",
+      "apps.description": "Entdecken Sie unsere Anwendungen für gemütliche Puzzlespiele, Film- und Motorsportquiz, Bücher, schnelle Entscheidungen, Karriereproduktivität sowie Bestands- & Sammlungsverwaltung.",
       "kitapp.tag": "Bücher & Bibliothek",
-      "kitapp.title": "Buchio: Lesetracker",
+      "kitapp.title": "Buchio: Bücher-Tracker",
       "kitapp.description": "Scannen Sie Buch-Barcodes, organisieren Sie Ihre Bibliothek & verfolgen Sie Lesestatistiken.",
       "fquiz.tag": "Quiz & Motorsport",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: Motorsport Quizspiel",
       "fquiz.description": "Denken Sie schnell, spielen Sie klug & beweisen Sie Ihr Motorsportwissen.",
       "spingo.tag": "Spaß & Entscheidungen",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: Dreh das Glücksrad!",
       "spingo.description": "Drehen Sie das Rad, werfen Sie eine Münze & treffen Sie sofort unterhaltsame Entscheidungen.",
+      "dishtopia.tag": "Puzzle & Casual",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Sortiere Geschirr, bilde Dreiergruppen, spüle alles blitzblank & renoviere gemütliche Küchen mit einem Waschbär-Koch.",
       "cvpilot.tag": "Karriere & Produktivität",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "Analysieren Sie Lebensläufe mit smarter Anleitung, praktischem Feedback & klarer Unterstützung zur Verbesserung.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "Dein KI-Lebenslauf-Builder & CV-Check: Bewerte deinen Lebenslauf, gleiche ihn mit einer Stellenanzeige ab & sieh, was du vor der Bewerbung zuerst verbessern solltest.",
       "archiver.tag": "Bestand & Sammlung",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Verwalten Sie Bestände, Sammlungen, Barcodes, Standorte & Objektwerte in einer einfachen Inventar-App.",
       "moviequiz.tag": "Quiz & Casual",
-      "moviequiz.title": "Filmquiz: Test für Cineasten",
+      "moviequiz.title": "Movie Quiz: Film-Trivia-Spiel",
       "moviequiz.description": "Teste dein Wissen über Filme, Figuren, Filmschaffende und Preise.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Datenschutzerklärung",
       "contact.title": "Kontakt",
-      "footer.rights": "© 2026 CAREO LIMITED. Alle Rechte vorbehalten."
+      "footer.rights": "© {year} CAREO LIMITED. Alle Rechte vorbehalten."
     },
     it: {
       "brand.subtitle": "App mobili & prodotti digitali",
@@ -1151,37 +1154,36 @@ const translations = {
       "hero.description": "Careo Limited sviluppa applicazioni mobili dedicate a intrattenimento, utilità smart, produttività, gestione dell’inventario & esperienze semplici.",
       "hero.ctaApps": "Esplora le nostre app",
       "hero.ctaContact": "Contattaci",
-      "stats.apps": "App pubblicate",
-      "stats.languages": "Lingue",
-      "stats.usersCount": "Migliaia",
-      "stats.community": "di utenti",
       "about.title": "Informazioni su CAREO LIMITED",
       "about.description": "CAREO LIMITED è una società registrata nel Regno Unito che crea applicazioni mobili & prodotti digitali. Ci concentriamo su design curato, funzioni pratiche & esperienze accessibili nel nostro portfolio di app.",
       "apps.title": "Le nostre app",
-      "apps.description": "Scopri le nostre applicazioni per libri, quiz sul motorsport e sul cinema, decisioni rapide, produttività professionale e gestione di stock & collezioni.",
+      "apps.description": "Scopri le nostre applicazioni per rompicapo rilassanti, quiz sul cinema e sul motorsport, libri, decisioni rapide, produttività professionale e gestione di stock & collezioni.",
       "kitapp.tag": "Libri & Biblioteca",
-      "kitapp.title": "Librio: Diario Lettura",
+      "kitapp.title": "Librio: Tracker dei Libri",
       "kitapp.description": "Scansiona codici a barre dei libri, organizza la tua biblioteca & monitora le statistiche di lettura.",
       "fquiz.tag": "Quiz & Motorsport",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: Trivia di Motorsport",
       "fquiz.description": "Pensa in fretta, gioca con intelligenza & dimostra la tua conoscenza del motorsport.",
       "spingo.tag": "Decisioni & Divertimento",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: Gira la ruota!",
       "spingo.description": "Gira la ruota, lancia una moneta & prendi decisioni divertenti all’istante.",
+      "dishtopia.tag": "Puzzle & Casual",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Smista i piatti, abbina tre pezzi, lavali fino a farli brillare & rinnova cucine accoglienti con uno chef procione.",
       "cvpilot.tag": "Carriera & Produttività",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "Analizza i CV con guida intelligente, feedback pratici & supporto chiaro al miglioramento.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "Il tuo creatore e verificatore di CV con IA: valuta il tuo CV, confrontalo con un annuncio di lavoro & scopri cosa correggere per primo prima di candidarti.",
       "archiver.tag": "Stock & Collezione",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Tieni traccia di stock, collezioni, codici a barre, posizioni & valori degli oggetti in una semplice app inventario.",
       "moviequiz.tag": "Quiz & Casual",
-      "moviequiz.title": "Quiz Cinema: Test Cinefilo",
+      "moviequiz.title": "Movie Quiz: Trivia sul Cinema",
       "moviequiz.description": "Metti alla prova le tue conoscenze su film, personaggi, cineasti e premi.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Informativa sulla privacy",
       "contact.title": "Contatti",
-      "footer.rights": "© 2026 CAREO LIMITED. Tutti i diritti riservati."
+      "footer.rights": "© {year} CAREO LIMITED. Tutti i diritti riservati."
     },
     ja: {
       "brand.subtitle": "モバイルアプリ & デジタル製品",
@@ -1192,37 +1194,36 @@ const translations = {
       "hero.description": "Careo Limitedは、エンターテインメント、便利ツール、生産性、在庫管理 & シンプルなユーザー体験に重点を置いたモバイルアプリを開発しています。",
       "hero.ctaApps": "アプリを見る",
       "hero.ctaContact": "お問い合わせ",
-      "stats.apps": "公開済みアプリ",
-      "stats.languages": "対応言語",
-      "stats.usersCount": "数千人の",
-      "stats.community": "ユーザー",
       "about.title": "CAREO LIMITEDについて",
       "about.description": "CAREO LIMITEDは英国で登録された会社で、モバイルアプリ & デジタル製品を制作しています。私たちは洗練されたデザイン、実用的な機能 & 使いやすい体験を重視しています。",
       "apps.title": "アプリ一覧",
-      "apps.description": "本、モータースポーツと映画のクイズ、すばやい意思決定、キャリア生産性、在庫 & コレクション管理のアプリをご覧ください。",
+      "apps.description": "癒やし系パズルゲーム、映画とモータースポーツのクイズ、本、すばやい意思決定、キャリア生産性、在庫 & コレクション管理のアプリをご覧ください。",
       "kitapp.tag": "本 & ライブラリ",
-      "kitapp.title": "ヨムノート: 本管理",
+      "kitapp.title": "ヨムノート: 読書記録・本棚",
       "kitapp.description": "本のバーコードをスキャンし、ライブラリを整理し、読書統計を記録できます。",
       "fquiz.tag": "クイズ & モータースポーツ",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: モータースポーツクイズゲーム",
       "fquiz.description": "素早く考え、賢く答え、モータースポーツの知識を証明しましょう。",
       "spingo.tag": "楽しさ & 意思決定",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: ルーレットを回そう！",
       "spingo.description": "ルーレット、コイントス & ランダム選択で楽しくすぐに決められます。",
+      "dishtopia.tag": "パズル & カジュアル",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "お皿を仕分けて3つそろえ、ピカピカに洗って、アライグマのシェフと素敵なキッチンをよみがえらせよう。",
       "cvpilot.tag": "キャリア & 生産性",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "スマートなガイダンス、実用的なフィードバック & 明確な改善サポートで履歴書を分析します。",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "AI履歴書作成・CVチェッカー。履歴書をスコア化し、求人との適合度を確認 & 応募前に最初に直すべき点がわかります。",
       "archiver.tag": "在庫 & コレクション",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "在庫、コレクション、バーコード、保管場所 & アイテム価値をシンプルな在庫アプリで管理できます。",
       "moviequiz.tag": "クイズ & カジュアル",
-      "moviequiz.title": "映画クイズ：シネフィル度テスト",
+      "moviequiz.title": "Movie Quiz: 映画雑学クイズ",
       "moviequiz.description": "映画、キャラクター、映画人、映画賞についての知識を試そう。",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "プライバシーポリシー",
       "contact.title": "お問い合わせ",
-      "footer.rights": "© 2026 CAREO LIMITED. 無断転載を禁じます。"
+      "footer.rights": "© {year} CAREO LIMITED. 無断転載を禁じます。"
     },
     ko: {
       "brand.subtitle": "모바일 앱 & 디지털 제품",
@@ -1233,37 +1234,36 @@ const translations = {
       "hero.description": "Careo Limited는 엔터테인먼트, 스마트 유틸리티, 생산성, 재고 관리 & 간단한 사용자 경험에 중점을 둔 모바일 앱을 개발합니다.",
       "hero.ctaApps": "앱 둘러보기",
       "hero.ctaContact": "문의하기",
-      "stats.apps": "출시된 앱",
-      "stats.languages": "지원 언어",
-      "stats.usersCount": "수천 명의",
-      "stats.community": "사용자",
       "about.title": "CAREO LIMITED 소개",
       "about.description": "CAREO LIMITED는 영국에 등록된 회사로 모바일 애플리케이션 & 디지털 제품을 만듭니다. 우리는 세련된 디자인, 실용적인 기능 & 접근하기 쉬운 경험에 집중합니다.",
       "apps.title": "앱",
-      "apps.description": "도서, 모터스포츠 및 영화 퀴즈, 빠른 결정 도구, 커리어 생산성, 재고 & 컬렉션 관리 앱을 확인하세요.",
+      "apps.description": "아늑한 퍼즐 게임, 영화 및 모터스포츠 퀴즈, 도서, 빠른 결정 도구, 커리어 생산성, 재고 & 컬렉션 관리 앱을 확인하세요.",
       "kitapp.tag": "도서 & 라이브러리",
-      "kitapp.title": "북로그: 책 관리",
+      "kitapp.title": "북로그: 독서기록 & 책 관리",
       "kitapp.description": "도서 바코드를 스캔하고 라이브러리를 정리하며 독서 통계를 추적하세요.",
       "fquiz.tag": "퀴즈 & 모터스포츠",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: 모터스포츠 퀴즈 게임",
       "fquiz.description": "빠르게 생각하고 똑똑하게 플레이하며 모터스포츠 지식을 증명하세요.",
       "spingo.tag": "재미 & 결정",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: 랜덤 룰렛 돌리기!",
       "spingo.description": "휠을 돌리고 동전을 던져 즉시 재미있는 결정을 내리세요.",
+      "dishtopia.tag": "퍼즐 & 캐주얼",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "접시를 분류해 3개를 맞추고 반짝반짝 설거지한 뒤, 너구리 셰프와 함께 아늑한 주방을 되살리세요.",
       "cvpilot.tag": "커리어 & 생산성",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "스마트한 안내, 실용적인 피드백 & 명확한 개선 지원으로 이력서를 분석하세요.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "AI 이력서 빌더 & CV 검사기: 이력서 점수를 확인하고 채용 공고와의 적합도를 비교 & 지원 전에 먼저 고칠 점을 확인하세요.",
       "archiver.tag": "재고 & 컬렉션",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "재고, 컬렉션, 바코드, 위치 & 항목 가치를 간단한 인벤토리 앱에서 관리하세요.",
       "moviequiz.tag": "퀴즈 & 캐주얼",
-      "moviequiz.title": "영화 퀴즈: 시네필 테스트",
+      "moviequiz.title": "Movie Quiz: 영화 상식 퀴즈",
       "moviequiz.description": "영화, 캐릭터, 영화인과 시상식에 대한 지식을 시험해 보세요.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "개인정보 처리방침",
       "contact.title": "문의",
-      "footer.rights": "© 2026 CAREO LIMITED. 모든 권리 보유."
+      "footer.rights": "© {year} CAREO LIMITED. 모든 권리 보유."
     },
     pt: {
       "brand.subtitle": "Apps móveis & produtos digitais",
@@ -1274,37 +1274,36 @@ const translations = {
       "hero.description": "A Careo Limited desenvolve aplicações móveis focadas em entretenimento, utilidade inteligente, produtividade, gestão de inventário & experiências simples.",
       "hero.ctaApps": "Explorar as nossas apps",
       "hero.ctaContact": "Contacte-nos",
-      "stats.apps": "Apps publicadas",
-      "stats.languages": "Idiomas",
-      "stats.usersCount": "Milhares",
-      "stats.community": "de utilizadores",
       "about.title": "Sobre a CAREO LIMITED",
       "about.description": "A CAREO LIMITED é uma empresa registada no Reino Unido que cria aplicações móveis & produtos digitais. Focamo-nos em design cuidado, funcionalidades práticas & experiências acessíveis em todo o nosso portefólio.",
       "apps.title": "As nossas apps",
-      "apps.description": "Descubra as nossas aplicações para livros, quizzes de automobilismo e cinema, decisões rápidas, produtividade profissional e gestão de stock & coleções.",
+      "apps.description": "Descubra as nossas aplicações: jogos de puzzle acolhedores, quizzes de cinema e automobilismo, livros, decisões rápidas, produtividade profissional e gestão de stock & coleções.",
       "kitapp.tag": "Livros & Biblioteca",
-      "kitapp.title": "Livroo: Meus Livros",
+      "kitapp.title": "Livroo: Registo de Livros",
       "kitapp.description": "Digitalize códigos de barras de livros, organize a sua biblioteca & acompanhe estatísticas de leitura.",
       "fquiz.tag": "Quiz & Automobilismo",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: Jogo de Automobilismo",
       "fquiz.description": "Pense rápido, jogue com inteligência & prove o seu conhecimento de automobilismo.",
       "spingo.tag": "Diversão & Decisões",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: Gira a roleta!",
       "spingo.description": "Rode a roda, lance uma moeda & tome decisões divertidas instantaneamente.",
+      "dishtopia.tag": "Puzzle & Casual",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Separa a loiça, junta três iguais, lava-a até brilhar & restaura cozinhas acolhedoras com um chef guaxinim.",
       "cvpilot.tag": "Carreira & Produtividade",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "Analise currículos com orientação inteligente, feedback prático & apoio claro à melhoria.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "O seu criador e verificador de CV com IA: avalie o seu CV, compare-o com uma oferta de emprego & veja o que corrigir primeiro antes de se candidatar.",
       "archiver.tag": "Stock & Coleção",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Acompanhe stock, coleções, códigos de barras, localizações & valores de itens numa app de inventário simples.",
       "moviequiz.tag": "Quiz & Casual",
-      "moviequiz.title": "Quiz de Cinema: Teste Cinéfilo",
+      "moviequiz.title": "Movie Quiz: Trivia de Cinema",
       "moviequiz.description": "Testa os teus conhecimentos sobre filmes, personagens, cineastas e prémios.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Política de Privacidade",
       "contact.title": "Contacto",
-      "footer.rights": "© 2026 CAREO LIMITED. Todos os direitos reservados."
+      "footer.rights": "© {year} CAREO LIMITED. Todos os direitos reservados."
     },
     ru: {
       "brand.subtitle": "Мобильные приложения & цифровые продукты",
@@ -1315,37 +1314,36 @@ const translations = {
       "hero.description": "Careo Limited разрабатывает мобильные приложения для развлечений, полезных инструментов, продуктивности, управления инвентарем & простого пользовательского опыта.",
       "hero.ctaApps": "Посмотреть приложения",
       "hero.ctaContact": "Связаться с нами",
-      "stats.apps": "Опубликованных приложений",
-      "stats.languages": "Языков",
-      "stats.usersCount": "Тысячи",
-      "stats.community": "пользователей",
       "about.title": "О CAREO LIMITED",
       "about.description": "CAREO LIMITED является компанией, зарегистрированной в Великобритании, и создает мобильные приложения & цифровые продукты. Мы уделяем внимание качественному дизайну, практичным функциям & доступному опыту во всем портфеле приложений.",
       "apps.title": "Наши приложения",
-      "apps.description": "Ознакомьтесь с нашими приложениями для книг, викторин по автоспорту и кино, быстрых решений, карьерной продуктивности, а также управления запасами & коллекциями.",
+      "apps.description": "Ознакомьтесь с нашими приложениями: уютные головоломки, викторины о кино и автоспорте, книги, быстрые решения, карьерная продуктивность, а также управление запасами & коллекциями.",
       "kitapp.tag": "Книги & Библиотека",
-      "kitapp.title": "Книгли: Трекер чтения",
+      "kitapp.title": "Книгли: Трекер книг и чтения",
       "kitapp.description": "Сканируйте штрихкоды книг, организуйте библиотеку & отслеживайте статистику чтения.",
       "fquiz.tag": "Викторины & Автоспорт",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: Автоспорт Викторина",
       "fquiz.description": "Думайте быстро, играйте умно & докажите свои знания автоспорта.",
       "spingo.tag": "Развлечения & Решения",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: Крути колесо фортуны!",
       "spingo.description": "Крутите колесо, бросайте монету & принимайте веселые решения мгновенно.",
+      "dishtopia.tag": "Головоломка & Казуальная",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Сортируйте посуду, собирайте по три, отмывайте до блеска & восстанавливайте уютные кухни вместе с поваром-енотом.",
       "cvpilot.tag": "Карьера & Продуктивность",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "Анализируйте резюме с умными подсказками, практичной обратной связью & понятной поддержкой улучшений.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "ИИ-конструктор и проверка резюме: оцените резюме, сравните его с вакансией & узнайте, что исправить в первую очередь перед откликом.",
       "archiver.tag": "Запасы & Коллекции",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Отслеживайте запасы, коллекции, штрихкоды, места хранения & стоимость предметов в простом приложении инвентаризации.",
       "moviequiz.tag": "Викторина & Казуальная",
-      "moviequiz.title": "Киновикторина: Тест киномана",
+      "moviequiz.title": "Movie Quiz: Викторина о кино",
       "moviequiz.description": "Проверьте свои знания фильмов, персонажей, создателей и кинопремий.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Политика конфиденциальности",
       "contact.title": "Контакты",
-      "footer.rights": "© 2026 CAREO LIMITED. Все права защищены."
+      "footer.rights": "© {year} CAREO LIMITED. Все права защищены."
     },
     es: {
       "brand.subtitle": "Apps móviles & productos digitales",
@@ -1356,37 +1354,36 @@ const translations = {
       "hero.description": "Careo Limited desarrolla aplicaciones móviles centradas en entretenimiento, utilidad inteligente, productividad, gestión de inventario & experiencias simples.",
       "hero.ctaApps": "Explorar nuestras apps",
       "hero.ctaContact": "Contactar",
-      "stats.apps": "Apps publicadas",
-      "stats.languages": "Idiomas",
-      "stats.usersCount": "Miles",
-      "stats.community": "de usuarios",
       "about.title": "Acerca de CAREO LIMITED",
       "about.description": "CAREO LIMITED es una empresa registrada en el Reino Unido que crea aplicaciones móviles & productos digitales. Nos enfocamos en diseño cuidado, funciones prácticas & experiencias accesibles en todo nuestro portafolio.",
       "apps.title": "Nuestras apps",
-      "apps.description": "Descubre nuestras aplicaciones para libros, trivia de automovilismo y cine, decisiones rápidas, productividad profesional y gestión de stock & colecciones.",
+      "apps.description": "Descubre nuestras aplicaciones: juegos de puzles acogedores, trivia de cine y automovilismo, libros, decisiones rápidas, productividad profesional y gestión de stock & colecciones.",
       "kitapp.tag": "Libros & Biblioteca",
-      "kitapp.title": "Libroo: Mis Libros",
+      "kitapp.title": "Libroo: Seguimiento de Libros",
       "kitapp.description": "Escanea códigos de barras de libros, organiza tu biblioteca & sigue tus estadísticas de lectura.",
       "fquiz.tag": "Trivia & Automovilismo",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: Trivial de Motorsport",
       "fquiz.description": "Piensa rápido, juega con inteligencia & demuestra tus conocimientos de automovilismo.",
       "spingo.tag": "Diversión & Decisiones",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: ¡Gira la ruleta!",
       "spingo.description": "Gira la rueda, lanza una moneda & toma decisiones divertidas al instante.",
+      "dishtopia.tag": "Puzle & Casual",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Ordena platos, junta tres iguales, déjalos relucientes & restaura cocinas acogedoras con un chef mapache.",
       "cvpilot.tag": "Carrera & Productividad",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "Analiza currículums con orientación inteligente, comentarios prácticos & apoyo claro para mejorar.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "Tu creador y revisor de CV con IA: puntúa tu CV, compáralo con una oferta de empleo & descubre qué corregir primero antes de postularte.",
       "archiver.tag": "Stock & Colección",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Gestiona stock, colecciones, códigos de barras, ubicaciones & valores de artículos en una app de inventario simple.",
       "moviequiz.tag": "Trivia y entretenimiento",
-      "moviequiz.title": "Quiz de Cine: Test Cinéfilo",
+      "moviequiz.title": "Movie Quiz: Trivia de Cine",
       "moviequiz.description": "Pon a prueba tus conocimientos sobre películas, personajes, cineastas y premios.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Política de privacidad",
       "contact.title": "Contacto",
-      "footer.rights": "© 2026 CAREO LIMITED. Todos los derechos reservados."
+      "footer.rights": "© {year} CAREO LIMITED. Todos los derechos reservados."
     },
     tr: {
       "brand.subtitle": "Mobil uygulamalar & dijital ürünler",
@@ -1397,37 +1394,36 @@ const translations = {
       "hero.description": "Careo Limited; eğlence, akıllı yardımcı araçlar, üretkenlik, envanter yönetimi & sade kullanıcı deneyimleri odaklı mobil uygulamalar geliştirir.",
       "hero.ctaApps": "Uygulamalarımızı keşfet",
       "hero.ctaContact": "Bize ulaş",
-      "stats.apps": "Yayınlanan uygulama",
-      "stats.languages": "Dil",
-      "stats.usersCount": "Binlerce",
-      "stats.community": "Kullanıcı",
       "about.title": "CAREO LIMITED Hakkında",
       "about.description": "CAREO LIMITED, Birleşik Krallık’ta kayıtlı bir şirkettir ve mobil uygulamalar & dijital ürünler geliştirir. Uygulama portföyümüzde şık tasarıma, pratik özelliklere & erişilebilir deneyimlere odaklanıyoruz.",
       "apps.title": "Uygulamalarımız",
-      "apps.description": "Kitaplar, motor sporları ve film bilgi yarışmaları, hızlı karar araçları, kariyer üretkenliği, stok & koleksiyon yönetimi alanlarındaki uygulamalarımızı keşfedin.",
+      "apps.description": "Keyifli bulmaca oyunları, film ve motor sporları bilgi yarışmaları, kitaplar, hızlı karar araçları, kariyer üretkenliği, stok & koleksiyon yönetimi alanlarındaki uygulamalarımızı keşfedin.",
       "kitapp.tag": "Kitaplar & Kütüphane",
-      "kitapp.title": "KitApp: Kitap Takibi",
+      "kitapp.title": "KitApp: Kitap Okuma Takibi",
       "kitapp.description": "Kitap barkodlarını tarayın, kütüphanenizi düzenleyin & okuma istatistiklerinizi takip edin.",
       "fquiz.tag": "Bilgi Yarışması & Motor Sporları",
-      "fquiz.title": "F Quiz: Motorsport Trivia Game",
+      "fquiz.title": "F Quiz: Motorspor Bilgi Oyunu",
       "fquiz.description": "Hızlı düşünün, akıllı yarışın & motor sporları bilginizi kanıtlayın.",
       "spingo.tag": "Eğlence & Kararlar",
-      "spingo.title": "Spin&Go: Decision Maker App",
+      "spingo.title": "Spin&Go: Çark Çevir Karar Ver!",
       "spingo.description": "Çark çevirin, yazı tura atın & eğlenceli kararları anında verin.",
+      "dishtopia.tag": "Bulmaca & Gündelik",
+      "dishtopia.title": "Dishtopia",
+      "dishtopia.description": "Tabakları ayır, üçlü eşleştir, pırıl pırıl yıka & rakun şefle sıcacık mutfakları yenile.",
       "cvpilot.tag": "Kariyer & Üretkenlik",
-      "cvpilot.title": "CVPilot: AI CV Analyzer",
-      "cvpilot.description": "CV’lerinizi akıllı yönlendirme, pratik geri bildirim & net iyileştirme desteğiyle analiz edin.",
+      "cvpilot.title": "CVPilot: AI Resume Builder",
+      "cvpilot.description": "Yapay zekâ destekli CV oluşturucu & kontrol aracı: CV’nize puan alın, iş ilanıyla uyumunu görün & başvurmadan önce neyi düzelteceğinizi öğrenin.",
       "archiver.tag": "Stok & Koleksiyon",
       "archiver.title": "ArchiveR: Stock&Collection App",
       "archiver.description": "Stokları, koleksiyonları, barkodları, konumları & ürün değerlerini sade bir envanter uygulamasında takip edin.",
       "moviequiz.tag": "Bilgi Yarışması & Gündelik",
-      "moviequiz.title": "Film Quiz: Sinefil Testi",
+      "moviequiz.title": "Movie Quiz: Film Bilgi Oyunu",
       "moviequiz.description": "Filmler, karakterler, sinemacılar ve ödüller hakkındaki bilgini test et.",
       "links.appStore": "App Store",
       "links.googlePlay": "Google Play",
       "links.privacy": "Gizlilik Politikası",
       "contact.title": "İletişim",
-      "footer.rights": "© 2026 CAREO LIMITED. Tüm hakları saklıdır."
+      "footer.rights": "© {year} CAREO LIMITED. Tüm hakları saklıdır."
     }
   };
 
@@ -1436,7 +1432,7 @@ const translations = {
   const urlLanguage = new URLSearchParams(window.location.search).get("lang");
   const savedLanguage = supportedLanguages.includes(urlLanguage)
     ? urlLanguage
-    : (localStorage.getItem("careo-language") || "en");
+    : (careoStorage.get("careo-language") || "en");
 
   function updatePrivacyLinks(language) {
     document.querySelectorAll("[data-privacy-link]").forEach((link) => {
@@ -1478,11 +1474,11 @@ const translations = {
     document.querySelectorAll("[data-i18n]").forEach((element) => {
       const key = element.getAttribute("data-i18n");
       if (selectedTranslations[key]) {
-        element.textContent = selectedTranslations[key];
+        element.textContent = selectedTranslations[key].replace("{year}", String(new Date().getFullYear()));
       }
     });
 
-    localStorage.setItem("careo-language", language);
+    careoStorage.set("careo-language", language);
     updatePrivacyLinks(language);
     updateLocalizedSiteLinks(language);
     updatePageUrl(language);
@@ -1498,11 +1494,12 @@ const translations = {
   // The active app is front; each next app occupies stack-1 through stack-5.
   (() => {
     const canonicalApps = [
+      { id: "dishtopia", logo: "images/dishtopia-logo.png" },
+      { id: "cvpilot", logo: "images/cvpilot-logo.png" },
       { id: "moviequiz", logo: "images/moviequiz-logo.png" },
-      { id: "fquiz", logo: "images/fquiz-logo.png" },
       { id: "kitapp", logo: "images/kitapp-logo.png" },
       { id: "spingo", logo: "images/spingo-logo.png" },
-      { id: "cvpilot", logo: "images/cvpilot-logo.png" },
+      { id: "fquiz", logo: "images/fquiz-logo.png" },
       { id: "archiver", logo: "images/archiver-logo.png" }
     ];
 
