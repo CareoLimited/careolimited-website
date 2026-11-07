@@ -64,6 +64,17 @@ body.theme-archiver {
   --page-glow-b: rgba(70, 151, 135, .40);
 }
 
+/* Dishtopia's in-game UI palette (UiPalette.cs): ink #153A61, dark #075583, blue #0598F3, cyan #08EFE2, white #F5FBFF. */
+body.theme-dishtopia {
+  --page-bg: #0b2747;
+  --page-bg-2: #0582ee;
+  --page-text: #f5fbff;
+  --page-muted: #d6f5ff;
+  --page-accent: #08efe2;
+  --page-glow-a: rgba(8, 239, 226, .36);
+  --page-glow-b: rgba(5, 152, 243, .46);
+}
+
 body.privacy-page,
 body.account-page {
   min-height: 100vh;

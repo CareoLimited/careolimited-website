@@ -117,6 +117,11 @@
   </div>
 
   <script>
+    // Browsers can block site storage (private modes, strict settings); the page must still work, it just forgets the language.
+    const careoStorage = {
+      get(key) { try { return window.localStorage.getItem(key); } catch (error) { return null; } },
+      set(key, value) { try { window.localStorage.setItem(key, value); } catch (error) { /* not remembered */ } }
+    };
     const EMAIL = "careolimited@gmail.com";
     const translations = {
       en: {
@@ -253,7 +258,7 @@
 
     const supported = Object.keys(translations);
     const params = new URLSearchParams(window.location.search);
-    const requested = (params.get("lang") || localStorage.getItem("fquiz-account-language") || navigator.language || "en").toLowerCase().split(/[-_]/)[0];
+    const requested = (params.get("lang") || careoStorage.get("fquiz-account-language") || navigator.language || "en").toLowerCase().split(/[-_]/)[0];
     const languageSelect = document.getElementById("languageSelect");
     const homeLabels = { en:"← Home", fr:"← Accueil", de:"← Startseite", it:"← Home", ja:"← ホーム", ko:"← 홈", pt:"← Início", ru:"← Главная", es:"← Inicio", tr:"← Ana Sayfa" };
 
@@ -289,7 +294,7 @@
         section(t.helpTitle, `<p>${t.help}</p><div class="actions"><a class="button" href="mailto:${EMAIL}?subject=${subject}">${t.emailButton}</a><a class="button secondary" href="${privacyUrl}">${t.privacyButton}</a></div><div class="notice privacy-note">${t.privacyNote}</div>`);
       document.getElementById("footer").textContent = t.footer;
 
-      localStorage.setItem("fquiz-account-language", lang);
+      careoStorage.set("fquiz-account-language", lang);
       const url = new URL(window.location.href);
       url.searchParams.set("lang", lang);
       window.history.replaceState(null, "", url.toString());

@@ -182,6 +182,11 @@
   </main>
 
   <script>
+    // Browsers can block site storage (private modes, strict settings); the page must still work, it just forgets the language.
+    const careoStorage = {
+      get(key) { try { return window.localStorage.getItem(key); } catch (error) { return null; } },
+      set(key, value) { try { window.localStorage.setItem(key, value); } catch (error) { /* not remembered */ } }
+    };
     const content = {
       en: {
         back: "← Back to CAREO LIMITED", badge: "Movie Quiz account", title: "Delete your account",
@@ -271,7 +276,7 @@
     function languageFromUrl() {
       const requested = new URLSearchParams(window.location.search).get("lang");
       if (requested && supported.has(requested)) return requested;
-      const stored = localStorage.getItem("careo-language");
+      const stored = careoStorage.get("careo-language");
       if (stored && supported.has(stored)) return stored;
       const browser = String(navigator.language || "en").toLowerCase().split("-")[0];
       return supported.has(browser) ? browser : "en";
@@ -304,7 +309,7 @@
       const home = document.getElementById("homeLink");
       home.textContent = ({ en:"← Home", fr:"← Accueil", de:"← Startseite", it:"← Home", ja:"← ホーム", ko:"← 홈", pt:"← Início", ru:"← Главная", es:"← Inicio", tr:"← Ana Sayfa" })[lang] || "← Home";
       home.href = `../index.html?lang=${encodeURIComponent(lang)}#apps`;
-      localStorage.setItem("careo-language", lang);
+      careoStorage.set("careo-language", lang);
       const url = new URL(window.location.href);
       url.searchParams.set("lang", lang);
       window.history.replaceState(null, "", url.toString());

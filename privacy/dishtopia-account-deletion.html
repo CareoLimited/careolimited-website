@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b2747">
+  <meta name="description" content="Account deletion information for Dishtopia by CAREO LIMITED.">
+  <title>Account Deletion - Dishtopia</title>
+  <link rel="icon" href="../images/careo-logo.jpg">
+  <link rel="apple-touch-icon" href="../images/careo-logo.jpg">
+  <style>
+    :root {
+      --bg: #090909;
+      --surface: #121212;
+      --surface-2: #191919;
+      --border: #303030;
+      --text: #f5f5f5;
+      --muted: #b7b7b7;
+      --red: #f10600;
+      --yellow: #ffc400;
+      --green: #55d26f;
+      --max: 880px;
+    }
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .shell { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; padding: 24px 0 56px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    .brand-link { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; }
+    .brand-link img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+    .language-select {
+      min-height: 40px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      padding: 0 10px;
+      font: inherit;
+    }
+    .hero { border-top: 4px solid var(--red); border-bottom: 1px solid var(--border); padding: 34px 0 30px; }
+    .eyebrow { margin: 0 0 8px; color: var(--yellow); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08; letter-spacing: 0; }
+    .hero p { max-width: 680px; margin: 14px 0 0; color: var(--muted); font-size: 1.05rem; }
+    main { padding-top: 8px; }
+    section { padding: 26px 0; border-bottom: 1px solid var(--border); }
+    h2 { margin: 0 0 12px; font-size: 1.25rem; letter-spacing: 0; }
+    h2::before { content: ""; display: inline-block; width: 4px; height: 1em; margin-right: 10px; background: var(--red); vertical-align: -0.08em; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    ol, ul { margin: 14px 0 0; padding-left: 24px; color: var(--muted); }
+    li { margin: 9px 0; padding-left: 4px; }
+    li strong { color: var(--text); }
+    .notice { margin-top: 18px; padding: 14px 16px; border-left: 4px solid var(--yellow); background: var(--surface); color: var(--text); }
+    .privacy-note { border-left-color: var(--green); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--red);
+      border-radius: 6px;
+      background: var(--red);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .button.secondary { border-color: var(--border); background: var(--surface-2); }
+    footer { padding-top: 24px; color: #8f8f8f; font-size: 0.9rem; }
+    @media (max-width: 560px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); padding-top: 14px; }
+      .topbar { align-items: stretch; flex-direction: column; }
+      .language-select { width: 100%; }
+      .hero { padding: 26px 0 24px; }
+      .actions { flex-direction: column; }
+      .button { width: 100%; }
+    }
+  </style>
+  <link rel="stylesheet" href="privacy-theme.css">
+</head>
+<body class="account-page theme-dishtopia">
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand-link" id="homeLink" href="../index.html">
+        <span>← Home</span>
+      </a>
+      <select class="language-select" id="languageSelect" aria-label="Language">
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+      </select>
+    </header>
+
+    <div class="hero">
+      <p class="eyebrow" id="eyebrow"></p>
+      <h1 id="title"></h1>
+      <p id="subtitle"></p>
+    </div>
+
+    <main id="content"></main>
+    <footer id="footer"></footer>
+  </div>
+
+  <script>
+    const EMAIL = "careolimited@gmail.com";
+    const translations = {
+      "en": {
+        "eyebrow": "Account & privacy",
+        "title": "Account deletion",
+        "subtitle": "How to permanently delete your Dishtopia account and what happens to your data.",
+        "inAppTitle": "Delete your account in the game",
+        "inAppIntro": "You can delete your Dishtopia account directly in the game on iOS and Android. Dishtopia accounts have no password, so none is needed.",
+        "steps": [
+          "Open Dishtopia.",
+          "On the Home screen, tap the gear button to open Settings.",
+          "Tap Delete Account near the bottom of Settings.",
+          "Read the warning and tap Delete to confirm.",
+          "Stay connected to the internet until you see “Your account was deleted.”"
+        ],
+        "warning": "Deletion is permanent and cannot be undone. Your kitchen, coins, items and progress are removed from the cloud and from that device.",
+        "deletedTitle": "Data deleted",
+        "deletedIntro": "When deletion completes, the data kept for your account in Unity Gaming Services is deleted:",
+        "deleted": [
+          "Your Unity player account and player ID, including any link to Sign in with Apple or Google Play Games",
+          "Your cloud save: level, coins, items, kitchen progress and other game progress",
+          "Your place in your Kitchen Crew (the crew keeps the points it earned)",
+          "The game progress saved on that device, which is reset to a fresh start"
+        ],
+        "retainedTitle": "Data outside the account",
+        "retained": [
+          "Your generated player name and scores on the Chef's League leaderboards may stay visible for a while. We remove them when you ask (see below).",
+          "Purchases stay with your Apple or Google account and can be restored with Restore Purchases. Payment records are kept by Apple or Google.",
+          "Advertising and consent records are handled by Google under its own settings and policies.",
+          "Limited records may be kept where needed for security, fraud prevention or legal obligations."
+        ],
+        "timingTitle": "Processing time",
+        "timing": "Deletion in the game normally completes straight away. Requests sent by email are normally completed within 7 days once we have identified your account.",
+        "helpTitle": "Can't use the game, or already uninstalled it?",
+        "help": "Email CAREO LIMITED with the subject “Dishtopia Account Deletion”. Include your player name as shown in the game (for example “Sudsy Raccoon”), the Player ID shown at the bottom of Settings if you can still open the game (tap it to copy), your device (iPhone or Android) and, if you signed in, whether you used Sign in with Apple or Google Play Games. You can use the same email to ask us to remove leaderboard or crew entries. Never send passwords or payment details. We may ask a few questions to confirm the account is yours.",
+        "emailButton": "Request account deletion",
+        "privacyButton": "Privacy Policy",
+        "privacyNote": "For full details about the data Dishtopia uses and your privacy rights, read the Dishtopia Privacy Policy.",
+        "footer": "Last updated: November 7, 2026 · CAREO LIMITED"
+      },
+      "fr": {
+        "eyebrow": "Compte et confidentialité",
+        "title": "Suppression du compte",
+        "subtitle": "Comment supprimer définitivement votre compte Dishtopia et ce qu’il advient de vos données.",
+        "inAppTitle": "Supprimer votre compte dans le jeu",
+        "inAppIntro": "Vous pouvez supprimer votre compte Dishtopia directement dans le jeu sur iOS et Android. Les comptes Dishtopia n’ont pas de mot de passe : aucun n’est demandé.",
+        "steps": [
+          "Ouvrez Dishtopia.",
+          "Sur l’écran d’accueil, touchez l’engrenage pour ouvrir les Réglages (Settings).",
+          "Touchez Delete Account en bas des Réglages.",
+          "Lisez l’avertissement et touchez Delete pour confirmer.",
+          "Restez connecté à Internet jusqu’au message « Your account was deleted. »"
+        ],
+        "warning": "La suppression est définitive et irréversible. Votre cuisine, vos pièces, vos objets et votre progression sont supprimés du cloud et de cet appareil.",
+        "deletedTitle": "Données supprimées",
+        "deletedIntro": "Une fois la suppression terminée, les données conservées pour votre compte dans Unity Gaming Services sont supprimées :",
+        "deleted": [
+          "Votre compte joueur Unity et votre identifiant de joueur, y compris toute association avec Se connecter avec Apple ou Google Play Jeux",
+          "Votre sauvegarde cloud : niveau, pièces, objets, progression des cuisines et autres progrès de jeu",
+          "Votre place dans votre Kitchen Crew (l’équipe conserve les points gagnés)",
+          "La progression enregistrée sur cet appareil, qui repart de zéro"
+        ],
+        "retainedTitle": "Données extérieures au compte",
+        "retained": [
+          "Votre nom de joueur généré et vos scores dans les classements de la Chef's League peuvent rester visibles quelque temps. Nous les supprimons sur demande (voir ci-dessous).",
+          "Les achats restent liés à votre compte Apple ou Google et peuvent être récupérés avec Restore Purchases. Les données de paiement sont conservées par Apple ou Google.",
+          "Les données publicitaires et de consentement sont gérées par Google selon ses propres paramètres et politiques.",
+          "Certaines données peuvent être conservées pour la sécurité, la prévention de la fraude ou des obligations légales."
+        ],
+        "timingTitle": "Délai de traitement",
+        "timing": "La suppression dans le jeu est normalement immédiate. Les demandes envoyées par e-mail sont normalement traitées sous 7 jours après identification de votre compte.",
+        "helpTitle": "Vous ne pouvez pas utiliser le jeu ou l’avez désinstallé ?",
+        "help": "Écrivez à CAREO LIMITED avec l’objet « Dishtopia Account Deletion ». Indiquez votre nom de joueur tel qu’il apparaît dans le jeu (par exemple « Sudsy Raccoon »), l’identifiant Player ID affiché en bas des Réglages si vous pouvez encore ouvrir le jeu (touchez-le pour le copier), votre appareil (iPhone ou Android) et, si vous vous êtes connecté, si vous avez utilisé Se connecter avec Apple ou Google Play Jeux. Le même e-mail permet de demander la suppression d’entrées de classement ou d’équipe. N’envoyez jamais de mot de passe ni de données de paiement. Nous pourrons vous poser quelques questions pour vérifier que le compte vous appartient.",
+        "emailButton": "Demander la suppression",
+        "privacyButton": "Politique de confidentialité",
+        "privacyNote": "Pour tout savoir sur les données utilisées par Dishtopia et vos droits, consultez la Politique de confidentialité de Dishtopia.",
+        "footer": "Dernière mise à jour : 7 novembre 2026 · CAREO LIMITED"
+      },
+      "de": {
+        "eyebrow": "Konto und Datenschutz",
+        "title": "Konto löschen",
+        "subtitle": "So löschst du dein Dishtopia-Konto dauerhaft und das geschieht mit deinen Daten.",
+        "inAppTitle": "Konto im Spiel löschen",
+        "inAppIntro": "Du kannst dein Dishtopia-Konto direkt im Spiel auf iOS und Android löschen. Dishtopia-Konten haben kein Passwort, du brauchst also keines.",
+        "steps": [
+          "Öffne Dishtopia.",
+          "Tippe auf dem Startbildschirm auf das Zahnrad, um die Einstellungen (Settings) zu öffnen.",
+          "Tippe unten in den Einstellungen auf Delete Account.",
+          "Lies den Hinweis und bestätige mit Delete.",
+          "Bleib mit dem Internet verbunden, bis „Your account was deleted.“ erscheint."
+        ],
+        "warning": "Die Löschung ist dauerhaft und kann nicht rückgängig gemacht werden. Küche, Münzen, Gegenstände und Fortschritt werden aus der Cloud und von diesem Gerät entfernt.",
+        "deletedTitle": "Gelöschte Daten",
+        "deletedIntro": "Nach Abschluss der Löschung werden die für dein Konto in Unity Gaming Services gespeicherten Daten gelöscht:",
+        "deleted": [
+          "Dein Unity-Spielerkonto und deine Spieler-ID, einschließlich einer Verknüpfung mit „Mit Apple anmelden“ oder Google Play Spiele",
+          "Dein Cloud-Speicherstand: Level, Münzen, Gegenstände, Küchenfortschritt und weiterer Spielfortschritt",
+          "Dein Platz in deiner Kitchen Crew (die Crew behält ihre Punkte)",
+          "Der auf diesem Gerät gespeicherte Spielfortschritt, der auf einen Neustart zurückgesetzt wird"
+        ],
+        "retainedTitle": "Daten außerhalb des Kontos",
+        "retained": [
+          "Dein erzeugter Spielername und deine Punkte in den Bestenlisten der Chef's League können noch eine Weile sichtbar bleiben. Auf Anfrage entfernen wir sie (siehe unten).",
+          "Käufe bleiben mit deinem Apple- oder Google-Konto verknüpft und lassen sich mit Restore Purchases wiederherstellen. Zahlungsdaten werden von Apple oder Google aufbewahrt.",
+          "Werbe- und Einwilligungsdaten verarbeitet Google nach eigenen Einstellungen und Richtlinien.",
+          "Begrenzte Daten können aus Sicherheitsgründen, zur Betrugsprävention oder aufgrund gesetzlicher Pflichten aufbewahrt werden."
+        ],
+        "timingTitle": "Bearbeitungszeit",
+        "timing": "Die Löschung im Spiel erfolgt normalerweise sofort. Anfragen per E-Mail bearbeiten wir in der Regel innerhalb von 7 Tagen, nachdem wir dein Konto zugeordnet haben.",
+        "helpTitle": "Du kannst das Spiel nicht nutzen oder hast es bereits gelöscht?",
+        "help": "Schreibe CAREO LIMITED eine E-Mail mit dem Betreff „Dishtopia Account Deletion“. Gib deinen Spielernamen wie im Spiel angezeigt an (zum Beispiel „Sudsy Raccoon“), die Player ID unten in den Einstellungen, falls du das Spiel noch öffnen kannst (zum Kopieren antippen), dein Gerät (iPhone oder Android) und, falls du dich angemeldet hast, ob du „Mit Apple anmelden“ oder Google Play Spiele genutzt hast. Mit derselben E-Mail kannst du auch die Entfernung von Bestenlisten- oder Crew-Einträgen beantragen. Sende niemals Passwörter oder Zahlungsdaten. Wir stellen eventuell ein paar Fragen, um zu prüfen, dass das Konto dir gehört.",
+        "emailButton": "Löschung beantragen",
+        "privacyButton": "Datenschutzerklärung",
+        "privacyNote": "Alle Einzelheiten zu den von Dishtopia genutzten Daten und deinen Rechten findest du in der Datenschutzerklärung von Dishtopia.",
+        "footer": "Letzte Aktualisierung: 7. November 2026 · CAREO LIMITED"
+      },
+      "it": {
+        "eyebrow": "Account e privacy",
+        "title": "Eliminazione dell’account",
+        "subtitle": "Come eliminare definitivamente il tuo account Dishtopia e cosa accade ai tuoi dati.",
+        "inAppTitle": "Elimina l’account nel gioco",
+        "inAppIntro": "Puoi eliminare il tuo account Dishtopia direttamente nel gioco su iOS e Android. Gli account Dishtopia non hanno password, quindi non ne serve nessuna.",
+        "steps": [
+          "Apri Dishtopia.",
+          "Nella schermata Home, tocca l’ingranaggio per aprire le Impostazioni (Settings).",
+          "Tocca Delete Account in fondo alle Impostazioni.",
+          "Leggi l’avviso e tocca Delete per confermare.",
+          "Resta connesso a Internet finché non compare «Your account was deleted.»"
+        ],
+        "warning": "L’eliminazione è permanente e non può essere annullata. Cucina, monete, oggetti e progressi vengono rimossi dal cloud e da quel dispositivo.",
+        "deletedTitle": "Dati eliminati",
+        "deletedIntro": "Al termine dell’eliminazione, i dati conservati per il tuo account in Unity Gaming Services vengono eliminati:",
+        "deleted": [
+          "Il tuo account giocatore Unity e l’ID giocatore, incluso l’eventuale collegamento ad Accedi con Apple o Google Play Giochi",
+          "Il salvataggio nel cloud: livello, monete, oggetti, progressi delle cucine e altri progressi di gioco",
+          "Il tuo posto nella Kitchen Crew (la squadra conserva i punti guadagnati)",
+          "I progressi salvati su quel dispositivo, che ripartono da zero"
+        ],
+        "retainedTitle": "Dati esterni all’account",
+        "retained": [
+          "Il nome giocatore generato e i punteggi nelle classifiche della Chef's League possono restare visibili per un po’. Li rimuoviamo su richiesta (vedi sotto).",
+          "Gli acquisti restano associati al tuo account Apple o Google e si possono recuperare con Restore Purchases. I dati di pagamento sono conservati da Apple o Google.",
+          "I dati pubblicitari e di consenso sono gestiti da Google secondo le proprie impostazioni e politiche.",
+          "Alcuni dati possono essere conservati per sicurezza, prevenzione delle frodi o obblighi di legge."
+        ],
+        "timingTitle": "Tempi di elaborazione",
+        "timing": "L’eliminazione nel gioco normalmente è immediata. Le richieste via e-mail vengono normalmente completate entro 7 giorni da quando abbiamo identificato il tuo account.",
+        "helpTitle": "Non puoi usare il gioco o lo hai già disinstallato?",
+        "help": "Scrivi a CAREO LIMITED con oggetto «Dishtopia Account Deletion». Indica il nome giocatore come appare nel gioco (ad esempio «Sudsy Raccoon»), il Player ID mostrato in fondo alle Impostazioni se puoi ancora aprire il gioco (toccalo per copiarlo), il dispositivo (iPhone o Android) e, se hai effettuato l’accesso, se hai usato Accedi con Apple o Google Play Giochi. Con la stessa e-mail puoi chiedere di rimuovere voci di classifica o di squadra. Non inviare mai password o dati di pagamento. Potremmo farti alcune domande per verificare che l’account sia tuo.",
+        "emailButton": "Richiedi l’eliminazione",
+        "privacyButton": "Informativa sulla privacy",
+        "privacyNote": "Per tutti i dettagli sui dati usati da Dishtopia e sui tuoi diritti, consulta l’Informativa sulla privacy di Dishtopia.",
+        "footer": "Ultimo aggiornamento: 7 novembre 2026 · CAREO LIMITED"
+      },
+      "ja": {
+        "eyebrow": "アカウントとプライバシー",
+        "title": "アカウントの削除",
+        "subtitle": "Dishtopiaアカウントを完全に削除する方法と、データの取り扱いについて説明します。",
+        "inAppTitle": "ゲーム内でアカウントを削除",
+        "inAppIntro": "iOSおよびAndroid版Dishtopiaのゲーム内から直接アカウントを削除できます。Dishtopiaのアカウントにはパスワードがないため、入力は不要です。",
+        "steps": [
+          "Dishtopiaを開きます。",
+          "ホーム画面で歯車ボタンをタップして設定（Settings）を開きます。",
+          "設定の下部にある「Delete Account」をタップします。",
+          "警告を確認し、「Delete」をタップして確定します。",
+          "「Your account was deleted.」と表示されるまでインターネットに接続したままにしてください。"
+        ],
+        "warning": "削除は永久的で、取り消すことはできません。キッチン、コイン、アイテム、進行状況がクラウドとその端末から削除されます。",
+        "deletedTitle": "削除されるデータ",
+        "deletedIntro": "削除が完了すると、Unity Gaming Servicesに保存されている次のアカウントデータが削除されます。",
+        "deleted": [
+          "UnityのプレイヤーアカウントとプレイヤーID（「Appleでサインイン」またはGoogle Play ゲームとの連携を含む）",
+          "クラウドセーブ：レベル、コイン、アイテム、キッチンの進行状況などのゲーム進行状況",
+          "Kitchen Crewでの所属（クルーが獲得したポイントは残ります）",
+          "その端末に保存された進行状況（最初からの状態にリセットされます）"
+        ],
+        "retainedTitle": "アカウント外のデータ",
+        "retained": [
+          "生成されたプレイヤー名とChef's Leagueランキングのスコアは、しばらく表示されたままになる場合があります。ご依頼いただければ削除します（下記参照）。",
+          "購入はAppleまたはGoogleのアカウントに残り、Restore Purchasesで復元できます。支払い記録はAppleまたはGoogleが保管します。",
+          "広告と同意に関する記録は、Googleが独自の設定とポリシーに従って取り扱います。",
+          "セキュリティ、不正防止、法的義務のために一部の記録が保持される場合があります。"
+        ],
+        "timingTitle": "処理時間",
+        "timing": "ゲーム内での削除は通常すぐに完了します。メールでのご依頼は、アカウントを特定してから通常7日以内に処理します。",
+        "helpTitle": "ゲームを使えない、またはすでにアンインストールした場合",
+        "help": "件名を「Dishtopia Account Deletion」としてCAREO LIMITEDにメールしてください。ゲーム内に表示されるプレイヤー名（例：「Sudsy Raccoon」）、ゲームを開ける場合は設定の下部に表示されるPlayer ID（タップでコピー）、端末（iPhoneまたはAndroid）、サインインした場合は「Appleでサインイン」とGoogle Play ゲームのどちらを使ったかを記載してください。同じメールでランキングやクルーの項目の削除も依頼できます。パスワードや支払い情報は絶対に送らないでください。本人確認のためにいくつか質問する場合があります。",
+        "emailButton": "アカウント削除を依頼",
+        "privacyButton": "プライバシーポリシー",
+        "privacyNote": "Dishtopiaが使用するデータとプライバシー権の詳細は、Dishtopiaプライバシーポリシーをご確認ください。",
+        "footer": "最終更新：2026年11月7日 · CAREO LIMITED"
+      },
+      "ko": {
+        "eyebrow": "계정 및 개인정보",
+        "title": "계정 삭제",
+        "subtitle": "Dishtopia 계정을 영구적으로 삭제하는 방법과 데이터 처리 내용을 안내합니다.",
+        "inAppTitle": "게임에서 계정 삭제",
+        "inAppIntro": "iOS 및 Android용 Dishtopia 게임 안에서 계정을 직접 삭제할 수 있습니다. Dishtopia 계정에는 비밀번호가 없으므로 입력할 필요가 없습니다.",
+        "steps": [
+          "Dishtopia를 엽니다.",
+          "홈 화면에서 톱니바퀴 버튼을 눌러 설정(Settings)을 엽니다.",
+          "설정 아래쪽의 Delete Account를 누릅니다.",
+          "경고를 확인하고 Delete를 눌러 확정합니다.",
+          "“Your account was deleted.”가 표시될 때까지 인터넷 연결을 유지하세요."
+        ],
+        "warning": "삭제는 영구적이며 취소할 수 없습니다. 주방, 코인, 아이템, 진행 상황이 클라우드와 해당 기기에서 삭제됩니다.",
+        "deletedTitle": "삭제되는 데이터",
+        "deletedIntro": "삭제가 완료되면 Unity Gaming Services에 저장된 다음 계정 데이터가 삭제됩니다.",
+        "deleted": [
+          "Unity 플레이어 계정과 플레이어 ID(Apple로 로그인 또는 Google Play 게임즈 연결 포함)",
+          "클라우드 저장 데이터: 레벨, 코인, 아이템, 주방 진행도 등 게임 진행 상황",
+          "Kitchen Crew 소속(크루가 얻은 점수는 유지됨)",
+          "해당 기기에 저장된 진행 상황(처음 상태로 초기화됨)"
+        ],
+        "retainedTitle": "계정 외부 데이터",
+        "retained": [
+          "생성된 플레이어 이름과 Chef's League 순위표 점수는 한동안 표시될 수 있습니다. 요청하시면 삭제해 드립니다(아래 참조).",
+          "구매 내역은 Apple 또는 Google 계정에 남아 있으며 Restore Purchases로 복원할 수 있습니다. 결제 기록은 Apple 또는 Google이 보관합니다.",
+          "광고 및 동의 기록은 Google이 자체 설정과 정책에 따라 처리합니다.",
+          "보안, 사기 방지 또는 법적 의무를 위해 일부 기록이 보관될 수 있습니다."
+        ],
+        "timingTitle": "처리 시간",
+        "timing": "게임 내 삭제는 보통 즉시 완료됩니다. 이메일 요청은 계정을 확인한 후 보통 7일 이내에 처리됩니다.",
+        "helpTitle": "게임을 사용할 수 없거나 이미 삭제했나요?",
+        "help": "제목을 “Dishtopia Account Deletion”으로 하여 CAREO LIMITED에 이메일을 보내 주세요. 게임에 표시되는 플레이어 이름(예: “Sudsy Raccoon”), 게임을 열 수 있다면 설정 하단의 Player ID(탭하여 복사), 기기(iPhone 또는 Android), 로그인했다면 Apple로 로그인과 Google Play 게임즈 중 무엇을 사용했는지 적어 주세요. 같은 이메일로 순위표나 크루 항목 삭제도 요청할 수 있습니다. 비밀번호나 결제 정보는 절대 보내지 마세요. 본인 확인을 위해 몇 가지를 질문할 수 있습니다.",
+        "emailButton": "계정 삭제 요청",
+        "privacyButton": "개인정보 처리방침",
+        "privacyNote": "Dishtopia가 사용하는 데이터와 개인정보 권리에 관한 자세한 내용은 Dishtopia 개인정보 처리방침을 확인하세요.",
+        "footer": "최종 업데이트: 2026년 11월 7일 · CAREO LIMITED"
+      },
+      "pt": {
+        "eyebrow": "Conta e privacidade",
+        "title": "Eliminação da conta",
+        "subtitle": "Como eliminar permanentemente a sua conta Dishtopia e o que acontece aos seus dados.",
+        "inAppTitle": "Eliminar a conta no jogo",
+        "inAppIntro": "Pode eliminar a sua conta Dishtopia diretamente no jogo em iOS e Android. As contas Dishtopia não têm palavra-passe, por isso não é necessária nenhuma.",
+        "steps": [
+          "Abra o Dishtopia.",
+          "No ecrã inicial, toque na roda dentada para abrir as Definições (Settings).",
+          "Toque em Delete Account no fundo das Definições.",
+          "Leia o aviso e toque em Delete para confirmar.",
+          "Mantenha a ligação à Internet até aparecer «Your account was deleted.»"
+        ],
+        "warning": "A eliminação é permanente e não pode ser anulada. A cozinha, as moedas, os itens e o progresso são removidos da nuvem e desse dispositivo.",
+        "deletedTitle": "Dados eliminados",
+        "deletedIntro": "Quando a eliminação termina, os dados guardados para a sua conta nos Unity Gaming Services são eliminados:",
+        "deleted": [
+          "A sua conta de jogador Unity e o ID de jogador, incluindo a associação a Iniciar sessão com a Apple ou Google Play Jogos",
+          "A gravação na nuvem: nível, moedas, itens, progresso das cozinhas e restante progresso do jogo",
+          "O seu lugar na Kitchen Crew (a equipa mantém os pontos ganhos)",
+          "O progresso guardado nesse dispositivo, que recomeça do zero"
+        ],
+        "retainedTitle": "Dados fora da conta",
+        "retained": [
+          "O nome de jogador gerado e as pontuações nas classificações da Chef's League podem continuar visíveis durante algum tempo. Removemo-los a pedido (ver abaixo).",
+          "As compras ficam associadas à sua conta Apple ou Google e podem ser recuperadas com Restore Purchases. Os registos de pagamento são guardados pela Apple ou pela Google.",
+          "Os registos de publicidade e consentimento são tratados pela Google segundo as suas próprias definições e políticas.",
+          "Alguns registos podem ser conservados por motivos de segurança, prevenção de fraude ou obrigações legais."
+        ],
+        "timingTitle": "Prazo de processamento",
+        "timing": "A eliminação no jogo normalmente é imediata. Os pedidos enviados por e-mail são normalmente concluídos no prazo de 7 dias depois de identificarmos a sua conta.",
+        "helpTitle": "Não consegue usar o jogo ou já o desinstalou?",
+        "help": "Envie um e-mail à CAREO LIMITED com o assunto «Dishtopia Account Deletion». Indique o nome de jogador tal como aparece no jogo (por exemplo, «Sudsy Raccoon»), o Player ID apresentado no fundo das Definições, se ainda conseguir abrir o jogo (toque para copiar), o seu dispositivo (iPhone ou Android) e, se iniciou sessão, se usou Iniciar sessão com a Apple ou Google Play Jogos. Pode usar o mesmo e-mail para pedir a remoção de entradas de classificação ou de equipa. Nunca envie palavras-passe nem dados de pagamento. Poderemos fazer algumas perguntas para confirmar que a conta é sua.",
+        "emailButton": "Pedir eliminação da conta",
+        "privacyButton": "Política de Privacidade",
+        "privacyNote": "Para todos os detalhes sobre os dados usados pelo Dishtopia e os seus direitos, consulte a Política de Privacidade do Dishtopia.",
+        "footer": "Última atualização: 7 de novembro de 2026 · CAREO LIMITED"
+      },
+      "ru": {
+        "eyebrow": "Аккаунт и конфиденциальность",
+        "title": "Удаление аккаунта",
+        "subtitle": "Как навсегда удалить аккаунт Dishtopia и что произойдёт с вашими данными.",
+        "inAppTitle": "Удаление аккаунта в игре",
+        "inAppIntro": "Удалить аккаунт Dishtopia можно прямо в игре на iOS и Android. У аккаунтов Dishtopia нет пароля, поэтому вводить его не нужно.",
+        "steps": [
+          "Откройте Dishtopia.",
+          "На главном экране нажмите кнопку с шестерёнкой, чтобы открыть настройки (Settings).",
+          "Нажмите Delete Account внизу настроек.",
+          "Прочитайте предупреждение и нажмите Delete для подтверждения.",
+          "Оставайтесь в сети, пока не появится сообщение «Your account was deleted.»"
+        ],
+        "warning": "Удаление необратимо и не может быть отменено. Кухня, монеты, предметы и прогресс удаляются из облака и с этого устройства.",
+        "deletedTitle": "Удаляемые данные",
+        "deletedIntro": "После завершения удаления данные вашего аккаунта в Unity Gaming Services удаляются:",
+        "deleted": [
+          "Ваш аккаунт игрока Unity и идентификатор игрока, включая привязку к «Вход с Apple» или Google Play Играм",
+          "Облачное сохранение: уровень, монеты, предметы, прогресс кухонь и другой игровой прогресс",
+          "Ваше место в Kitchen Crew (команда сохраняет заработанные очки)",
+          "Прогресс, сохранённый на этом устройстве, — игра начнётся заново"
+        ],
+        "retainedTitle": "Данные вне аккаунта",
+        "retained": [
+          "Сгенерированное имя игрока и очки в рейтингах Chef's League могут оставаться видимыми некоторое время. Мы удалим их по вашему запросу (см. ниже).",
+          "Покупки остаются привязанными к вашему аккаунту Apple или Google и восстанавливаются через Restore Purchases. Платёжные записи хранят Apple или Google.",
+          "Рекламные данные и записи о согласии обрабатывает Google в соответствии со своими настройками и политиками.",
+          "Некоторые записи могут храниться в целях безопасности, предотвращения мошенничества или выполнения требований закона."
+        ],
+        "timingTitle": "Срок обработки",
+        "timing": "Удаление в игре обычно происходит сразу. Запросы по электронной почте обычно выполняются в течение 7 дней после того, как мы найдём ваш аккаунт.",
+        "helpTitle": "Не можете открыть игру или уже удалили её?",
+        "help": "Напишите CAREO LIMITED с темой «Dishtopia Account Deletion». Укажите имя игрока, как оно показано в игре (например, «Sudsy Raccoon»), Player ID внизу настроек, если игру ещё можно открыть (нажмите, чтобы скопировать), устройство (iPhone или Android) и, если вы входили, какой способ использовали: «Вход с Apple» или Google Play Игры. Тем же письмом можно попросить удалить записи в рейтингах или командах. Никогда не отправляйте пароли и платёжные данные. Мы можем задать несколько вопросов, чтобы убедиться, что аккаунт ваш.",
+        "emailButton": "Запросить удаление",
+        "privacyButton": "Политика конфиденциальности",
+        "privacyNote": "Подробнее о данных, которые использует Dishtopia, и о ваших правах читайте в Политике конфиденциальности Dishtopia.",
+        "footer": "Последнее обновление: 7 ноября 2026 г. · CAREO LIMITED"
+      },
+      "es": {
+        "eyebrow": "Cuenta y privacidad",
+        "title": "Eliminación de la cuenta",
+        "subtitle": "Cómo eliminar permanentemente tu cuenta de Dishtopia y qué ocurre con tus datos.",
+        "inAppTitle": "Elimina tu cuenta en el juego",
+        "inAppIntro": "Puedes eliminar tu cuenta de Dishtopia directamente en el juego en iOS y Android. Las cuentas de Dishtopia no tienen contraseña, así que no necesitas ninguna.",
+        "steps": [
+          "Abre Dishtopia.",
+          "En la pantalla de inicio, toca el engranaje para abrir los Ajustes (Settings).",
+          "Toca Delete Account en la parte inferior de los Ajustes.",
+          "Lee la advertencia y toca Delete para confirmar.",
+          "Mantén la conexión a Internet hasta que aparezca «Your account was deleted.»"
+        ],
+        "warning": "La eliminación es permanente y no se puede deshacer. Tu cocina, monedas, objetos y progreso se eliminan de la nube y de ese dispositivo.",
+        "deletedTitle": "Datos eliminados",
+        "deletedIntro": "Cuando termina la eliminación, se borran los datos guardados para tu cuenta en Unity Gaming Services:",
+        "deleted": [
+          "Tu cuenta de jugador de Unity y tu ID de jugador, incluida cualquier vinculación con Iniciar sesión con Apple o Google Play Juegos",
+          "Tu guardado en la nube: nivel, monedas, objetos, progreso de las cocinas y demás progreso del juego",
+          "Tu puesto en tu Kitchen Crew (el equipo conserva los puntos ganados)",
+          "El progreso guardado en ese dispositivo, que vuelve a empezar desde cero"
+        ],
+        "retainedTitle": "Datos externos a la cuenta",
+        "retained": [
+          "Tu nombre de jugador generado y tus puntuaciones en las clasificaciones de la Chef's League pueden seguir visibles durante un tiempo. Los eliminamos si lo pides (ver más abajo).",
+          "Las compras siguen vinculadas a tu cuenta de Apple o Google y se pueden recuperar con Restore Purchases. Los registros de pago los conserva Apple o Google.",
+          "Los registros de publicidad y consentimiento los gestiona Google según sus propios ajustes y políticas.",
+          "Algunos registros pueden conservarse por seguridad, prevención del fraude u obligaciones legales."
+        ],
+        "timingTitle": "Tiempo de procesamiento",
+        "timing": "La eliminación en el juego normalmente es inmediata. Las solicitudes por correo electrónico se completan normalmente en un plazo de 7 días después de identificar tu cuenta.",
+        "helpTitle": "¿No puedes usar el juego o ya lo desinstalaste?",
+        "help": "Escribe a CAREO LIMITED con el asunto «Dishtopia Account Deletion». Incluye tu nombre de jugador tal como aparece en el juego (por ejemplo, «Sudsy Raccoon»), el Player ID que aparece al final de los Ajustes si aún puedes abrir el juego (tócalo para copiarlo), tu dispositivo (iPhone o Android) y, si iniciaste sesión, si usaste Iniciar sesión con Apple o Google Play Juegos. Con el mismo correo puedes pedir que eliminemos entradas de clasificación o de equipo. Nunca envíes contraseñas ni datos de pago. Puede que te hagamos algunas preguntas para confirmar que la cuenta es tuya.",
+        "emailButton": "Solicitar eliminación",
+        "privacyButton": "Política de privacidad",
+        "privacyNote": "Consulta la Política de privacidad de Dishtopia para conocer todos los detalles sobre los datos que usa y tus derechos.",
+        "footer": "Última actualización: 7 de noviembre de 2026 · CAREO LIMITED"
+      },
+      "tr": {
+        "eyebrow": "Hesap ve gizlilik",
+        "title": "Hesap silme",
+        "subtitle": "Dishtopia hesabınızı kalıcı olarak nasıl sileceğiniz ve verilerinize ne olacağı hakkında bilgiler.",
+        "inAppTitle": "Hesabınızı oyun içinden silin",
+        "inAppIntro": "Dishtopia hesabınızı iOS ve Android'de doğrudan oyun içinden silebilirsiniz. Dishtopia hesaplarının şifresi yoktur, bu yüzden şifre gerekmez.",
+        "steps": [
+          "Dishtopia'yı açın.",
+          "Ana ekranda dişli düğmesine dokunarak Ayarlar'ı (Settings) açın.",
+          "Ayarlar'ın altındaki Delete Account düğmesine dokunun.",
+          "Uyarıyı okuyun ve onaylamak için Delete'e dokunun.",
+          "“Your account was deleted.” mesajını görene kadar internet bağlantınızı açık tutun."
+        ],
+        "warning": "Silme işlemi kalıcıdır ve geri alınamaz. Mutfağınız, jetonlarınız, eşyalarınız ve ilerlemeniz buluttan ve o cihazdan silinir.",
+        "deletedTitle": "Silinen veriler",
+        "deletedIntro": "Silme tamamlandığında Unity Gaming Services'te hesabınız için tutulan veriler silinir:",
+        "deleted": [
+          "Unity oyuncu hesabınız ve oyuncu kimliğiniz (Apple ile Giriş veya Google Play Games bağlantısı dahil)",
+          "Bulut kaydınız: seviye, jetonlar, eşyalar, mutfak ilerlemesi ve diğer oyun ilerlemesi",
+          "Kitchen Crew'daki yeriniz (ekip kazandığı puanları korur)",
+          "O cihazda kayıtlı oyun ilerlemesi (oyun baştan başlar)"
+        ],
+        "retainedTitle": "Hesap dışındaki veriler",
+        "retained": [
+          "Oluşturulan oyuncu adınız ve Chef's League sıralamalarındaki puanlarınız bir süre görünür kalabilir. İsterseniz bunları kaldırırız (aşağıya bakın).",
+          "Satın alımlar Apple veya Google hesabınıza bağlı kalır ve Restore Purchases ile geri yüklenebilir. Ödeme kayıtlarını Apple veya Google tutar.",
+          "Reklam ve onay kayıtları Google tarafından kendi ayarları ve politikaları kapsamında işlenir.",
+          "Güvenlik, dolandırıcılığı önleme veya yasal yükümlülükler için sınırlı kayıtlar tutulabilir."
+        ],
+        "timingTitle": "İşlem süresi",
+        "timing": "Oyun içinden silme normalde hemen tamamlanır. E-postayla gelen talepler, hesabınızı belirledikten sonra genellikle 7 gün içinde tamamlanır.",
+        "helpTitle": "Oyunu kullanamıyor musunuz ya da kaldırdınız mı?",
+        "help": "“Dishtopia Account Deletion” konulu bir e-postayı CAREO LIMITED'e gönderin. Oyunda görünen oyuncu adınızı (örneğin “Sudsy Raccoon”), oyunu hâlâ açabiliyorsanız Ayarlar'ın en altındaki Player ID'yi (dokununca kopyalanır), cihazınızı (iPhone veya Android) ve giriş yaptıysanız Apple ile Giriş mi yoksa Google Play Games mi kullandığınızı yazın. Aynı e-postayla sıralama veya ekip kayıtlarının kaldırılmasını da isteyebilirsiniz. Şifre veya ödeme bilgisi asla göndermeyin. Hesabın size ait olduğunu doğrulamak için birkaç soru sorabiliriz.",
+        "emailButton": "Hesap silme talebi gönder",
+        "privacyButton": "Gizlilik Politikası",
+        "privacyNote": "Dishtopia'nın kullandığı veriler ve gizlilik haklarınızla ilgili tüm ayrıntılar için Dishtopia Gizlilik Politikası'nı okuyun.",
+        "footer": "Son güncelleme: 7 Kasım 2026 · CAREO LIMITED"
+      }
+    };
+
+    const supported = Object.keys(translations);
+    const params = new URLSearchParams(window.location.search);
+    const requested = (params.get("lang") || "en").toLowerCase().split(/[-_]/)[0];
+    const languageSelect = document.getElementById("languageSelect");
+    const homeLabels = { en:"← Home", fr:"← Accueil", de:"← Startseite", it:"← Home", ja:"← ホーム", ko:"← 홈", pt:"← Início", ru:"← Главная", es:"← Inicio", tr:"← Ana Sayfa" };
+
+    function section(title, body) {
+      return `<section><h2>${title}</h2>${body}</section>`;
+    }
+
+    function list(items, ordered = false) {
+      const tag = ordered ? "ol" : "ul";
+      return `<${tag}>${items.map((item) => `<li>${item}</li>`).join("")}</${tag}>`;
+    }
+
+    function render(language) {
+      const lang = supported.includes(language) ? language : "en";
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+      document.title = `${t.title} - Dishtopia`;
+      languageSelect.value = lang;
+      languageSelect.setAttribute("aria-label", t.eyebrow);
+      document.getElementById("eyebrow").textContent = t.eyebrow;
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("subtitle").textContent = t.subtitle;
+      document.getElementById("homeLink").textContent = homeLabels[lang] || homeLabels.en;
+      document.getElementById("homeLink").href = `../index.html?lang=${encodeURIComponent(lang)}#apps`;
+
+      const subject = encodeURIComponent("Dishtopia Account Deletion");
+      const privacyUrl = `dishtopia.html?lang=${encodeURIComponent(lang)}`;
+      document.getElementById("content").innerHTML =
+        section(t.inAppTitle, `<p>${t.inAppIntro}</p>${list(t.steps, true)}<div class="notice">${t.warning}</div>`) +
+        section(t.deletedTitle, `<p>${t.deletedIntro}</p>${list(t.deleted)}`) +
+        section(t.retainedTitle, list(t.retained)) +
+        section(t.timingTitle, `<p>${t.timing}</p>`) +
+        section(t.helpTitle, `<p>${t.help}</p><div class="actions"><a class="button" href="mailto:${EMAIL}?subject=${subject}">${t.emailButton}</a><a class="button secondary" href="${privacyUrl}">${t.privacyButton}</a></div><div class="notice privacy-note">${t.privacyNote}</div>`);
+      document.getElementById("footer").textContent = t.footer;
+
+      
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState(null, "", url.toString());
+    }
+
+    languageSelect.addEventListener("change", (event) => render(event.target.value));
+    render(supported.includes(requested) ? requested : "en");
+  </script>
+</body>
+</html>
