@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CVPilot</title>
+  <meta name="description" content="Your AI resume builder &amp; CV checker: score your CV, match it to a job post &amp; see what to fix first before you apply.">
+  <link rel="canonical" href="https://careolimited.com/apps/cvpilot.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CAREO LIMITED">
+  <meta property="og:title" content="CVPilot">
+  <meta property="og:description" content="Your AI resume builder &amp; CV checker: score your CV, match it to a job post &amp; see what to fix first before you apply.">
+  <meta property="og:url" content="https://careolimited.com/apps/cvpilot.html">
+  <meta property="og:image" content="https://careolimited.com/images/features/cvpilot-en.jpg?v=8fc85033">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="390">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#061b36">
+  <script>(function(){try{var t=localStorage.getItem("careo-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()</script>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/careo-32.png">
+  <link rel="apple-touch-icon" href="../images/icons/careo-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/site.css?v=f9de4d72">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"CVPilot","alternateName":"CVPilot: AI Resume Builder","description":"Your AI resume builder & CV checker: score your CV, match it to a job post & see what to fix first before you apply.","applicationCategory":"BusinessApplication","operatingSystem":"iOS, Android","image":"https://careolimited.com/images/icons/cvpilot.jpg","url":"https://careolimited.com/apps/cvpilot.html","publisher":{"@type":"Organization","@id":"https://careolimited.com/#organization","name":"CAREO LIMITED","url":"https://careolimited.com/","logo":"https://careolimited.com/images/icons/careo.jpg","email":"support@careolimited.com","address":{"@type":"PostalAddress","streetAddress":"71-75 Shelton Street, Covent Garden","addressLocality":"London","postalCode":"WC2H 9JQ","addressCountry":"GB"}},"sameAs":["https://apps.apple.com/app/cvpilot-ai-resume-builder/id6776770683","https://play.google.com/store/apps/details?id=com.careolimited.cvpilot"]}</script>
+</head>
+<body data-title-key="title.app" data-i18n-vars="app=@app.cvpilot.name;tagline=@app.cvpilot.tagline">
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<header class="site-header" id="top">
+  <div class="shell header-inner">
+    <a class="brand" href="../index.html"><img src="../images/icons/careo.jpg" width="36" height="36" alt=""><span lang="en">Careo Limited</span></a>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <div class="nav-drop">
+        <a href="../index.html#apps" data-i18n="apps.eyebrow">Portfolio</a>
+        <div class="nav-sub"><a href="../index.html#apps" data-portfolio="apps"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span data-i18n="footer.apps">Apps</span></a><a href="../index.html#projects" data-portfolio="tools"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8V20h3.2l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.5-.6-.6-2.5z"/></svg><span data-i18n="projects.title">Tools &amp; projects</span></a></div>
+      </div>
+      <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#support" data-i18n="nav.support">Support</a>
+    </nav>
+    <div class="lang">
+      <button class="lang-button" id="langButton" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Language" data-i18n-label="nav.language"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span id="langCode">EN</span><svg class="chev" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+      <ul class="lang-menu" id="langMenu" role="menu" hidden></ul>
+    </div>
+    <div class="lang theme">
+      <button class="lang-button theme-button" id="themeButton" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" aria-label="Theme" data-i18n-label="nav.theme"><span class="theme-icon" aria-hidden="true"></span><svg class="chev" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+      <ul class="lang-menu theme-menu" id="themeMenu" role="menu" hidden></ul>
+    </div>
+    <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Menu" data-i18n-label="nav.menu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main id="main">
+  <section class="app-hero" style="--a1:#06152f;--a2:#0f52ba;--accent:#10b981">
+    <div class="shell">
+      <a class="back-link" href="../index.html#apps"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span data-i18n="detail.back">All apps</span></a>
+      <div class="app-hero-grid">
+        <div class="app-hero-copy">
+          <div class="chip-row"><span class="chip" data-i18n="app.cvpilot.tag">Career &amp; Productivity</span><span class="chip chip-new"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.5l2.6 6.2 6.7.6-5.1 4.4 1.5 6.6L12 16.8l-5.7 3.5 1.5-6.6-5.1-4.4 6.7-.6z"/></svg><span data-i18n="card.newest">Newest</span></span></div>
+          <div class="app-title-row">
+            <img src="../images/icons/cvpilot.jpg" width="104" height="104" alt="">
+            <div><h1 data-i18n="app.cvpilot.name">CVPilot</h1><p class="tagline" data-i18n="app.cvpilot.tagline">AI Resume Builder</p></div>
+          </div>
+          <p class="lead" data-i18n="app.cvpilot.desc">Your AI resume builder &amp; CV checker: score your CV, match it to a job post &amp; see what to fix first before you apply.</p>
+          <div class="store-badges"><a class="store-badge apple lg" href="https://apps.apple.com/app/cvpilot-ai-resume-builder/id6776770683" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small data-i18n="badge.apple">Download on the</small><strong>App Store</strong></span></a><a class="store-badge google lg" href="https://play.google.com/store/apps/details?id=com.careolimited.cvpilot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00a0ff" d="M3.6 1.8c-.4.2-.6.7-.6 1.2v18c0 .5.2 1 .6 1.2L13.4 12z"/><path fill="#00d76e" d="M3.6 1.8 13.4 12l3.1-3.1L5.4 2.1c-.6-.4-1.3-.5-1.8-.3z"/><path fill="#ffc400" d="M16.5 8.9 13.4 12l3.1 3.1 3.6-2.1c1-.6 1-2.2 0-2.8z"/><path fill="#ff3a44" d="M3.6 22.2c.5.2 1.2.1 1.8-.3l11.1-6.8L13.4 12z"/></svg><span><small data-i18n="badge.google">GET IT ON</small><strong>Google Play</strong></span></a></div>
+          <div class="text-links" data-motif="cvpilot"><a href="#features-title" data-i18n="detail.features">Highlights</a><a href="#shots-title" data-i18n="detail.screens">Screenshots</a><a href="../privacy/cvpilot.html" data-i18n="links.privacy">Privacy Policy</a></div>
+        </div>
+        <div class="app-hero-visual"><div class="hero-trio"><div class="device iphone trio-side trio-left"><img class="shot" src="../images/screens/cvpilot-iphone-2.jpg" width="506" height="1100" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=2" alt="CVPilot screenshot 2"></div><div class="device iphone trio-center"><img class="shot" src="../images/screens/cvpilot-iphone-1.jpg" width="506" height="1100" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=1" alt="CVPilot screenshot 1"></div><div class="device iphone trio-side trio-right"><img class="shot" src="../images/screens/cvpilot-iphone-3.jpg" width="506" height="1100" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=3" alt="CVPilot screenshot 3"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="features-title" style="--a1:#06152f;--a2:#0f52ba;--accent:#10b981">
+    <div class="shell">
+      <div class="section-head"><h2 id="features-title" data-i18n="detail.features">Highlights</h2></div>
+      <ul class="features count-6">
+          <li class="feature" data-shot="1"><span class="emoji" data-ico="gauge" aria-hidden="true"></span><h3 data-i18n-rich="app.cvpilot.h1.t">See how <em>strong</em> your CV is</h3><p data-i18n="app.cvpilot.h1.s">Your score and ATS check in seconds</p></li>
+          <li class="feature" data-shot="3"><span class="emoji" data-ico="pencil" aria-hidden="true"></span><h3 data-i18n-rich="app.cvpilot.h2.t">Turn weak lines into <em>strong</em> ones</h3><p data-i18n="app.cvpilot.h2.s">Rewrites built from your own CV</p></li>
+          <li class="feature" data-shot="4"><span class="emoji" data-ico="target" aria-hidden="true"></span><h3 data-i18n-rich="app.cvpilot.h3.t">Match your CV to <em>any job</em></h3><p data-i18n="app.cvpilot.h3.s">See what you meet and what you miss</p></li>
+          <li class="feature" data-shot="8"><span class="emoji" data-ico="mic" aria-hidden="true"></span><h3 data-i18n-rich="app.cvpilot.h4.t">Practice the interview <em>out loud</em></h3><p data-i18n="app.cvpilot.h4.s">Speak your answer, get scored feedback</p></li>
+          <li class="feature" data-shot="6"><span class="emoji" data-ico="mail" aria-hidden="true"></span><h3 data-i18n-rich="app.cvpilot.h5.t">Write a cover letter <em>in minutes</em></h3><p data-i18n="app.cvpilot.h5.s">Tailored to the job, in your tone</p></li>
+          <li class="feature" data-shot="10"><span class="emoji" data-ico="clipboard" aria-hidden="true"></span><h3 data-i18n-rich="app.cvpilot.h6.t">Track every <em>application</em></h3><p data-i18n="app.cvpilot.h6.s">From saved to offer, in one place</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-surface" aria-labelledby="shots-title">
+    <div class="shell screenshot-gallery" id="screenshots">
+      <h2 class="screenshot-heading" id="shots-title" data-i18n="detail.screens">Screenshots</h2>
+      <div class="screenshot-content">
+      <div class="head-row">
+        <div class="gallery-nav">
+          <button type="button" data-gallery-prev aria-label="Previous" data-i18n-label="lightbox.prev"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button type="button" data-gallery-next aria-label="Next" data-i18n-label="lightbox.next"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="device-tabs" role="tablist" aria-label="Device">
+        <button type="button" role="tab" id="tab-iphone" aria-controls="gallery-iphone" aria-selected="true" data-device="iphone">iPhone</button><button type="button" role="tab" id="tab-ipad" aria-controls="gallery-ipad" aria-selected="false" data-device="ipad">iPad</button><button type="button" role="tab" id="tab-android" aria-controls="gallery-android" aria-selected="false" data-device="android">Android Phone</button><button type="button" role="tab" id="tab-tablet" aria-controls="gallery-tablet" aria-selected="false" data-device="tablet">Android Tablet</button>
+      </div>
+      <div class="gallery gallery-iphone" id="gallery-iphone" role="tabpanel" aria-labelledby="tab-iphone">
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-1.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=1" alt="CVPilot screenshot 1"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-2.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=2" alt="CVPilot screenshot 2"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-3.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=3" alt="CVPilot screenshot 3"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-4.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=4" alt="CVPilot screenshot 4"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-5.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=5" alt="CVPilot screenshot 5"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-6.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=6" alt="CVPilot screenshot 6"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-7.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=7" alt="CVPilot screenshot 7"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-8.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=8" alt="CVPilot screenshot 8"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-9.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=9" alt="CVPilot screenshot 9"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-10.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=10" alt="CVPilot screenshot 10"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-11.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=11" alt="CVPilot screenshot 11"></span></button>
+        <button type="button"><span class="device iphone"><img class="shot" src="../images/screens/cvpilot-iphone-12.jpg" width="460" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=12" alt="CVPilot screenshot 12"></span></button>
+      </div>
+      <div class="gallery gallery-ipad" id="gallery-ipad" role="tabpanel" aria-labelledby="tab-ipad" hidden>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-1.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=1" alt="CVPilot screenshot 1"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-2.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=2" alt="CVPilot screenshot 2"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-3.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=3" alt="CVPilot screenshot 3"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-4.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=4" alt="CVPilot screenshot 4"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-5.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=5" alt="CVPilot screenshot 5"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-6.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=6" alt="CVPilot screenshot 6"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-7.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=7" alt="CVPilot screenshot 7"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-8.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=8" alt="CVPilot screenshot 8"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-9.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=9" alt="CVPilot screenshot 9"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-10.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=10" alt="CVPilot screenshot 10"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-11.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=11" alt="CVPilot screenshot 11"></span></button>
+        <button type="button"><span class="device ipad"><img class="shot" src="../images/screens/cvpilot-ipad-12.jpg" width="750" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=12" alt="CVPilot screenshot 12"></span></button>
+      </div>
+      <div class="gallery gallery-android" id="gallery-android" role="tabpanel" aria-labelledby="tab-android" hidden>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-1.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=1" alt="CVPilot screenshot 1"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-2.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=2" alt="CVPilot screenshot 2"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-3.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=3" alt="CVPilot screenshot 3"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-4.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=4" alt="CVPilot screenshot 4"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-5.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=5" alt="CVPilot screenshot 5"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-6.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=6" alt="CVPilot screenshot 6"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-7.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=7" alt="CVPilot screenshot 7"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-8.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=8" alt="CVPilot screenshot 8"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-9.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=9" alt="CVPilot screenshot 9"></span></button>
+        <button type="button"><span class="device android-phone"><img class="shot" src="../images/screens/cvpilot-android-10.jpg" width="449" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=10" alt="CVPilot screenshot 10"></span></button>
+      </div>
+      <div class="gallery gallery-tablet" id="gallery-tablet" role="tabpanel" aria-labelledby="tab-tablet" hidden>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-1.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=1" alt="CVPilot screenshot 1"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-2.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=2" alt="CVPilot screenshot 2"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-3.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=3" alt="CVPilot screenshot 3"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-4.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=4" alt="CVPilot screenshot 4"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-5.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=5" alt="CVPilot screenshot 5"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-6.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=6" alt="CVPilot screenshot 6"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-7.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=7" alt="CVPilot screenshot 7"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-8.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=8" alt="CVPilot screenshot 8"></span></button>
+        <button type="button"><span class="device android-tablet"><img class="shot" src="../images/screens/cvpilot-tablet-9.jpg" width="625" height="1000" loading="lazy" data-i18n-alt="detail.screenAlt" data-i18n-vars="app=@app.cvpilot.name;n=9" alt="CVPilot screenshot 9"></span></button>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section product-info">
+    <div class="shell info-grid">
+      <div class="info-card">
+        <h2 data-i18n="detail.info">Information</h2>
+        <dl>
+          <dt data-i18n="info.developer">Developer</dt><dd>Careo Limited</dd>
+          <dt data-i18n="info.category">Category</dt><dd data-i18n="app.cvpilot.tag">Career &amp; Productivity</dd>
+          <dt data-i18n="info.platforms">Platforms</dt><dd>iOS · Android</dd>
+          <dt data-i18n="info.status">Status</dt><dd data-i18n="info.available">Available now</dd>
+        </dl>
+      </div>
+      <div class="info-card support" id="app-support">
+        <h2 data-i18n="detail.support">Support</h2>
+        <p data-i18n="detail.supportText" data-i18n-vars="app=@app.cvpilot.name">Questions, feedback or a problem with CVPilot? Write to us.</p>
+        <a class="mail-link" href="mailto:support@careolimited.com?subject=CVPilot"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>support@careolimited.com</a>
+        <div class="link-list"><a href="../privacy/cvpilot.html" data-i18n="links.privacy">Privacy Policy</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-surface" aria-labelledby="more-title">
+    <div class="shell">
+      <div class="section-head more-head">
+        <h2 id="more-title" data-i18n="detail.more">More from Careo</h2>
+        <div class="device-tabs more-tabs" role="tablist" aria-label="More from Careo">
+          <button type="button" role="tab" id="more-tab-apps" aria-controls="more-apps" aria-selected="true" data-more="apps" data-i18n="footer.apps">Apps</button><button type="button" role="tab" id="more-tab-tools" aria-controls="more-tools" aria-selected="false" data-more="tools" data-i18n="projects.title">Tools & projects</button>
+        </div>
+      </div>
+      <div class="more-row" id="more-apps" role="tabpanel" aria-labelledby="more-tab-apps">
+        <a class="more-card" href="../apps/dishtopia.html" style="--a1:#0b2747;--a2:#0582ee;--accent:#08efe2"><span class="more-media"><img class="cover" src="../images/features/dishtopia-en.jpg" width="800" height="390" alt="" loading="lazy"><span class="chip chip-soon status"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="card.soon">Coming soon</span></span><img class="more-icon" src="../images/icons/dishtopia.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong data-i18n="app.dishtopia.name">Dishtopia</strong><span data-i18n="app.dishtopia.tagline">Cosy puzzle game</span></span></a>
+        <a class="more-card" href="../apps/moviequiz.html" style="--a1:#0b0c0f;--a2:#24262c;--accent:#d2af58"><span class="more-media"><img class="cover" src="../images/features/moviequiz-en.jpg" data-l10n-src="../images/features/moviequiz-{lang}.jpg" width="800" height="390" alt="" loading="lazy"><img class="more-icon" src="../images/icons/moviequiz.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong data-i18n="app.moviequiz.name">Movie Quiz</strong><span data-i18n="app.moviequiz.tagline">Cinema Trivia Game</span></span></a>
+        <a class="more-card" href="../apps/booklio.html" style="--a1:#071a33;--a2:#123b70;--accent:#fbbc04"><span class="more-media"><img class="cover" src="../images/features/booklio-en.jpg" data-l10n-src="../images/features/booklio-{lang}.jpg" width="800" height="390" alt="" loading="lazy"><img class="more-icon" src="../images/icons/booklio.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong data-i18n="app.booklio.name">Booklio</strong><span data-i18n="app.booklio.tagline">Book Tracker</span></span></a>
+        <a class="more-card" href="../apps/spingo.html" style="--a1:#0b0d12;--a2:#221a3d;--accent:#ff4d5e"><span class="more-media"><img class="cover" src="../images/features/spingo-en.jpg" data-l10n-src="../images/features/spingo-{lang}.jpg" width="800" height="390" alt="" loading="lazy"><img class="more-icon" src="../images/icons/spingo.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong data-i18n="app.spingo.name">Spin &amp; Go</strong><span data-i18n="app.spingo.tagline">Spin the Wheel!</span></span></a>
+        <a class="more-card" href="../apps/fquiz.html" style="--a1:#050505;--a2:#1f1f1f;--accent:#e10600"><span class="more-media"><img class="cover" src="../images/features/fquiz-en.jpg" data-l10n-src="../images/features/fquiz-{lang}.jpg" width="800" height="390" alt="" loading="lazy"><img class="more-icon" src="../images/icons/fquiz.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong data-i18n="app.fquiz.name">F Quiz</strong><span data-i18n="app.fquiz.tagline">Motorsport Trivia Game</span></span></a>
+        <a class="more-card" href="../apps/archiver.html" style="--a1:#091b18;--a2:#245b51;--accent:#b7791f"><span class="more-media"><span class="chip chip-soon status"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="card.soon">Coming soon</span></span><img class="more-icon" src="../images/icons/archiver.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong data-i18n="app.archiver.name">ArchiveR</strong><span data-i18n="app.archiver.tagline">Stock &amp; collection tracker</span></span></a>
+      </div>
+      <div class="more-row" id="more-tools" role="tabpanel" aria-labelledby="more-tab-tools" hidden>
+        <a class="more-card" href="../projects/context-guardian.html" style="--a1:#0d1117;--a2:#1c2b4a;--accent:#4493f8"><span class="more-media"><img class="cover" src="../images/projects/context-guardian-card.jpg" width="800" height="400" alt="" loading="lazy"><span class="chip chip-oss status"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg><span data-i18n="chip.openSource">Open source</span></span><img class="more-icon" src="../images/projects/context-guardian-icon.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong>Context Guardian</strong><span data-i18n="proj.context-guardian.tagline">Keeps coding agents inside your app's map</span></span></a>
+        <a class="more-card" href="../projects/safe-eject.html" style="--a1:#081a33;--a2:#0a4fb8;--accent:#42a1ff"><span class="more-media"><img class="cover" src="../images/projects/safe-eject-card.jpg" width="800" height="400" alt="" loading="lazy"><span class="chip chip-oss status"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg><span data-i18n="chip.openSource">Open source</span></span><img class="more-icon" src="../images/projects/safe-eject-icon.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong>SafeEject</strong><span data-i18n="proj.safe-eject.tagline">Eject your Mac's external drives safely</span></span></a>
+        <a class="more-card" href="../projects/polyshot.html" style="--a1:#0b0b1e;--a2:#3b1a7a;--accent:#a78bfa"><span class="more-media"><img class="cover" src="../images/projects/polyshot-cover.jpg" width="800" height="400" alt="" loading="lazy"><img class="more-icon" src="../images/projects/polyshot-icon.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong>PolyShot</strong><span data-i18n="proj.polyshot.tagline">Store screenshot studio</span></span></a>
+        <a class="more-card" href="../projects/tsi.html" style="--a1:#0a1424;--a2:#1b2a40;--accent:#ff7a1a"><span class="more-media"><img class="cover" src="../images/projects/tsi-card.jpg?v=a7211f61" width="800" height="400" alt="" loading="lazy"><span class="chip chip-rnd status"><span data-i18n="chip.inDev">In development</span></span><img class="more-icon" src="../images/projects/tsi-icon.jpg" width="56" height="56" alt="" loading="lazy"></span><span class="more-body"><strong>TSI</strong><span lang="en">Tecto Structural Intelligence</span></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<dialog class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button type="button" class="lb-prev" aria-label="Previous" data-i18n-label="lightbox.prev"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <img src="" alt="">
+    <button type="button" class="lb-next" aria-label="Next" data-i18n-label="lightbox.next"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </div>
+  <button type="button" class="lb-close" aria-label="Close" data-i18n-label="lightbox.close"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <p class="lb-count"></p>
+</dialog>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="../index.html"><img src="../images/icons/careo.jpg" width="36" height="36" alt="" loading="lazy"><span lang="en">Careo Limited</span></a>
+      <p data-i18n="brand.subtitle">Mobile apps &amp; digital products</p>
+    </div>
+    <div><h3 data-i18n="footer.apps">Apps</h3><ul><li><a href="../apps/dishtopia.html" data-i18n="app.dishtopia.name">Dishtopia</a></li><li><a href="../apps/cvpilot.html" data-i18n="app.cvpilot.name">CVPilot</a></li><li><a href="../apps/moviequiz.html" data-i18n="app.moviequiz.name">Movie Quiz</a></li><li><a href="../apps/booklio.html" data-i18n="app.booklio.name">Booklio</a></li><li><a href="../apps/spingo.html" data-i18n="app.spingo.name">Spin &amp; Go</a></li><li><a href="../apps/fquiz.html" data-i18n="app.fquiz.name">F Quiz</a></li><li><a href="../apps/archiver.html" data-i18n="app.archiver.name">ArchiveR</a></li></ul><h3 class="sub" data-i18n="projects.title">Tools & projects</h3><ul><li><a href="../projects/context-guardian.html">Context Guardian</a></li><li><a href="../projects/safe-eject.html">SafeEject</a></li><li><a href="../projects/polyshot.html">PolyShot</a></li><li><a href="../projects/tsi.html">TSI</a></li></ul></div>
+    <div><h3 data-i18n="support.policies">Privacy policies</h3><ul><li><a href="../privacy/dishtopia.html" data-i18n="app.dishtopia.name">Dishtopia</a></li><li><a href="../privacy/cvpilot.html" data-i18n="app.cvpilot.name">CVPilot</a></li><li><a href="../privacy/moviequiz.html" data-i18n="app.moviequiz.name">Movie Quiz</a></li><li><a href="../privacy/kitapp.html" data-i18n="app.booklio.name">Booklio</a></li><li><a href="../privacy/spingo.html" data-i18n="app.spingo.name">Spin &amp; Go</a></li><li><a href="../privacy/fquiz.html" data-i18n="app.fquiz.name">F Quiz</a></li><li><a href="../privacy/archiver.html" data-i18n="app.archiver.name">ArchiveR</a></li></ul><h3 class="sub" data-i18n="support.deletion">Account deletion</h3><ul><li><a href="../privacy/dishtopia-account-deletion.html" data-i18n="app.dishtopia.name">Dishtopia</a></li><li><a href="../privacy/moviequiz-account-deletion.html" data-i18n="app.moviequiz.name">Movie Quiz</a></li><li><a href="../privacy/fquiz-account-deletion.html" data-i18n="app.fquiz.name">F Quiz</a></li></ul></div>
+    <div>
+      <h3 data-i18n="footer.company">Company</h3>
+      <address>
+        <span>CAREO LIMITED</span>
+        <span>71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom</span>
+        <a href="mailto:support@careolimited.com">support@careolimited.com</a>
+          <span data-i18n="footer.registered">Registered in England and Wales · Company No. 16604973</span>
+      </address>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <p data-i18n="footer.rights">© 2026 CAREO LIMITED. All rights reserved.</p>
+    <a href="#top" data-i18n="footer.top">Back to top</a>
+  </div>
+</footer>
+<script src="../assets/i18n.js?v=70e27193"></script>
+<script src="../assets/site.js?v=02638d61"></script>
+</body>
+</html>

@@ -1,187 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Delete Your Movie Quiz Account | CAREO LIMITED</title>
+  <title>Movie Quiz · Delete account</title>
   <meta name="description" content="Instructions for deleting a Movie Quiz account and associated data.">
   <link rel="canonical" href="https://careolimited.com/privacy/moviequiz-account-deletion.html">
-  <link rel="icon" href="../images/careo-logo.jpg">
-  <link rel="apple-touch-icon" href="../images/careo-logo.jpg">
-  <style>
-    :root {
-      --bg: #08090b;
-      --panel: #121318;
-      --panel-soft: rgba(185, 182, 174, 0.12);
-      --border: #2a2c32;
-      --border-strong: #3a3d45;
-      --text: #e2ded5;
-      --muted: #9a9791;
-      --silver: #b9b6ae;
-      --silver-bright: #ddd9d0;
-      --danger: #8f2432;
-      --max: 920px;
-    }
-
-    * { box-sizing: border-box; }
-    html { color-scheme: dark; scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(221, 217, 208, 0.10), transparent 34%),
-        radial-gradient(circle at 95% 18%, rgba(116, 104, 82, 0.07), transparent 28%),
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 4px),
-        linear-gradient(180deg, #0d0e11 0%, var(--bg) 58%, #050608 100%);
-      line-height: 1.65;
-    }
-
-    body::before {
-      content: "";
-      display: block;
-      height: 14px;
-      opacity: 0.78;
-      background:
-        repeating-linear-gradient(90deg, transparent 0 8px, rgba(185,182,174,.46) 8px 17px, transparent 17px 24px),
-        linear-gradient(180deg, #0d0e11, #17191d 46%, #0d0e11 54%);
-      border-bottom: 1px solid var(--border);
-    }
-
-    a { color: inherit; }
-    .shell { width: min(calc(100% - 30px), var(--max)); margin: 0 auto; padding: 24px 0 64px; }
-    .topbar { display: flex; align-items: center; justify-content: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
-    select {
-      min-height: 42px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0 12px;
-      color: var(--text);
-      background: #181a20;
-      font: inherit;
-    }
-    select option { color: #e2ded5; background: #181a20; }
-
-    .hero, .card {
-      border: 1px solid var(--border);
-      background: var(--panel);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
-    }
-    .hero { position: relative; overflow: hidden; border-radius: 16px; padding: clamp(26px, 6vw, 52px); margin-bottom: 18px; }
-    .hero::after {
-      content: "MQ";
-      position: absolute;
-      right: -18px;
-      bottom: -55px;
-      font-size: clamp(7rem, 25vw, 13rem);
-      line-height: 1;
-      font-family: "Bebas Neue", Impact, sans-serif;
-      font-weight: 400;
-      letter-spacing: .04em;
-      color: rgba(221, 217, 208, 0.055);
-      pointer-events: none;
-    }
-    .badge {
-      display: inline-flex;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border-strong);
-      color: var(--silver-bright);
-      background: var(--panel-soft);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    h1, h2, .button { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; }
-    h1 { max-width: 720px; margin: 18px 0 14px; font-size: clamp(2.7rem, 8vw, 5.2rem); line-height: 0.98; letter-spacing: 0.025em; }
-    .lead { position: relative; z-index: 1; max-width: 700px; margin: 0; color: var(--muted); font-size: 1.06rem; }
-
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .card { border-radius: 14px; padding: 26px; }
-    .card.wide { grid-column: 1 / -1; }
-    .card h2 { margin: 0 0 14px; color: var(--silver-bright); font-size: 1.65rem; letter-spacing: .04em; }
-    .card p { margin: 0; color: var(--muted); }
-    ol, ul { margin: 0; padding-left: 22px; color: var(--muted); }
-    li + li { margin-top: 9px; }
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1.12rem;
-      letter-spacing: .05em;
-      border: 1px solid transparent;
-    }
-    .button.secondary { border-color: var(--border-strong); color: var(--silver-bright); background: var(--panel-soft); }
-    .button.secondary:hover, .button.secondary:focus-visible { background: rgba(185, 182, 174, 0.15); }
-    .notice { border-left: 3px solid var(--danger); padding: 13px 15px; margin-top: 18px; border-radius: 0 8px 8px 0; background: rgba(143, 36, 50, 0.09); color: var(--muted); }
-    footer { padding-top: 24px; text-align: center; color: #77756f; font-size: 0.9rem; }
-
-    @media (max-width: 700px) {
-      .grid { grid-template-columns: 1fr; }
-      .card.wide { grid-column: auto; }
-      .hero, .card { border-radius: 19px; }
-      .card { padding: 21px; }
-      .actions, .button { width: 100%; }
-    }
-  </style>
-  <link rel="stylesheet" href="privacy-theme.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CAREO LIMITED">
+  <meta property="og:title" content="Movie Quiz · Account deletion">
+  <meta property="og:description" content="Instructions for deleting a Movie Quiz account and associated data.">
+  <meta property="og:url" content="https://careolimited.com/privacy/moviequiz-account-deletion.html">
+  <meta property="og:image" content="https://careolimited.com/images/features/moviequiz-en.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="390">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#061b36">
+  <script>(function(){try{var t=localStorage.getItem("careo-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()</script>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/careo-32.png">
+  <link rel="apple-touch-icon" href="../images/icons/careo-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/site.css?v=f9de4d72">
+  <link rel="stylesheet" href="privacy-theme.css?v=76c65650">
 </head>
 <body class="account-page theme-moviequiz">
-  <main class="shell">
-    <div class="topbar">
-      <a class="home-button" id="homeLink" href="../index.html">← Home</a>
-      <select id="languageSelect" aria-label="Language">
-        <option value="en">🇬🇧 English</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="it">🇮🇹 Italiano</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="ko">🇰🇷 한국어</option>
-        <option value="pt">🇵🇹 Português</option>
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="tr">🇹🇷 Türkçe</option>
-      </select>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<header class="site-header" id="top">
+  <div class="shell header-inner">
+    <a class="brand" href="../index.html"><img src="../images/icons/careo.jpg" width="36" height="36" alt=""><span lang="en">Careo Limited</span></a>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <div class="nav-drop">
+        <a href="../index.html#apps" data-i18n="apps.eyebrow">Portfolio</a>
+        <div class="nav-sub"><a href="../index.html#apps" data-portfolio="apps"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6"/></svg><span data-i18n="footer.apps">Apps</span></a><a href="../index.html#projects" data-portfolio="tools"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8V20h3.2l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.5-.6-.6-2.5z"/></svg><span data-i18n="projects.title">Tools &amp; projects</span></a></div>
+      </div>
+      <a href="../index.html#about" data-i18n="nav.about">About</a>
+      <a href="../index.html#support" data-i18n="nav.support">Support</a>
+    </nav>
+    <div class="lang">
+      <button class="lang-button" id="langButton" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" aria-label="Language" data-i18n-label="nav.language"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span id="langCode">EN</span><svg class="chev" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+      <ul class="lang-menu" id="langMenu" role="menu" hidden></ul>
     </div>
-
-    <header class="hero">
-      <span class="badge" id="badge"></span>
-      <h1 id="title"></h1>
-      <p class="lead" id="intro"></p>
-    </header>
-
-    <section class="grid">
-      <article class="card wide">
-        <h2 id="inAppTitle"></h2>
-        <ol id="inAppSteps"></ol>
-        <div class="notice" id="deletionWarning"></div>
-      </article>
-
-      <article class="card wide">
-        <h2 id="dataTitle"></h2>
-        <ul id="dataItems"></ul>
-      </article>
-
-      <article class="card wide">
-        <h2 id="retentionTitle"></h2>
-        <p id="retentionText"></p>
-        <div class="actions">
-          <a class="button secondary" id="privacyLink" href="moviequiz.html"></a>
+    <div class="lang theme">
+      <button class="lang-button theme-button" id="themeButton" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" aria-label="Theme" data-i18n-label="nav.theme"><span class="theme-icon" aria-hidden="true"></span><svg class="chev" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+      <ul class="lang-menu theme-menu" id="themeMenu" role="menu" hidden></ul>
+    </div>
+    <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Menu" data-i18n-label="nav.menu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main id="main">
+<section class="app-hero doc-hero">
+  <div class="shell">
+    <a class="back-link" href="../apps/moviequiz.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span data-i18n="doc.appPage">App page</span></a>
+    <div class="doc-hero-grid">
+      <div class="app-hero-copy">
+        <div class="chip-row"><span class="chip" id="badge">Movie Quiz account</span></div>
+        <div class="app-title-row">
+          <img src="../images/icons/moviequiz.jpg" width="104" height="104" alt="">
+          <div><h1 id="title">Delete your account</h1><p class="tagline" data-i18n="app.moviequiz.name">Movie Quiz</p></div>
         </div>
-      </article>
-    </section>
-
-    <footer>CAREO LIMITED · <a href="mailto:careolimited@gmail.com">careolimited@gmail.com</a></footer>
-  </main>
-
-  <script>
+        <p class="lead" id="intro">You can permanently delete your Movie Quiz account and its associated account data directly inside the app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section doc-body">
+  <div class="shell doc-layout">
+    <nav class="doc-toc" id="docToc" hidden></nav>
+    <article class="doc-content account-content">
+      <div id="content">
+<section><h2 id="inAppTitle">Delete inside Movie Quiz</h2>
+        <ol id="inAppSteps"><li>Open Movie Quiz and go to Profile.</li><li>Sign in to the account you want to delete.</li><li>Scroll to Delete Account. Email and password accounts must confirm the current password.</li><li>Tap Delete Account and confirm the permanent deletion.</li></ol>
+        <div class="notice" id="deletionWarning">Account deletion is permanent and cannot be undone. Your deleted account and account data cannot be recovered.</div></section>
+<section><h2 id="dataTitle">Data deleted with your account</h2>
+        <ul id="dataItems"><li>Firebase Authentication account</li><li>Movie Quiz profile and account-linked username</li><li>Account-linked points, missions and leaderboard profile</li><li>Account-linked multiplayer and presence data where technically identifiable</li></ul></section>
+<section><h2 id="retentionTitle">What may remain</h2>
+        <p id="retentionText">Local app data stays on your device until you clear the app data or uninstall the app. Aggregated, anonymized, security, fraud-prevention, advertising or analytics records may be retained where they are not reasonably linked to your account or where limited retention is required by law.</p>
+        <div class="actions">
+          <a class="button secondary" id="privacyLink" href="moviequiz.html">Read the Movie Quiz Privacy Policy</a>
+        </div></section>
+      </div>
+      <p class="doc-foot">CAREO LIMITED · <a href="mailto:support@careolimited.com">support@careolimited.com</a></p>
+    </article>
+  </div>
+</section>
+</main>
+<div hidden><select id="languageSelect" tabindex="-1" aria-hidden="true"><option value="en">English</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="it">Italiano</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="pt">Português</option><option value="ru">Русский</option><option value="es">Español</option><option value="tr">Türkçe</option></select><a id="homeLink" href="../index.html"></a></div>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="../index.html"><img src="../images/icons/careo.jpg" width="36" height="36" alt="" loading="lazy"><span lang="en">Careo Limited</span></a>
+      <p data-i18n="brand.subtitle">Mobile apps &amp; digital products</p>
+    </div>
+    <div><h3 data-i18n="footer.apps">Apps</h3><ul><li><a href="../apps/dishtopia.html" data-i18n="app.dishtopia.name">Dishtopia</a></li><li><a href="../apps/cvpilot.html" data-i18n="app.cvpilot.name">CVPilot</a></li><li><a href="../apps/moviequiz.html" data-i18n="app.moviequiz.name">Movie Quiz</a></li><li><a href="../apps/booklio.html" data-i18n="app.booklio.name">Booklio</a></li><li><a href="../apps/spingo.html" data-i18n="app.spingo.name">Spin &amp; Go</a></li><li><a href="../apps/fquiz.html" data-i18n="app.fquiz.name">F Quiz</a></li><li><a href="../apps/archiver.html" data-i18n="app.archiver.name">ArchiveR</a></li></ul><h3 class="sub" data-i18n="projects.title">Tools & projects</h3><ul><li><a href="../projects/context-guardian.html">Context Guardian</a></li><li><a href="../projects/safe-eject.html">SafeEject</a></li><li><a href="../projects/polyshot.html">PolyShot</a></li><li><a href="../projects/tsi.html">TSI</a></li></ul></div>
+    <div><h3 data-i18n="support.policies">Privacy policies</h3><ul><li><a href="../privacy/dishtopia.html" data-i18n="app.dishtopia.name">Dishtopia</a></li><li><a href="../privacy/cvpilot.html" data-i18n="app.cvpilot.name">CVPilot</a></li><li><a href="../privacy/moviequiz.html" data-i18n="app.moviequiz.name">Movie Quiz</a></li><li><a href="../privacy/kitapp.html" data-i18n="app.booklio.name">Booklio</a></li><li><a href="../privacy/spingo.html" data-i18n="app.spingo.name">Spin &amp; Go</a></li><li><a href="../privacy/fquiz.html" data-i18n="app.fquiz.name">F Quiz</a></li><li><a href="../privacy/archiver.html" data-i18n="app.archiver.name">ArchiveR</a></li></ul><h3 class="sub" data-i18n="support.deletion">Account deletion</h3><ul><li><a href="../privacy/dishtopia-account-deletion.html" data-i18n="app.dishtopia.name">Dishtopia</a></li><li><a href="../privacy/moviequiz-account-deletion.html" data-i18n="app.moviequiz.name">Movie Quiz</a></li><li><a href="../privacy/fquiz-account-deletion.html" data-i18n="app.fquiz.name">F Quiz</a></li></ul></div>
+    <div>
+      <h3 data-i18n="footer.company">Company</h3>
+      <address>
+        <span>CAREO LIMITED</span>
+        <span>71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom</span>
+        <a href="mailto:support@careolimited.com">support@careolimited.com</a>
+          <span data-i18n="footer.registered">Registered in England and Wales · Company No. 16604973</span>
+      </address>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <p data-i18n="footer.rights">© 2026 CAREO LIMITED. All rights reserved.</p>
+    <a href="#top" data-i18n="footer.top">Back to top</a>
+  </div>
+</footer>
+<script>
     // Browsers can block site storage (private modes, strict settings); the page must still work, it just forgets the language.
     const careoStorage = {
       get(key) { try { return window.localStorage.getItem(key); } catch (error) { return null; } },
@@ -295,7 +224,7 @@
       const lang = supported.has(language) ? language : "en";
       const copy = content[lang];
       document.documentElement.lang = lang;
-      document.title = `${copy.title} | Movie Quiz | CAREO LIMITED`;
+      document.title = `${copy.title} | Movie Quiz | Careo Limited`;
       select.value = lang;
       ["badge", "title", "intro", "inAppTitle", "deletionWarning", "dataTitle", "retentionTitle", "retentionText"].forEach((id) => {
         const key = id === "deletionWarning" ? "warning" : id === "retentionText" ? "retention" : id;
@@ -311,12 +240,16 @@
       home.href = `../index.html?lang=${encodeURIComponent(lang)}#apps`;
       careoStorage.set("careo-language", lang);
       const url = new URL(window.location.href);
-      url.searchParams.set("lang", lang);
+      // English needs no ?lang; without it the site script applies the visitor's saved language
+      if (lang === "en") url.searchParams.delete("lang"); else url.searchParams.set("lang", lang);
       window.history.replaceState(null, "", url.toString());
     }
 
     select.addEventListener("change", (event) => render(event.target.value));
     render(languageFromUrl());
   </script>
+<script src="../assets/i18n.js?v=70e27193"></script>
+<script src="../assets/site.js?v=02638d61"></script>
+<script src="privacy-enhance.js?v=80bfa02f"></script>
 </body>
 </html>

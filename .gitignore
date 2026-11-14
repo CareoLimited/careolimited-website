@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+._*
+
+# Local tooling (not part of the site)
+.claude/
+
+# Internal technical notes, kept locally only
+README.txt
